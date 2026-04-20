@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/BRANDKIT_BASE_AURUM_VFINAL_1.0.html" }
+  ]
+}

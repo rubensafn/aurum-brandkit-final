@@ -958,91 +958,156 @@ section{position:relative;overflow:hidden;}
 }
 
 /* ══ PALETTE V3 — horizontal card design ══ */
+@keyframes palCardIn {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 .pal-v3-grid {
   display: flex; flex-direction: column;
-  gap: 3px; margin-top: 48px;
+  gap: 4px; margin-top: 48px;
 }
+.pal-v3-grid.vis .pal-v3-card:nth-child(1) { animation: palCardIn .65s cubic-bezier(.16,1,.3,1) .05s both; }
+.pal-v3-grid.vis .pal-v3-card:nth-child(2) { animation: palCardIn .65s cubic-bezier(.16,1,.3,1) .13s both; }
+.pal-v3-grid.vis .pal-v3-card:nth-child(3) { animation: palCardIn .65s cubic-bezier(.16,1,.3,1) .21s both; }
+.pal-v3-grid.vis .pal-v3-card:nth-child(4) { animation: palCardIn .65s cubic-bezier(.16,1,.3,1) .29s both; }
+.pal-v3-grid.vis .pal-v3-card:nth-child(5) { animation: palCardIn .65s cubic-bezier(.16,1,.3,1) .37s both; }
+.pal-v3-grid.vis .pal-v3-card:nth-child(6) { animation: palCardIn .65s cubic-bezier(.16,1,.3,1) .45s both; }
+
 .pal-v3-card {
-  border-radius: 12px; overflow: hidden;
+  border-radius: 14px; overflow: hidden;
   border: 1px solid rgba(255,255,255,.06);
-  background: rgba(8,6,4,.55);
+  background: rgba(8,6,4,.6);
   cursor: pointer;
-  transition: border-color .3s, box-shadow .35s;
+  position: relative;
+  transform: translateZ(0);
+  transition: border-color .4s cubic-bezier(.16,1,.3,1),
+              box-shadow .5s cubic-bezier(.16,1,.3,1),
+              transform .4s cubic-bezier(.16,1,.3,1);
 }
-.pal-v3-card:hover { border-color: rgba(255,255,255,.14); }
-[data-color="ourovivo"] .pal-v3-card,
-.pal-v3-card[data-color="ourovivo"] { background: rgba(212,165,32,.08); }
-.pal-v3-card[data-color="ourovivo"]:hover { box-shadow: 0 0 0 1px rgba(212,165,32,.25); }
-.pal-v3-card[data-color="ouro"]:hover { box-shadow: 0 0 0 1px rgba(201,168,76,.2); }
-.pal-v3-card[data-color="veludo"]:hover { box-shadow: 0 0 0 1px rgba(74,21,37,.4); }
-.pal-v3-card[data-color="floresta"]:hover { box-shadow: 0 0 0 1px rgba(4,46,44,.4); }
-.pal-v3-card[data-color="papel"] { background: rgba(245,240,232,.05); }
+.pal-v3-card::before {
+  content: ''; position: absolute; inset: 0; z-index: 0;
+  opacity: 0; transition: opacity .5s cubic-bezier(.16,1,.3,1);
+  pointer-events: none;
+}
+.pal-v3-card:hover { transform: translateY(-2px) translateZ(0); }
+.pal-v3-card:hover::before { opacity: 1; }
+
+/* Color-specific glow + tint on hover */
+.pal-v3-card[data-color="void"]:hover {
+  border-color: rgba(245,240,232,.1);
+  box-shadow: 0 8px 48px rgba(8,6,4,.9), 0 2px 12px rgba(0,0,0,.6);
+}
+.pal-v3-card[data-color="floresta"]:hover {
+  border-color: rgba(4,46,44,.5);
+  box-shadow: 0 8px 48px rgba(4,46,44,.35), 0 2px 12px rgba(0,0,0,.5);
+}
+.pal-v3-card[data-color="floresta"]::before {
+  background: radial-gradient(ellipse at 0% 50%, rgba(4,46,44,.18) 0%, transparent 70%);
+}
+.pal-v3-card[data-color="ourovivo"]:hover {
+  border-color: rgba(212,165,32,.35);
+  box-shadow: 0 8px 48px rgba(212,165,32,.22), 0 2px 12px rgba(0,0,0,.4);
+}
+.pal-v3-card[data-color="ourovivo"]::before {
+  background: radial-gradient(ellipse at 0% 50%, rgba(212,165,32,.14) 0%, transparent 70%);
+}
+.pal-v3-card[data-color="ouro"]:hover {
+  border-color: rgba(201,168,76,.3);
+  box-shadow: 0 8px 48px rgba(201,168,76,.18), 0 2px 12px rgba(0,0,0,.4);
+}
+.pal-v3-card[data-color="ouro"]::before {
+  background: radial-gradient(ellipse at 0% 50%, rgba(201,168,76,.12) 0%, transparent 70%);
+}
+.pal-v3-card[data-color="veludo"]:hover {
+  border-color: rgba(74,21,37,.5);
+  box-shadow: 0 8px 48px rgba(74,21,37,.4), 0 2px 12px rgba(0,0,0,.5);
+}
+.pal-v3-card[data-color="veludo"]::before {
+  background: radial-gradient(ellipse at 0% 50%, rgba(74,21,37,.22) 0%, transparent 70%);
+}
+.pal-v3-card[data-color="papel"]:hover {
+  border-color: rgba(245,240,232,.15);
+  box-shadow: 0 8px 48px rgba(245,240,232,.06), 0 2px 12px rgba(0,0,0,.4);
+}
+
 .pal-v3-row {
   display: flex; align-items: center;
-  height: 68px;
+  height: 72px; position: relative; z-index: 1;
 }
 .pal-v3-swatch {
-  width: 68px; min-width: 68px; align-self: stretch;
-  transition: width .4s cubic-bezier(.16,1,.3,1);
+  width: 72px; min-width: 72px; align-self: stretch;
+  transition: width .5s cubic-bezier(.16,1,.3,1);
+  flex-shrink: 0;
 }
-.pal-v3-card:hover .pal-v3-swatch { width: 80px; }
+.pal-v3-card:hover .pal-v3-swatch { width: 88px; }
 .pal-v3-info {
-  flex: 1; padding: 0 24px;
-  display: flex; align-items: baseline; gap: 16px;
+  flex: 1; padding: 0 28px;
+  display: flex; align-items: baseline; gap: 18px;
 }
 .pal-v3-name {
-  font-family: var(--head-family); font-size: 22px;
-  color: rgba(245,240,232,.9); min-width: 110px;
-  transition: letter-spacing .3s;
+  font-family: var(--head-family); font-size: 23px;
+  color: rgba(245,240,232,.92); min-width: 115px;
+  transition: letter-spacing .45s cubic-bezier(.16,1,.3,1),
+              color .3s;
 }
-.pal-v3-card:hover .pal-v3-name { letter-spacing: .02em; }
+.pal-v3-card:hover .pal-v3-name { letter-spacing: .025em; }
+.pal-v3-card[data-color="ourovivo"]:hover .pal-v3-name { color: rgba(212,165,32,.95); }
+.pal-v3-card[data-color="ouro"]:hover .pal-v3-name      { color: rgba(201,168,76,.95); }
+.pal-v3-card[data-color="floresta"]:hover .pal-v3-name  { color: rgba(80,180,160,.9); }
+.pal-v3-card[data-color="veludo"]:hover .pal-v3-name    { color: rgba(170,80,100,.95); }
 .pal-v3-meaning {
   font-family: var(--body-family); font-size: 9px;
   letter-spacing: .28em; text-transform: uppercase;
   color: rgba(245,240,232,.28);
+  transition: opacity .3s;
 }
+.pal-v3-card:hover .pal-v3-meaning { opacity: .55; }
 .pal-v3-hex {
   font-family: 'Space Grotesk', monospace;
-  font-size: 15px; letter-spacing: .08em;
-  color: rgba(245,240,232,.5);
-  padding: 0 24px; cursor: copy;
-  transition: color .2s;
+  font-size: 14px; letter-spacing: .1em;
+  color: rgba(245,240,232,.45);
+  padding: 0 28px; cursor: copy;
+  transition: color .3s, letter-spacing .3s;
   position: relative;
 }
 .pal-v3-hex::after {
-  content: 'copiar'; position: absolute; top: -20px; left: 50%;
+  content: 'copiar'; position: absolute; top: -22px; left: 50%;
   transform: translateX(-50%); font-size: 7px; letter-spacing: .15em;
-  color: #C9A84C; opacity: 0; transition: opacity .2s; pointer-events: none;
+  color: #C9A84C; opacity: 0;
+  transition: opacity .25s; pointer-events: none;
 }
-.pal-v3-hex:hover { color: #C9A84C; }
+.pal-v3-hex:hover { color: #C9A84C; letter-spacing: .14em; }
 .pal-v3-hex:hover::after { opacity: .7; }
 .pal-v3-hex.copied { color: #C9A84C; }
 .pal-v3-pct {
-  font-family: var(--head-family); font-size: 26px;
-  color: rgba(245,240,232,.14);
-  padding: 0 24px 0 0; min-width: 72px; text-align: right;
+  font-family: var(--head-family); font-size: 28px;
+  color: rgba(245,240,232,.1);
+  padding: 0 28px 0 0; min-width: 76px; text-align: right;
+  transition: color .4s;
 }
+.pal-v3-card:hover .pal-v3-pct { color: rgba(245,240,232,.2); }
+
 /* Expand body */
 .pal-v3-body {
   max-height: 0; overflow: hidden;
-  transition: max-height .5s cubic-bezier(.16,1,.3,1);
+  transition: max-height .55s cubic-bezier(.16,1,.3,1);
   border-top: 1px solid transparent;
+  position: relative; z-index: 1;
 }
 .pal-v3-card:hover .pal-v3-body {
-  max-height: 140px;
+  max-height: 150px;
   border-top-color: rgba(255,255,255,.05);
 }
-.pal-v3-inner {
-  display: flex; align-items: stretch;
-}
+.pal-v3-inner { display: flex; align-items: stretch; }
 .pal-v3-specs {
   display: flex; flex-direction: column;
-  gap: 5px; padding: 14px 24px;
+  gap: 6px; padding: 16px 28px;
   min-width: 300px; border-right: 1px solid rgba(255,255,255,.04);
 }
 .pal-v3-spec {
   font-family: var(--body-family); font-size: 9.5px;
-  color: rgba(245,240,232,.45); display: flex; gap: 10px; align-items: baseline;
+  color: rgba(245,240,232,.45);
+  display: flex; gap: 10px; align-items: baseline;
 }
 .pal-v3-spec b {
   color: rgba(201,168,76,.5); letter-spacing: .2em;
@@ -1056,15 +1121,17 @@ section{position:relative;overflow:hidden;}
   flex: 1; position: relative;
   display: flex; align-items: flex-end; justify-content: center;
   padding-bottom: 8px;
-  transition: flex .3s cubic-bezier(.16,1,.3,1);
+  transition: flex .35s cubic-bezier(.16,1,.3,1);
   cursor: copy;
 }
-.pal-v3-tone:hover { flex: 1.6; }
+.pal-v3-tone:hover { flex: 1.7; }
 .pal-v3-tone-hex {
   font-family: 'Space Grotesk', monospace; font-size: 7px;
   writing-mode: vertical-rl; white-space: nowrap; opacity: .6;
   letter-spacing: .05em;
+  transition: opacity .2s;
 }
+.pal-v3-tone:hover .pal-v3-tone-hex { opacity: 1; }
 
 /* ── Palette: bottom color indicator (not top — doesn't obscure the swatch) ── */
 .pal-col { position: relative; }
@@ -3358,17 +3425,17 @@ nav {
     <div class="pal-v3-card" data-color="ourovivo">
       <div class="pal-v3-row">
         <div class="pal-v3-swatch" style="background:#D4A520;border-right:1px solid rgba(255,255,255,.06);"></div>
-        <div class="pal-v3-info"><span class="pal-v3-name" style="color:#080604;">Ouro Vivo</span><span class="pal-v3-meaning" style="color:rgba(8,6,4,.45);">Vitalidade · Calor · Intensidade</span></div>
-        <span class="pal-v3-hex" style="color:rgba(8,6,4,.6);" title="Clique para copiar">#D4A520</span>
-        <span class="pal-v3-pct" style="color:rgba(8,6,4,.2);">—</span>
+        <div class="pal-v3-info"><span class="pal-v3-name">Ouro Vivo</span><span class="pal-v3-meaning">Vitalidade · Calor · Intensidade</span></div>
+        <span class="pal-v3-hex" title="Clique para copiar">#D4A520</span>
+        <span class="pal-v3-pct">—</span>
       </div>
       <div class="pal-v3-body">
         <div class="pal-v3-inner">
           <div class="pal-v3-specs">
-            <div class="pal-v3-spec" style="color:rgba(8,6,4,.55);"><b style="color:rgba(8,6,4,.4);">RGB</b>R:212 · G:165 · B:32</div>
-            <div class="pal-v3-spec" style="color:rgba(8,6,4,.55);"><b style="color:rgba(8,6,4,.4);">CMYK</b>C:0 M:22 Y:85 K:17</div>
-            <div class="pal-v3-spec" style="color:rgba(8,6,4,.55);"><b style="color:rgba(8,6,4,.4);">PAN</b>PMS 7549 C</div>
-            <div class="pal-v3-spec" style="margin-top:4px;opacity:.4;font-size:8px;letter-spacing:.1em;color:rgba(8,6,4,.6);">Destaque · Alto impacto · CTA</div>
+            <div class="pal-v3-spec"><b>RGB</b>R:212 · G:165 · B:32</div>
+            <div class="pal-v3-spec"><b>CMYK</b>C:0 M:22 Y:85 K:17</div>
+            <div class="pal-v3-spec"><b>PAN</b>PMS 7549 C</div>
+            <div class="pal-v3-spec" style="margin-top:4px;opacity:.4;font-size:8px;letter-spacing:.1em;">Destaque · Alto impacto · CTA</div>
           </div>
           <div class="pal-v3-tones">
             <div class="pal-v3-tone" style="background:#DAAF38;"><span class="pal-v3-tone-hex" style="color:rgba(0,0,0,.55);">#DAAF38</span></div>
@@ -3385,17 +3452,17 @@ nav {
     <div class="pal-v3-card" data-color="ouro">
       <div class="pal-v3-row">
         <div class="pal-v3-swatch" style="background:#C9A84C;border-right:1px solid rgba(255,255,255,.06);"></div>
-        <div class="pal-v3-info"><span class="pal-v3-name" style="color:#080604;">Ouro</span><span class="pal-v3-meaning" style="color:rgba(8,6,4,.45);">Valor · Permanência · Raridade</span></div>
-        <span class="pal-v3-hex" style="color:rgba(8,6,4,.6);" title="Clique para copiar">#C9A84C</span>
-        <span class="pal-v3-pct" style="color:rgba(8,6,4,.2);">20%</span>
+        <div class="pal-v3-info"><span class="pal-v3-name">Ouro</span><span class="pal-v3-meaning">Valor · Permanência · Raridade</span></div>
+        <span class="pal-v3-hex" title="Clique para copiar">#C9A84C</span>
+        <span class="pal-v3-pct">20%</span>
       </div>
       <div class="pal-v3-body">
         <div class="pal-v3-inner">
           <div class="pal-v3-specs">
-            <div class="pal-v3-spec" style="color:rgba(8,6,4,.55);"><b style="color:rgba(8,6,4,.4);">RGB</b>R:201 · G:168 · B:76</div>
-            <div class="pal-v3-spec" style="color:rgba(8,6,4,.55);"><b style="color:rgba(8,6,4,.4);">CMYK</b>C:0 M:16 Y:62 K:21</div>
-            <div class="pal-v3-spec" style="color:rgba(8,6,4,.55);"><b style="color:rgba(8,6,4,.4);">PAN</b>PMS 871 C</div>
-            <div class="pal-v3-spec" style="margin-top:4px;opacity:.4;font-size:8px;letter-spacing:.1em;color:rgba(8,6,4,.6);">20% — Acento · Identidade</div>
+            <div class="pal-v3-spec"><b>RGB</b>R:201 · G:168 · B:76</div>
+            <div class="pal-v3-spec"><b>CMYK</b>C:0 M:16 Y:62 K:21</div>
+            <div class="pal-v3-spec"><b>PAN</b>PMS 871 C</div>
+            <div class="pal-v3-spec" style="margin-top:4px;opacity:.4;font-size:8px;letter-spacing:.1em;">20% — Acento · Identidade</div>
           </div>
           <div class="pal-v3-tones">
             <div class="pal-v3-tone" style="background:#CEB15E;"><span class="pal-v3-tone-hex" style="color:rgba(0,0,0,.55);">#CEB15E</span></div>
@@ -3439,17 +3506,17 @@ nav {
     <div class="pal-v3-card" data-color="papel">
       <div class="pal-v3-row">
         <div class="pal-v3-swatch" style="background:#F5F0E8;border-right:1px solid rgba(8,6,4,.1);"></div>
-        <div class="pal-v3-info"><span class="pal-v3-name" style="color:#080604;">Papel</span><span class="pal-v3-meaning" style="color:rgba(8,6,4,.4);">Claridade · Respiração · Luz</span></div>
-        <span class="pal-v3-hex" style="color:rgba(8,6,4,.55);" title="Clique para copiar">#F5F0E8</span>
-        <span class="pal-v3-pct" style="color:rgba(8,6,4,.18);">20%</span>
+        <div class="pal-v3-info"><span class="pal-v3-name">Papel</span><span class="pal-v3-meaning">Claridade · Respiração · Luz</span></div>
+        <span class="pal-v3-hex" title="Clique para copiar">#F5F0E8</span>
+        <span class="pal-v3-pct">20%</span>
       </div>
       <div class="pal-v3-body">
         <div class="pal-v3-inner">
           <div class="pal-v3-specs">
-            <div class="pal-v3-spec" style="color:rgba(8,6,4,.55);"><b style="color:rgba(8,6,4,.4);">RGB</b>R:245 · G:240 · B:232</div>
-            <div class="pal-v3-spec" style="color:rgba(8,6,4,.55);"><b style="color:rgba(8,6,4,.4);">CMYK</b>C:0 M:2 Y:5 K:4</div>
-            <div class="pal-v3-spec" style="color:rgba(8,6,4,.55);"><b style="color:rgba(8,6,4,.4);">PAN</b>PMS 9103 C</div>
-            <div class="pal-v3-spec" style="margin-top:4px;opacity:.4;font-size:8px;letter-spacing:.1em;color:rgba(8,6,4,.6);">20% — Texto e superfícies impressas</div>
+            <div class="pal-v3-spec"><b>RGB</b>R:245 · G:240 · B:232</div>
+            <div class="pal-v3-spec"><b>CMYK</b>C:0 M:2 Y:5 K:4</div>
+            <div class="pal-v3-spec"><b>PAN</b>PMS 9103 C</div>
+            <div class="pal-v3-spec" style="margin-top:4px;opacity:.4;font-size:8px;letter-spacing:.1em;">20% — Texto e superfícies impressas</div>
           </div>
           <div class="pal-v3-tones">
             <div class="pal-v3-tone" style="background:#F6F2EA;"><span class="pal-v3-tone-hex" style="color:rgba(0,0,0,.45);">#F6F2EA</span></div>
@@ -3462,241 +3529,8 @@ nav {
       </div>
     </div>
 
+
     </div><!-- /pal-v3-grid -->
-    <div style="display:none;">
-      <div class="pal-swatch" style="background:#080604;border:1px solid rgba(255,255,255,.06);">
-        <div class="pal-swatch-inner">
-          <span class="pal-name" style="color:#F5F0E8;">Void</span>
-          <span class="pal-meaning" style="color:rgba(245,240,232,.4);">Abismo · Profundidade · Eterno</span>
-        </div>
-      </div>
-      <div class="pal-meta">
-        <div class="pal-meta-row"><b>HEX</b>#080604</div>
-        <div class="pal-meta-row"><b>RGB</b>R:8 G:6 B:4</div>
-        <div class="pal-meta-row"><b>PAN</b>PMS Black 6 C</div>
-        <div class="pal-meta-row"><b>CMYK</b>C:0 M:25 Y:50 K:98</div>
-        <div class="pal-meta-row" style="margin-top:4px;font-size:8.5px;color:rgba(245,240,232,.3);letter-spacing:.1em;">60% — Base fundacional</div>
-      </div>
-      <div class="pal-tones">
-      <div class="pal-tone" style="background:#211F1D;">
-        <span class="pal-tone-pct" style="color:rgba(255,255,255,.5);">90%</span>
-        <span class="pal-tone-hex" style="color:rgba(255,255,255,.45);">#211F1D</span>
-      </div>
-      <div class="pal-tone" style="background:#52514F;">
-        <span class="pal-tone-pct" style="color:rgba(255,255,255,.55);">70%</span>
-        <span class="pal-tone-hex" style="color:rgba(255,255,255,.5);">#52514F</span>
-      </div>
-      <div class="pal-tone" style="background:#848382;">
-        <span class="pal-tone-pct" style="color:rgba(0,0,0,.5);">50%</span>
-        <span class="pal-tone-hex" style="color:rgba(0,0,0,.5);">#848382</span>
-      </div>
-      <div class="pal-tone" style="background:#B5B4B4;">
-        <span class="pal-tone-pct" style="color:rgba(0,0,0,.5);">30%</span>
-        <span class="pal-tone-hex" style="color:rgba(0,0,0,.5);">#B5B4B4</span>
-      </div>
-      <div class="pal-tone" style="background:#E7E7E6;">
-        <span class="pal-tone-pct" style="color:rgba(0,0,0,.5);">10%</span>
-        <span class="pal-tone-hex" style="color:rgba(0,0,0,.5);">#E7E7E6</span>
-      </div>
-      </div>
-    </div>
-
-    <!-- 2. FLORESTA -->
-    <div class="pal-col reveal reveal-d2">
-      <div class="pal-swatch" style="background:#042e2c;">
-        <div class="pal-swatch-inner">
-          <span class="pal-name" style="color:#F5F0E8;">Floresta</span>
-          <span class="pal-meaning" style="color:rgba(245,240,232,.45);">Natureza · Silêncio · Profundidade</span>
-        </div>
-      </div>
-      <div class="pal-meta">
-        <div class="pal-meta-row"><b>HEX</b>#042e2c</div>
-        <div class="pal-meta-row"><b>RGB</b>R:4 G:46 B:44</div>
-        <div class="pal-meta-row"><b>PAN</b>PMS 3302 C</div>
-        <div class="pal-meta-row"><b>CMYK</b>C:91 M:0 Y:4 K:82</div>
-        <div class="pal-meta-row" style="margin-top:4px;font-size:8.5px;color:rgba(245,240,232,.3);letter-spacing:.1em;">5% — Acento ambiental</div>
-      </div>
-      <div class="pal-tones">
-      <div class="pal-tone" style="background:#1D4341;">
-        <span class="pal-tone-pct" style="color:rgba(255,255,255,.55);">90%</span>
-        <span class="pal-tone-hex" style="color:rgba(255,255,255,.5);">#1D4341</span>
-      </div>
-      <div class="pal-tone" style="background:#4F6C6B;">
-        <span class="pal-tone-pct" style="color:rgba(255,255,255,.55);">70%</span>
-        <span class="pal-tone-hex" style="color:rgba(255,255,255,.5);">#4F6C6B</span>
-      </div>
-      <div class="pal-tone" style="background:#819796;">
-        <span class="pal-tone-pct" style="color:rgba(0,0,0,.5);">50%</span>
-        <span class="pal-tone-hex" style="color:rgba(0,0,0,.5);">#819796</span>
-      </div>
-      <div class="pal-tone" style="background:#B4C0BF;">
-        <span class="pal-tone-pct" style="color:rgba(0,0,0,.5);">30%</span>
-        <span class="pal-tone-hex" style="color:rgba(0,0,0,.5);">#B4C0BF</span>
-      </div>
-      <div class="pal-tone" style="background:#E6EAEA;">
-        <span class="pal-tone-pct" style="color:rgba(0,0,0,.45);">10%</span>
-        <span class="pal-tone-hex" style="color:rgba(0,0,0,.4);">#E6EAEA</span>
-      </div>
-      </div>
-    </div>
-
-    <!-- 3. OURO VIVO -->
-    <div class="pal-col reveal reveal-d3">
-      <div class="pal-swatch" style="background:#D4A520;">
-        <div class="pal-swatch-inner">
-          <span class="pal-name" style="color:#080604;">Ouro Vivo</span>
-          <span class="pal-meaning" style="color:rgba(8,6,4,.45);">Vitalidade · Calor · Intensidade</span>
-        </div>
-      </div>
-      <div class="pal-meta">
-        <div class="pal-meta-row"><b>HEX</b>#D4A520</div>
-        <div class="pal-meta-row"><b>RGB</b>R:212 G:165 B:32</div>
-        <div class="pal-meta-row"><b>PAN</b>PMS 7549 C</div>
-        <div class="pal-meta-row"><b>CMYK</b>C:0 M:22 Y:85 K:17</div>
-        <div class="pal-meta-row" style="margin-top:4px;font-size:8.5px;color:rgba(245,240,232,.3);letter-spacing:.1em;">Destaque · Alto impacto</div>
-      </div>
-      <div class="pal-tones">
-      <div class="pal-tone" style="background:#DAAF38;">
-        <span class="pal-tone-pct" style="color:rgba(0,0,0,.55);">90%</span>
-        <span class="pal-tone-hex" style="color:rgba(0,0,0,.5);">#DAAF38</span>
-      </div>
-      <div class="pal-tone" style="background:#E2C165;">
-        <span class="pal-tone-pct" style="color:rgba(0,0,0,.55);">70%</span>
-        <span class="pal-tone-hex" style="color:rgba(0,0,0,.5);">#E2C165</span>
-      </div>
-      <div class="pal-tone" style="background:#EAD290;">
-        <span class="pal-tone-pct" style="color:rgba(0,0,0,.5);">50%</span>
-        <span class="pal-tone-hex" style="color:rgba(0,0,0,.5);">#EAD290</span>
-      </div>
-      <div class="pal-tone" style="background:#F2E4BB;">
-        <span class="pal-tone-pct" style="color:rgba(0,0,0,.45);">30%</span>
-        <span class="pal-tone-hex" style="color:rgba(0,0,0,.4);">#F2E4BB</span>
-      </div>
-      <div class="pal-tone" style="background:#FAF5E5;">
-        <span class="pal-tone-pct" style="color:rgba(0,0,0,.4);">10%</span>
-        <span class="pal-tone-hex" style="color:rgba(0,0,0,.35);">#FAF5E5</span>
-      </div>
-      </div>
-    </div>
-
-    <!-- 4. OURO -->
-    <div class="pal-col reveal reveal-d4">
-      <div class="pal-swatch" style="background:#C9A84C;">
-        <div class="pal-swatch-inner">
-          <span class="pal-name" style="color:#080604;">Ouro</span>
-          <span class="pal-meaning" style="color:rgba(8,6,4,.45);">Valor · Permanência · Raridade</span>
-        </div>
-      </div>
-      <div class="pal-meta">
-        <div class="pal-meta-row"><b>HEX</b>#C9A84C</div>
-        <div class="pal-meta-row"><b>RGB</b>R:201 G:168 B:76</div>
-        <div class="pal-meta-row"><b>PAN</b>PMS 871 C</div>
-        <div class="pal-meta-row"><b>CMYK</b>C:0 M:16 Y:62 K:21</div>
-        <div class="pal-meta-row" style="margin-top:4px;font-size:8.5px;color:rgba(245,240,232,.3);letter-spacing:.1em;">Acento · Identidade</div>
-      </div>
-      <div class="pal-tones">
-      <div class="pal-tone" style="background:#CEB15E;">
-        <span class="pal-tone-pct" style="color:rgba(0,0,0,.55);">90%</span>
-        <span class="pal-tone-hex" style="color:rgba(0,0,0,.5);">#CEB15E</span>
-      </div>
-      <div class="pal-tone" style="background:#D9C282;">
-        <span class="pal-tone-pct" style="color:rgba(0,0,0,.55);">70%</span>
-        <span class="pal-tone-hex" style="color:rgba(0,0,0,.5);">#D9C282</span>
-      </div>
-      <div class="pal-tone" style="background:#E4D4A6;">
-        <span class="pal-tone-pct" style="color:rgba(0,0,0,.5);">50%</span>
-        <span class="pal-tone-hex" style="color:rgba(0,0,0,.5);">#E4D4A6</span>
-      </div>
-      <div class="pal-tone" style="background:#EFE5C9;">
-        <span class="pal-tone-pct" style="color:rgba(0,0,0,.5);">30%</span>
-        <span class="pal-tone-hex" style="color:rgba(0,0,0,.5);">#EFE5C9</span>
-      </div>
-      <div class="pal-tone" style="background:#FAF6ED;">
-        <span class="pal-tone-pct" style="color:rgba(0,0,0,.5);">10%</span>
-        <span class="pal-tone-hex" style="color:rgba(0,0,0,.5);">#FAF6ED</span>
-      </div>
-      </div>
-    </div>
-
-    <!-- 5. VELUDO -->
-    <div class="pal-col reveal reveal-d5">
-      <div class="pal-swatch" style="background:#4A1525;">
-        <div class="pal-swatch-inner">
-          <span class="pal-name" style="color:#F5F0E8;">Veludo</span>
-          <span class="pal-meaning" style="color:rgba(245,240,232,.4);">Mistério · Intimidade · VIP</span>
-        </div>
-      </div>
-      <div class="pal-meta">
-        <div class="pal-meta-row"><b>HEX</b>#4A1525</div>
-        <div class="pal-meta-row"><b>RGB</b>R:74 G:21 B:37</div>
-        <div class="pal-meta-row"><b>PAN</b>PMS 229 C</div>
-        <div class="pal-meta-row"><b>CMYK</b>C:0 M:72 Y:50 K:71</div>
-        <div class="pal-meta-row" style="margin-top:4px;font-size:8.5px;color:rgba(245,240,232,.3);letter-spacing:.1em;">5% — Acento VIP · Eventos</div>
-      </div>
-      <div class="pal-tones">
-      <div class="pal-tone" style="background:#5C1C2E;">
-        <span class="pal-tone-pct" style="color:rgba(255,255,255,.5);">90%</span>
-        <span class="pal-tone-hex" style="color:rgba(255,255,255,.45);">#5C1C2E</span>
-      </div>
-      <div class="pal-tone" style="background:#8B3D52;">
-        <span class="pal-tone-pct" style="color:rgba(255,255,255,.5);">70%</span>
-        <span class="pal-tone-hex" style="color:rgba(255,255,255,.45);">#8B3D52</span>
-      </div>
-      <div class="pal-tone" style="background:#B87083;">
-        <span class="pal-tone-pct" style="color:rgba(255,255,255,.5);">50%</span>
-        <span class="pal-tone-hex" style="color:rgba(255,255,255,.45);">#B87083</span>
-      </div>
-      <div class="pal-tone" style="background:#D9A9B5;">
-        <span class="pal-tone-pct" style="color:rgba(0,0,0,.45);">30%</span>
-        <span class="pal-tone-hex" style="color:rgba(0,0,0,.4);">#D9A9B5</span>
-      </div>
-      <div class="pal-tone" style="background:#F0DDE2;">
-        <span class="pal-tone-pct" style="color:rgba(0,0,0,.4);">10%</span>
-        <span class="pal-tone-hex" style="color:rgba(0,0,0,.35);">#F0DDE2</span>
-      </div>
-      </div>
-    </div>
-
-    <!-- 6. PAPEL -->
-    <div class="pal-col reveal reveal-d5" style="--reveal-delay:0.7s;">
-      <div class="pal-swatch" style="background:#F5F0E8;">
-        <div class="pal-swatch-inner">
-          <span class="pal-name" style="color:#080604;">Papel</span>
-          <span class="pal-meaning" style="color:rgba(8,6,4,.4);">Claridade · Respiração · Luz</span>
-        </div>
-      </div>
-      <div class="pal-meta">
-        <div class="pal-meta-row"><b>HEX</b>#F5F0E8</div>
-        <div class="pal-meta-row"><b>RGB</b>R:245 G:240 B:232</div>
-        <div class="pal-meta-row"><b>PAN</b>PMS 9103 C</div>
-        <div class="pal-meta-row"><b>CMYK</b>C:0 M:2 Y:5 K:4</div>
-        <div class="pal-meta-row" style="margin-top:4px;font-size:8.5px;color:rgba(245,240,232,.3);letter-spacing:.1em;">20% — Texto e superfícies</div>
-      </div>
-      <div class="pal-tones">
-      <div class="pal-tone" style="background:#F6F2EA;">
-        <span class="pal-tone-pct" style="color:rgba(0,0,0,.5);">90%</span>
-        <span class="pal-tone-hex" style="color:rgba(0,0,0,.45);">#F6F2EA</span>
-      </div>
-      <div class="pal-tone" style="background:#F8F5EF;">
-        <span class="pal-tone-pct" style="color:rgba(0,0,0,.5);">70%</span>
-        <span class="pal-tone-hex" style="color:rgba(0,0,0,.45);">#F8F5EF</span>
-      </div>
-      <div class="pal-tone" style="background:#FAF8F4;">
-        <span class="pal-tone-pct" style="color:rgba(0,0,0,.45);">50%</span>
-        <span class="pal-tone-hex" style="color:rgba(0,0,0,.4);">#FAF8F4</span>
-      </div>
-      <div class="pal-tone" style="background:#FCFBF8;">
-        <span class="pal-tone-pct" style="color:rgba(0,0,0,.4);">30%</span>
-        <span class="pal-tone-hex" style="color:rgba(0,0,0,.35);">#FCFBF8</span>
-      </div>
-      <div class="pal-tone" style="background:#FFFEFD;">
-        <span class="pal-tone-pct" style="color:rgba(0,0,0,.35);">10%</span>
-        <span class="pal-tone-hex" style="color:rgba(0,0,0,.3);">#FFFEFD</span>
-      </div>
-      </div>
-    </div>
-
-    </div><!-- /pal-grid -->
   </div>
 </section>
 

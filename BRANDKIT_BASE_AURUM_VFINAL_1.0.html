@@ -23,9 +23,9 @@ html{scroll-behavior:smooth}
   --head-family:'Playfair Display','Cormorant Garamond',serif;
   --body-family:'Raleway','Space Grotesk',sans-serif;
   --serif-family:'Cormorant Garamond',serif;
-  --forest:#0D4D42;
-  --forest-dim:rgba(13,77,66,.55);
-  --forest-glow:rgba(13,77,66,.15);
+  --forest:#042e2c;
+  --forest-dim:rgba(4,46,44,.55);
+  --forest-glow:rgba(4,46,44,.12);
 }
 
 body{background:var(--bg);color:var(--text-main);font-family:var(--body-family);overflow-x:hidden;line-height:1.6;
@@ -1789,6 +1789,62 @@ nav {
 }
 .nav-dir-btn:hover { transform: scale(1.08) !important; }
 
+/* ── SECTION VARIETY BACKGROUNDS ─────────────────────────────────── */
+/* Already set via inline styles — use these CSS overrides for variety */
+
+/* ── SCROLL REVEAL VARIANTS ────────────────────────────────────────── */
+.reveal-scale{opacity:0;transform:scale(.96);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);}
+.reveal-scale.vis{opacity:1;transform:scale(1);}
+.reveal-blur{opacity:0;filter:blur(8px);transition:opacity 1s cubic-bezier(.16,1,.3,1),filter 1s cubic-bezier(.16,1,.3,1);}
+.reveal-blur.vis{opacity:1;filter:blur(0);}
+
+/* ── GOLD LINE ACCENT ─────────────────────────────────────────────── */
+.gold-line-top{position:relative;}
+.gold-line-top::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,#C9A84C 30%,#EBA028 50%,#C9A84C 70%,transparent);opacity:.35;}
+
+/* ── HOVER CARDS ─────────────────────────────────────────────────── */
+.hover-lift{transition:transform .4s cubic-bezier(.34,1.56,.64,1),box-shadow .4s ease;}
+.hover-lift:hover{transform:translateY(-8px);box-shadow:0 20px 48px rgba(0,0,0,.4),0 0 32px rgba(201,168,76,.08);}
+
+/* ── COPY HEX tooltip ─────────────────────────────────────────────── */
+.hex-copy{cursor:pointer;position:relative;}
+.hex-copy::after{content:'copiado!';position:absolute;top:-28px;left:50%;transform:translateX(-50%) scale(0);background:#C9A84C;color:#080604;font-size:8px;padding:3px 8px;border-radius:4px;white-space:nowrap;opacity:0;transition:opacity .2s,transform .2s;pointer-events:none;font-family:monospace;letter-spacing:.05em;}
+.hex-copy.copied::after{opacity:1;transform:translateX(-50%) scale(1);}
+
+/* ── FLOATING LABEL ───────────────────────────────────────────────── */
+@keyframes floatLabel{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+/* ── SECTION DIVIDERS ────────────────────────────────────────────── */
+.divider-veludo{height:1px;background:linear-gradient(to right,transparent,rgba(74,21,37,.4) 30%,rgba(74,21,37,.4) 70%,transparent);margin:0;}
+.divider-forest{height:1px;background:linear-gradient(to right,transparent,rgba(4,46,44,.6) 30%,rgba(4,46,44,.6) 70%,transparent);margin:0;}
+
+/* ── AMBIENT GLOW PULSE ──────────────────────────────────────────── */
+@keyframes ambientGlow{0%,100%{box-shadow:0 0 80px rgba(201,168,76,.03)}50%{box-shadow:0 0 120px rgba(201,168,76,.08)}}
+
+/* ── VELUDO SECTION TREATMENT ────────────────────────────────────── */
+.section-veludo{background:linear-gradient(160deg,#1A0810 0%,#280A18 40%,#1A0810 100%);}
+.section-veludo .section-tag{color:rgba(201,168,76,.5)!important;}
+.section-veludo .section-title{color:#F5F0E8!important;}
+
+/* ── FOREST SECTION TREATMENT ────────────────────────────────────── */
+.section-forest{background:linear-gradient(160deg,#02100F 0%,#042e2c 50%,#02100F 100%);}
+
+/* ── PAPEL SECTION TREATMENT ─────────────────────────────────────── */
+.section-papel{background:#F5F0E8;}
+.section-papel .section-tag{color:rgba(201,168,76,.7)!important;}
+.section-papel .section-title{color:#080604!important;}
+.section-papel .rule{background:#C9A84C!important;}
+
+/* ── CINEMATIC QUOTE ─────────────────────────────────────────────── */
+.cin-quote{font-family:'Cormorant Garamond','Playfair Display',serif;font-size:clamp(24px,4vw,56px);line-height:1.2;color:#F5F0E8;font-style:italic;letter-spacing:-.01em;}
+.cin-quote em{color:#C9A84C;font-style:normal;}
+
+/* ── STICKY SECTION COUNTER ──────────────────────────────────────── */
+.section-num{font-family:'Space Grotesk',monospace;font-size:clamp(80px,12vw,160px);color:rgba(201,168,76,.04);position:absolute;right:40px;top:80px;line-height:1;pointer-events:none;user-select:none;font-weight:700;}
+
+/* ── INTERACTIVE COLOR HEX ───────────────────────────────────────── */
+.pal-meta-row b{color:rgba(201,168,76,.55);margin-right:8px;font-family:'Space Grotesk',monospace;font-size:8px;letter-spacing:.2em;}
+
 </style>
 </head>
 <body>
@@ -1866,8 +1922,9 @@ nav {
 </section>
 
 <!-- ══ BRAND INTRO ═════════════════════════════════════════════════════════════ -->
-<section id="brand-intro">
+<section id="brand-intro" style="background:linear-gradient(160deg,#080604 0%,#0C0906 100%);position:relative;">
   <div class="section-inner">
+    <div class="section-num">01</div>
     <span class="section-tag reveal">— 01 · Introdução da Marca</span>
     <h2 class="section-title reveal reveal-d1">O Fundador</h2>
     <div class="rule reveal reveal-d2"></div>
@@ -1886,14 +1943,15 @@ nav {
 <div style="height:1px;background:linear-gradient(to right,transparent,rgba(201,168,76,.2) 30%,rgba(201,168,76,.2) 70%,transparent);margin:0;"></div>
 
 <!-- ══ POSICIONAMENTO ESTRATÉGICO ══════════════════════════════════════════════ -->
-<section id="posicionamento" style="background:#080604;">
+<section id="posicionamento" style="background:linear-gradient(160deg,#080604 0%,#0E060A 60%,#080604 100%);position:relative;">
   <div class="section-inner">
+    <div class="section-num">02</div>
     <span class="section-tag reveal">— 01.5 · Estratégia de Marca</span>
     <h2 class="section-title reveal reveal-d1">Posicionamento Estratégico</h2>
     <div class="rule reveal reveal-d2"></div>
 
     <!-- Declaração de Posicionamento -->
-    <div class="reveal reveal-d2" style="max-width:800px;margin-bottom:64px;">
+    <div class="reveal-scale reveal-d2" style="max-width:800px;margin-bottom:64px;">
       <div style="font-family:var(--body-family);font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:24px;">Declaração de Posicionamento</div>
       <blockquote style="font-family:var(--head-family);font-size:clamp(18px,2.5vw,28px);line-height:1.45;color:var(--text-main);border-left:3px solid rgba(201,168,76,.45);padding-left:32px;margin:0;font-style:italic;">
         Para o público que reconhece o valor do tempo e da experiência, a AURUM Cinema é o único espaço onde o cinema é tratado como ritual sagrado — não como entretenimento de massa. Diferente dos complexos convencionais, a AURUM oferece curadoria rigorosa, ambiente imersivo e pertencimento a uma comunidade de sensibilidade apurada.
@@ -1901,7 +1959,7 @@ nav {
     </div>
 
     <!-- 4 Pilares -->
-    <div class="reveal reveal-d2" style="margin-bottom:64px;">
+    <div class="reveal-scale reveal-d2" style="margin-bottom:64px;">
       <div style="font-family:var(--body-family);font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:32px;">Quatro Pilares da Marca</div>
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:3px;">
 
@@ -2032,6 +2090,24 @@ nav {
         <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.4em;text-transform:uppercase;color:rgba(201,168,76,.5);">Ouro · Veludo</div>
         <div style="font-family:var(--body-family);font-size:9px;color:rgba(245,240,232,.35);">Uso especial — VIP / eventos</div>
       </div>
+      <!-- On Floresta -->
+      <div style="background:#042e2c;padding:48px 32px;display:flex;flex-direction:column;align-items:center;gap:20px;">
+        <img src="./LOGOS/AURUM_LOGO.svg" style="width:100%;max-width:280px;filter:brightness(0) invert(1) sepia(1) saturate(380%) hue-rotate(348deg);" alt="AURUM Ouro · Floresta">
+        <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.4em;text-transform:uppercase;color:rgba(201,168,76,.5);">Ouro · Floresta</div>
+        <div style="font-family:var(--body-family);font-size:9px;color:rgba(245,240,232,.35);">Uso editorial — natureza · sustentabilidade</div>
+      </div>
+      <!-- Ouro Vivo · Void -->
+      <div style="background:#080604;padding:48px 32px;display:flex;flex-direction:column;align-items:center;gap:20px;border:1px solid rgba(235,160,40,.1);">
+        <img src="./LOGOS/AURUM_LOGO.svg" style="width:100%;max-width:280px;filter:brightness(0) invert(1) sepia(1) saturate(700%) hue-rotate(335deg) brightness(1.08);" alt="AURUM Ouro Vivo · Void">
+        <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.4em;text-transform:uppercase;color:rgba(235,160,40,.6);">Ouro Vivo · Void</div>
+        <div style="font-family:var(--body-family);font-size:9px;color:rgba(245,240,232,.3);">Alta energia — eventos · campanhas sazonais</div>
+      </div>
+      <!-- Papel · Void -->
+      <div style="background:#080604;padding:48px 32px;display:flex;flex-direction:column;align-items:center;gap:20px;border:1px solid rgba(245,240,232,.06);">
+        <img src="./LOGOS/AURUM_LOGO.svg" style="width:100%;max-width:280px;filter:brightness(0) invert(1) opacity(.88);" alt="AURUM Papel · Void">
+        <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.4em;text-transform:uppercase;color:rgba(245,240,232,.35);">Papel · Void</div>
+        <div style="font-family:var(--body-family);font-size:9px;color:rgba(245,240,232,.25);">Versão neutra — máxima legibilidade</div>
+      </div>
     </div>
 
     <!-- ═══ CONSTRUCTION GRID — Professional brand identity format ═══ -->
@@ -2047,7 +2123,7 @@ nav {
             }
       
             .g1, .g2 {
-              fill: #4A1525;
+              fill: #141210;
             }
       
             .g3, .g4 {
@@ -2391,7 +2467,7 @@ nav {
 
 <div class="orange-divider"></div>
 <!-- ══ ENAGRAMA AU ══════════════════════════════════════════════════════════════ -->
-<section id="enagrama-au" style="background:#080604;padding:120px 0;">
+<section id="enagrama-au" style="background:linear-gradient(160deg,#080604 0%,#041A18 60%,#080604 100%);padding:120px 0;position:relative;">
   <div class="section-inner">
     <span class="section-tag reveal" style="color:rgba(201,168,76,.7);">— 02b · O Símbolo</span>
     <h2 class="section-title reveal reveal-d1" style="color:#F5F0E8;">Enagrama AU</h2>
@@ -2554,7 +2630,7 @@ nav {
     </div>
 
     <!-- Logo Identity Animation — AU enagram → AURUM reveal -->
-    <div class="reveal reveal-d4" id="logo-anim-block" style="margin-top:64px;padding:56px 48px;border:1px solid rgba(201,168,76,.12);border-radius:20px;background:linear-gradient(135deg,rgba(201,168,76,.04) 0%,rgba(13,77,66,.04) 100%);text-align:center;position:relative;overflow:hidden;">
+    <div class="reveal reveal-d4" id="logo-anim-block" style="margin-top:64px;padding:56px 48px;border:1px solid rgba(201,168,76,.12);border-radius:20px;background:linear-gradient(135deg,rgba(201,168,76,.04) 0%,rgba(4,46,44,.04) 100%);text-align:center;position:relative;overflow:hidden;">
       <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(201,168,76,.04) 0%,transparent 70%);pointer-events:none;"></div>
       <div style="font-family:'Space Grotesk',sans-serif;font-size:8px;letter-spacing:.45em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:36px;position:relative;">Identidade · Animação de Reflexo Metálico</div>
 
@@ -2633,7 +2709,7 @@ nav {
 <div style="height:1px;background:linear-gradient(to right,transparent,rgba(201,168,76,.2) 30%,rgba(201,168,76,.2) 70%,transparent);margin:0;"></div>
 
 <!-- ══ PÚBLICO & PERSONAS ══════════════════════════════════════════════════════ -->
-<section id="publico-personas" style="background:#0D0A05;">
+<section id="publico-personas" style="background:linear-gradient(160deg,#0A0608 0%,#100608 50%,#0A0608 100%);">
   <div class="section-inner">
     <span class="section-tag reveal">— 04.5 · Público &amp; Personas</span>
     <h2 class="section-title reveal reveal-d1">Para Quem Existimos</h2>
@@ -2938,29 +3014,33 @@ nav {
     <span class="section-tag reveal">— 03 · Sistema de Cores</span>
     <h2 class="section-title reveal reveal-d1">Paleta de Cores</h2>
     <div class="rule reveal reveal-d2"></div>
-    <p class="reveal reveal-d2" style="max-width:560px;font-family:var(--body-family);font-size:14px;line-height:1.8;color:rgba(245,240,232,.55);margin-bottom:48px;">Cinco cores. Regra 60·30·10. Nenhuma aplicação é acidental — cada cor tem um papel, uma frequência, um propósito dentro do Sistema Visual AURUM.</p>
+    <p class="reveal reveal-d2" style="max-width:560px;font-family:var(--body-family);font-size:14px;line-height:1.8;color:rgba(245,240,232,.55);margin-bottom:48px;">Seis cores. Regra 50·20·20·5·5. Nenhuma aplicação é acidental — cada cor tem um papel, uma frequência, um propósito dentro do Sistema Visual AURUM.</p>
 
-    <!-- 60/30/10 rule bar -->
-    <div class="reveal reveal-d2" style="display:grid;grid-template-columns:6fr 2fr 1fr 1fr;gap:3px;border-radius:14px;overflow:hidden;margin-bottom:64px;height:72px;">
+    <!-- 50/20/20/5/5 rule bar -->
+    <div class="reveal reveal-d2" style="display:grid;grid-template-columns:10fr 4fr 4fr 1fr 1fr;gap:3px;border-radius:14px;overflow:hidden;margin-bottom:64px;height:72px;">
       <div style="background:#080604;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px;">
-        <span style="font-family:var(--head-family);font-size:28px;color:#F5F0E8;line-height:1;">60%</span>
+        <span style="font-family:var(--head-family);font-size:28px;color:#F5F0E8;line-height:1;">50%</span>
         <span style="font-family:var(--body-family);font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:rgba(245,240,232,.35);">Void</span>
       </div>
       <div style="background:#F5F0E8;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px;">
-        <span style="font-family:var(--head-family);font-size:28px;color:#080604;line-height:1;">20%</span>
-        <span style="font-family:var(--body-family);font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:rgba(8,6,4,.4);">Papel</span>
-      </div>
-      <div style="background:#0D4D42;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px;">
-        <span style="font-family:var(--head-family);font-size:20px;color:#F5F0E8;line-height:1;">10%</span>
-        <span style="font-family:var(--body-family);font-size:7px;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,240,232,.5);">Floresta</span>
+        <span style="font-family:var(--head-family);font-size:22px;color:#080604;line-height:1;">20%</span>
+        <span style="font-family:var(--body-family);font-size:8px;letter-spacing:.25em;text-transform:uppercase;color:rgba(8,6,4,.4);">Papel</span>
       </div>
       <div style="background:#C9A84C;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px;">
-        <span style="font-family:var(--head-family);font-size:20px;color:#080604;line-height:1;">10%</span>
-        <span style="font-family:var(--body-family);font-size:7px;letter-spacing:.2em;text-transform:uppercase;color:rgba(8,6,4,.5);">Ouro</span>
+        <span style="font-family:var(--head-family);font-size:22px;color:#080604;line-height:1;">20%</span>
+        <span style="font-family:var(--body-family);font-size:8px;letter-spacing:.25em;text-transform:uppercase;color:rgba(8,6,4,.5);">Ouro</span>
+      </div>
+      <div style="background:#4A1525;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px;">
+        <span style="font-family:var(--head-family);font-size:16px;color:#F5F0E8;line-height:1;">5%</span>
+        <span style="font-family:var(--body-family);font-size:6px;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,240,232,.45);">Veludo</span>
+      </div>
+      <div style="background:#042e2c;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px;">
+        <span style="font-family:var(--head-family);font-size:16px;color:#F5F0E8;line-height:1;">5%</span>
+        <span style="font-family:var(--body-family);font-size:6px;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,240,232,.45);">Floresta</span>
       </div>
     </div>
 
-    <div class="pal-grid" style="grid-template-columns:repeat(5,1fr);">
+    <div class="pal-grid" style="grid-template-columns:repeat(6,1fr);">
 
     <!-- 1. VOID -->
     <div class="pal-col reveal reveal-d1">
@@ -3003,39 +3083,39 @@ nav {
 
     <!-- 2. FLORESTA -->
     <div class="pal-col reveal reveal-d2">
-      <div class="pal-swatch" style="background:#0D4D42;">
+      <div class="pal-swatch" style="background:#042e2c;">
         <div class="pal-swatch-inner">
           <span class="pal-name" style="color:#F5F0E8;">Floresta</span>
           <span class="pal-meaning" style="color:rgba(245,240,232,.45);">Natureza · Silêncio · Profundidade</span>
         </div>
       </div>
       <div class="pal-meta">
-        <div class="pal-meta-row"><b>HEX</b>#0D4D42</div>
-        <div class="pal-meta-row"><b>RGB</b>R:13 G:77 B:66</div>
-        <div class="pal-meta-row"><b>PAN</b>PMS 328 C</div>
-        <div class="pal-meta-row"><b>CMYK</b>C:83 M:0 Y:14 K:70</div>
-        <div class="pal-meta-row" style="margin-top:4px;font-size:8.5px;color:rgba(245,240,232,.3);letter-spacing:.1em;">10% — Acento ambiental</div>
+        <div class="pal-meta-row"><b>HEX</b>#042e2c</div>
+        <div class="pal-meta-row"><b>RGB</b>R:4 G:46 B:44</div>
+        <div class="pal-meta-row"><b>PAN</b>PMS 3302 C</div>
+        <div class="pal-meta-row"><b>CMYK</b>C:91 M:0 Y:4 K:82</div>
+        <div class="pal-meta-row" style="margin-top:4px;font-size:8.5px;color:rgba(245,240,232,.3);letter-spacing:.1em;">5% — Acento ambiental</div>
       </div>
       <div class="pal-tones">
-      <div class="pal-tone" style="background:#155F54;">
+      <div class="pal-tone" style="background:#1D4341;">
         <span class="pal-tone-pct" style="color:rgba(255,255,255,.55);">90%</span>
-        <span class="pal-tone-hex" style="color:rgba(255,255,255,.5);">#155F54</span>
+        <span class="pal-tone-hex" style="color:rgba(255,255,255,.5);">#1D4341</span>
       </div>
-      <div class="pal-tone" style="background:#2E8C7C;">
+      <div class="pal-tone" style="background:#4F6C6B;">
         <span class="pal-tone-pct" style="color:rgba(255,255,255,.55);">70%</span>
-        <span class="pal-tone-hex" style="color:rgba(255,255,255,.5);">#2E8C7C</span>
+        <span class="pal-tone-hex" style="color:rgba(255,255,255,.5);">#4F6C6B</span>
       </div>
-      <div class="pal-tone" style="background:#68B5A8;">
+      <div class="pal-tone" style="background:#819796;">
         <span class="pal-tone-pct" style="color:rgba(0,0,0,.5);">50%</span>
-        <span class="pal-tone-hex" style="color:rgba(0,0,0,.5);">#68B5A8</span>
+        <span class="pal-tone-hex" style="color:rgba(0,0,0,.5);">#819796</span>
       </div>
-      <div class="pal-tone" style="background:#AADAD3;">
+      <div class="pal-tone" style="background:#B4C0BF;">
         <span class="pal-tone-pct" style="color:rgba(0,0,0,.5);">30%</span>
-        <span class="pal-tone-hex" style="color:rgba(0,0,0,.5);">#AADAD3</span>
+        <span class="pal-tone-hex" style="color:rgba(0,0,0,.5);">#B4C0BF</span>
       </div>
-      <div class="pal-tone" style="background:#E0F2EF;">
+      <div class="pal-tone" style="background:#E6EAEA;">
         <span class="pal-tone-pct" style="color:rgba(0,0,0,.45);">10%</span>
-        <span class="pal-tone-hex" style="color:rgba(0,0,0,.4);">#E0F2EF</span>
+        <span class="pal-tone-hex" style="color:rgba(0,0,0,.4);">#E6EAEA</span>
       </div>
       </div>
     </div>
@@ -3118,8 +3198,47 @@ nav {
       </div>
     </div>
 
-    <!-- 5. PAPEL -->
+    <!-- 5. VELUDO -->
     <div class="pal-col reveal reveal-d5">
+      <div class="pal-swatch" style="background:#4A1525;">
+        <div class="pal-swatch-inner">
+          <span class="pal-name" style="color:#F5F0E8;">Veludo</span>
+          <span class="pal-meaning" style="color:rgba(245,240,232,.4);">Mistério · Intimidade · VIP</span>
+        </div>
+      </div>
+      <div class="pal-meta">
+        <div class="pal-meta-row"><b>HEX</b>#4A1525</div>
+        <div class="pal-meta-row"><b>RGB</b>R:74 G:21 B:37</div>
+        <div class="pal-meta-row"><b>PAN</b>PMS 229 C</div>
+        <div class="pal-meta-row"><b>CMYK</b>C:0 M:72 Y:50 K:71</div>
+        <div class="pal-meta-row" style="margin-top:4px;font-size:8.5px;color:rgba(245,240,232,.3);letter-spacing:.1em;">5% — Acento VIP · Eventos</div>
+      </div>
+      <div class="pal-tones">
+      <div class="pal-tone" style="background:#5C1C2E;">
+        <span class="pal-tone-pct" style="color:rgba(255,255,255,.5);">90%</span>
+        <span class="pal-tone-hex" style="color:rgba(255,255,255,.45);">#5C1C2E</span>
+      </div>
+      <div class="pal-tone" style="background:#8B3D52;">
+        <span class="pal-tone-pct" style="color:rgba(255,255,255,.5);">70%</span>
+        <span class="pal-tone-hex" style="color:rgba(255,255,255,.45);">#8B3D52</span>
+      </div>
+      <div class="pal-tone" style="background:#B87083;">
+        <span class="pal-tone-pct" style="color:rgba(255,255,255,.5);">50%</span>
+        <span class="pal-tone-hex" style="color:rgba(255,255,255,.45);">#B87083</span>
+      </div>
+      <div class="pal-tone" style="background:#D9A9B5;">
+        <span class="pal-tone-pct" style="color:rgba(0,0,0,.45);">30%</span>
+        <span class="pal-tone-hex" style="color:rgba(0,0,0,.4);">#D9A9B5</span>
+      </div>
+      <div class="pal-tone" style="background:#F0DDE2;">
+        <span class="pal-tone-pct" style="color:rgba(0,0,0,.4);">10%</span>
+        <span class="pal-tone-hex" style="color:rgba(0,0,0,.35);">#F0DDE2</span>
+      </div>
+      </div>
+    </div>
+
+    <!-- 6. PAPEL -->
+    <div class="pal-col reveal reveal-d5" style="--reveal-delay:0.7s;">
       <div class="pal-swatch" style="background:#F5F0E8;">
         <div class="pal-swatch-inner">
           <span class="pal-name" style="color:#080604;">Papel</span>
@@ -3193,7 +3312,7 @@ nav {
 
       <!-- Gradiente Floresta -->
       <div style="display:flex;flex-direction:column;gap:16px;">
-        <div style="height:200px;border-radius:16px;background:linear-gradient(135deg, #030C09 0%, #0D4D42 45%, #1A7A6A 75%, #2EA89A 100%);position:relative;overflow:hidden;">
+        <div style="height:200px;border-radius:16px;background:linear-gradient(135deg, #030C09 0%, #042e2c 45%, #1A7A6A 75%, #2EA89A 100%);position:relative;overflow:hidden;">
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.45) 0%,transparent 60%);"></div>
           <div style="position:absolute;bottom:20px;left:20px;">
             <div style="font-family:var(--head-family);font-size:18px;color:#E0F2EF;letter-spacing:.1em;">Floresta</div>
@@ -3202,17 +3321,17 @@ nav {
         </div>
         <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:4px;border-radius:8px;overflow:hidden;height:32px;">
           <div style="background:#030C09;"></div>
-          <div style="background:#0D4D42;"></div>
+          <div style="background:#042e2c;"></div>
           <div style="background:#1A7A6A;"></div>
           <div style="background:#2EA89A;"></div>
         </div>
         <div style="font-family:var(--body-family);font-size:11px;color:rgba(245,240,232,.5);line-height:1.7;">Abismo → Floresta → Verde Médio → Jade. Para fundos de cena, ambientação, divulgação de filmes de natureza.</div>
-        <div style="font-family:'Space Grotesk',monospace;font-size:9px;color:rgba(13,77,66,.8);letter-spacing:.1em;background:rgba(13,77,66,.12);padding:8px 12px;border-radius:6px;border:1px solid rgba(13,77,66,.2);">linear-gradient(135deg,<br>#030C09 → #0D4D42 → #1A7A6A → #2EA89A)</div>
+        <div style="font-family:'Space Grotesk',monospace;font-size:9px;color:rgba(4,46,44,.8);letter-spacing:.1em;background:rgba(4,46,44,.12);padding:8px 12px;border-radius:6px;border:1px solid rgba(4,46,44,.2);">linear-gradient(135deg,<br>#030C09 → #042e2c → #1A7A6A → #2EA89A)</div>
       </div>
 
       <!-- Gradiente Fusão -->
       <div style="display:flex;flex-direction:column;gap:16px;">
-        <div style="height:200px;border-radius:16px;background:linear-gradient(135deg, #080604 0%, #0D4D42 30%, #1A5C2A 50%, #6B5722 70%, #C9A84C 100%);position:relative;overflow:hidden;">
+        <div style="height:200px;border-radius:16px;background:linear-gradient(135deg, #080604 0%, #042e2c 30%, #1A5C2A 50%, #6B5722 70%, #C9A84C 100%);position:relative;overflow:hidden;">
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5) 0%,transparent 55%);"></div>
           <div style="position:absolute;bottom:20px;left:20px;">
             <div style="font-family:var(--head-family);font-size:18px;color:#F5F0E8;letter-spacing:.1em;">Fusão</div>
@@ -3221,13 +3340,13 @@ nav {
         </div>
         <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:4px;border-radius:8px;overflow:hidden;height:32px;">
           <div style="background:#080604;"></div>
-          <div style="background:#0D4D42;"></div>
+          <div style="background:#042e2c;"></div>
           <div style="background:#1A5C2A;"></div>
           <div style="background:#6B5722;"></div>
           <div style="background:#C9A84C;"></div>
         </div>
         <div style="font-family:var(--body-family);font-size:11px;color:rgba(245,240,232,.5);line-height:1.7;">Void → Floresta → Mata → Bronze → Ouro. Gradiente de fusão para peças que unem as duas essências da marca.</div>
-        <div style="font-family:'Space Grotesk',monospace;font-size:9px;color:rgba(201,168,76,.45);letter-spacing:.1em;background:rgba(201,168,76,.05);padding:8px 12px;border-radius:6px;border:1px solid rgba(13,77,66,.15);border-right-color:rgba(201,168,76,.15);">linear-gradient(135deg,<br>#080604 → #0D4D42 → #1A5C2A → #6B5722 → #C9A84C)</div>
+        <div style="font-family:'Space Grotesk',monospace;font-size:9px;color:rgba(201,168,76,.45);letter-spacing:.1em;background:rgba(201,168,76,.05);padding:8px 12px;border-radius:6px;border:1px solid rgba(4,46,44,.15);border-right-color:rgba(201,168,76,.15);">linear-gradient(135deg,<br>#080604 → #042e2c → #1A5C2A → #6B5722 → #C9A84C)</div>
       </div>
 
     </div>
@@ -3420,7 +3539,7 @@ nav {
   </div>
 </section>
 
-<div class="orange-divider"></div>
+<div class="orange-divider"></div><div style="height:2px;background:linear-gradient(to right,transparent,#EBA028 20%,#C9A84C 50%,#EBA028 80%,transparent);opacity:.4;margin:0;"></div>
 <!-- ══ MOODBOARD ═════════════════════════════════════════════════════════════ -->
 <section id="moodboard">
   <div class="section-inner" style="padding-bottom:0;">
@@ -3495,18 +3614,18 @@ nav {
 <div class="orange-divider"></div>
 
 <!-- ══ FOTOGRAFIA & DIREÇÃO DE ARTE ═══════════════════════════════════════════ -->
-<section id="fotografia" style="background:#080604;">
+<section id="fotografia" style="background:linear-gradient(180deg,#080604 0%,#0A0906 100%);">
   <div class="section-inner">
-    <span class="section-tag reveal">— 09.5 · Fotografia &amp; Direção de Arte</span>
+    <span class="section-tag reveal-blur">— 09.5 · Fotografia &amp; Direção de Arte</span>
     <h2 class="section-title reveal reveal-d1">Imagem como Afirmação</h2>
     <div class="rule reveal reveal-d2"></div>
 
-    <div class="reveal reveal-d2" style="max-width:640px;margin-bottom:64px;">
+    <div class="reveal-blur reveal-d2" style="max-width:640px;margin-bottom:64px;">
       <p style="font-family:var(--body-family);font-size:15px;line-height:1.85;color:var(--text-dim);">Cada imagem usada pela AURUM é uma declaração de posicionamento. Não ilustramos — comunicamos. A fotografia não serve ao texto: ela existe por conta própria, como o cinema que curamos.</p>
     </div>
 
     <!-- 5 Princípios Fotográficos -->
-    <div class="reveal reveal-d2" style="margin-bottom:64px;">
+    <div class="reveal-blur reveal-d2" style="margin-bottom:64px;">
       <div style="font-family:var(--body-family);font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:32px;">Cinco Princípios Fotográficos</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;">
 
@@ -3690,8 +3809,9 @@ nav {
 <div style="height:1px;background:linear-gradient(to right,transparent,rgba(201,168,76,.2) 30%,rgba(201,168,76,.2) 70%,transparent);margin:0;"></div>
 
 <!-- ══ MOTION & ANIMAÇÃO ═══════════════════════════════════════════════════════ -->
-<section id="motion-design" style="background:#100C06;">
+<section id="motion-design" style="background:linear-gradient(160deg,#0A0806 0%,#14100A 40%,#0A0806 100%);position:relative;">
   <div class="section-inner">
+    <div class="section-num" style="color:rgba(235,160,40,.04);">10</div>
     <span class="section-tag reveal">— 10.5 · Motion &amp; Animação</span>
     <h2 class="section-title reveal reveal-d1">Movimento com Caráter</h2>
     <div class="rule reveal reveal-d2"></div>
@@ -3911,7 +4031,7 @@ nav {
 <div style="height:1px;background:linear-gradient(to right,transparent,rgba(201,168,76,.2) 30%,rgba(201,168,76,.2) 70%,transparent);margin:0;"></div>
 
 <!-- ══ ICONOGRAFIA & PICTOGRAMAS ══════════════════════════════════════════════ -->
-<section id="iconografia" style="background:#080604;">
+<section id="iconografia" style="background:linear-gradient(160deg,#080604 0%,#031E1C 50%,#080604 100%);">
   <div class="section-inner">
     <span class="section-tag reveal">— 11.5 · Iconografia</span>
     <h2 class="section-title reveal reveal-d1">Sistema de Ícones</h2>
@@ -4231,7 +4351,7 @@ nav {
 <div style="height:1px;background:linear-gradient(to right,transparent,rgba(201,168,76,.2) 30%,rgba(201,168,76,.2) 70%,transparent);margin:0;"></div>
 
 <!-- ══ CANAIS & PRESENÇA DIGITAL ══════════════════════════════════════════════ -->
-<section id="canais-digitais" style="background:#0D0A05;">
+<section id="canais-digitais" style="background:linear-gradient(180deg,#0A0608 0%,#120810 50%,#080604 100%);">
   <div class="section-inner">
     <span class="section-tag reveal">— 12.5 · Canais &amp; Presença Digital</span>
     <h2 class="section-title reveal reveal-d1">Presença com Intenção</h2>
@@ -4553,7 +4673,7 @@ nav {
 <div style="height:1px;background:linear-gradient(to right,transparent,rgba(201,168,76,.2) 30%,rgba(201,168,76,.2) 70%,transparent);margin:0;"></div>
 
 <!-- ══ ESPECIFICAÇÕES TÉCNICAS ════════════════════════════════════════════════ -->
-<section id="especificacoes" style="background:#080604;">
+<section id="especificacoes" style="background:linear-gradient(160deg,#080604 0%,#0C0A06 100%);">
   <div class="section-inner">
     <span class="section-tag reveal">— 13 · Especificações Técnicas</span>
     <h2 class="section-title reveal reveal-d1">Referência Técnica</h2>
@@ -4589,11 +4709,11 @@ nav {
           <div style="padding:18px 20px;font-family:monospace;font-size:12px;color:var(--text-faint);">PMS 7562 C</div>
         </div>
 
-        <!-- Âmbar -->
+        <!-- Ouro Vivo -->
         <div style="display:grid;grid-template-columns:180px 100px 160px 200px 140px;gap:0;border-bottom:1px solid rgba(255,255,255,.04);transition:background .2s;" onmouseover="this.style.background='rgba(201,168,76,.04)'" onmouseout="this.style.background='transparent'">
           <div style="padding:18px 20px;display:flex;align-items:center;gap:12px;">
             <div style="width:24px;height:24px;background:#EBA028;border-radius:6px;flex-shrink:0;"></div>
-            <span style="font-family:var(--head-family);font-size:14px;color:var(--text-main);">Âmbar</span>
+            <span style="font-family:var(--head-family);font-size:14px;color:var(--text-main);">Ouro Vivo</span>
           </div>
           <div style="padding:18px 20px;font-family:monospace;font-size:12px;color:#EBA028;">#EBA028</div>
           <div style="padding:18px 20px;font-family:monospace;font-size:12px;color:var(--text-faint);">235, 160, 40</div>
@@ -4640,11 +4760,11 @@ nav {
         <!-- Floresta -->
         <div style="display:grid;grid-template-columns:180px 100px 160px 200px 140px;gap:0;transition:background .2s;" onmouseover="this.style.background='rgba(201,168,76,.04)'" onmouseout="this.style.background='transparent'">
           <div style="padding:18px 20px;display:flex;align-items:center;gap:12px;">
-            <div style="width:24px;height:24px;background:#0D4D42;border-radius:6px;flex-shrink:0;"></div>
+            <div style="width:24px;height:24px;background:#042e2c;border-radius:6px;flex-shrink:0;"></div>
             <span style="font-family:var(--head-family);font-size:14px;color:var(--text-main);">Floresta</span>
           </div>
-          <div style="padding:18px 20px;font-family:monospace;font-size:12px;color:var(--text-dim);">#0D4D42</div>
-          <div style="padding:18px 20px;font-family:monospace;font-size:12px;color:var(--text-faint);">13, 77, 66</div>
+          <div style="padding:18px 20px;font-family:monospace;font-size:12px;color:var(--text-dim);">#042e2c</div>
+          <div style="padding:18px 20px;font-family:monospace;font-size:12px;color:var(--text-faint);">4, 46, 44</div>
           <div style="padding:18px 20px;font-family:monospace;font-size:12px;color:var(--text-faint);">83, 0, 14, 70</div>
           <div style="padding:18px 20px;font-family:monospace;font-size:12px;color:var(--text-faint);">PMS 3295 C</div>
         </div>
@@ -4824,7 +4944,7 @@ window.addEventListener('scroll',()=>{
 const io=new IntersectionObserver(es=>{
   es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target);}});
 },{threshold:.04,rootMargin:'0px 0px -20px 0px'});
-document.querySelectorAll('.reveal,.reveal-left,.closing-logo,.closing-cinema,.closing-back').forEach(el=>io.observe(el));
+document.querySelectorAll('.reveal,.reveal-left,.reveal-scale,.reveal-blur,.closing-logo,.closing-cinema,.closing-back').forEach(el=>io.observe(el));
 
 
 const toTop=document.getElementById('toTop');
@@ -4834,6 +4954,31 @@ if(toTop){
     else toTop.classList.remove('visible');
   },{passive:true});
 }
+
+// ── HEX COPY ─────────────────────────────────────────────────────────────────
+document.querySelectorAll('.pal-meta-row').forEach(row=>{
+  const text=row.textContent;
+  const hexMatch=text.match(/#[0-9A-Fa-f]{3,6}/);
+  if(!hexMatch) return;
+  row.classList.add('hex-copy');
+  row.title='Clique para copiar';
+  row.addEventListener('click',()=>{
+    navigator.clipboard.writeText(hexMatch[0]).then(()=>{
+      row.classList.add('copied');
+      setTimeout(()=>row.classList.remove('copied'),1800);
+    });
+  });
+});
+
+// ── PARALLAX SUBTLE ───────────────────────────────────────────────────────────
+window.addEventListener('scroll',()=>{
+  const sy=window.scrollY;
+  document.querySelectorAll('.mood-film img').forEach(img=>{
+    const rect=img.closest('.mood-film').getBoundingClientRect();
+    const mid=rect.top+rect.height/2-window.innerHeight/2;
+    img.style.transform=`translateY(${mid*0.04}px)`;
+  });
+},{passive:true});
 
 // ── LIGHTBOX ─────────────────────────────────────────────────────────────────
 (function(){

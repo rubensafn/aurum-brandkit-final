@@ -71,31 +71,38 @@ nav.nav-scrolled .nav-logo-svg{filter:drop-shadow(0 0 8px rgba(201,168,76,.2));}
 .nav-home-btn:hover{color:#C9A84C;}
 .nav-home-btn:hover::after{transform:scaleX(1);}
 
-/* ── SIDE NAV — dot navigation ── */
+/* ── SIDE NAV — always-visible labels ── */
 #sidenav{
-  position:fixed;right:24px;top:50%;transform:translateY(-50%);
+  position:fixed;right:0;top:50%;transform:translateY(-50%);
   z-index:89;display:none;flex-direction:column;
+  background:rgba(8,6,4,.5);backdrop-filter:blur(12px);
+  border-left:1px solid rgba(255,255,255,.05);
+  border-radius:12px 0 0 12px;
+  padding:12px 0;
 }
 @media(min-width:1100px){#sidenav{display:flex;}}
-#sidenav ul{list-style:none;display:flex;flex-direction:column;gap:6px;}
+#sidenav ul{list-style:none;display:flex;flex-direction:column;gap:0;}
 .sn-item a{
   display:flex;align-items:center;gap:10px;
-  text-decoration:none;justify-content:flex-end;padding:2px 0;
+  text-decoration:none;justify-content:flex-end;
+  padding:4px 14px 4px 20px;
+  transition:background .2s;
 }
+.sn-item a:hover{background:rgba(201,168,76,.04);}
 .sn-dot{
   width:4px;height:4px;border-radius:50%;
-  background:rgba(245,240,232,.18);flex-shrink:0;
-  transition:all .35s cubic-bezier(.16,1,.3,1);
+  background:rgba(245,240,232,.15);flex-shrink:0;
+  transition:all .3s cubic-bezier(.16,1,.3,1);
 }
 .sn-label{
-  font-family:var(--body-family);font-size:7px;letter-spacing:.3em;text-transform:uppercase;
-  color:rgba(245,240,232,.45);opacity:0;transform:translateX(6px);
-  transition:opacity .22s,transform .22s;white-space:nowrap;
+  font-family:var(--body-family);font-size:7px;letter-spacing:.25em;text-transform:uppercase;
+  color:rgba(245,240,232,.28);white-space:nowrap;
+  transition:color .2s;
 }
-.sn-item a:hover .sn-dot{background:rgba(201,168,76,.45);width:5px;height:5px;}
-.sn-item a:hover .sn-label{opacity:1;transform:none;}
-.sn-item.sn-active .sn-dot{background:#C9A84C;width:6px;height:6px;box-shadow:0 0 8px rgba(201,168,76,.55);}
-.sn-item.sn-active .sn-label{opacity:.65;transform:none;color:rgba(201,168,76,.8);}
+.sn-item a:hover .sn-dot{background:rgba(201,168,76,.4);width:5px;height:5px;}
+.sn-item a:hover .sn-label{color:rgba(245,240,232,.55);}
+.sn-item.sn-active .sn-dot{background:#C9A84C;width:5px;height:5px;box-shadow:0 0 6px rgba(201,168,76,.5);}
+.sn-item.sn-active .sn-label{color:rgba(201,168,76,.75);}
 
 /* ── FULL NAV MENU OVERLAY ── */
 #navmenu{
@@ -649,14 +656,15 @@ section{position:relative;overflow:hidden;}
 .mood-film-hero{grid-column:1;grid-row:span 2;}
 .mood-film-b{grid-column:2;grid-row:1;}
 .mood-film-c{grid-column:2;grid-row:2;}
-/* Row 2 — Floresta + Veludo texturas */
+/* Row 2 — Floresta × 2 + Veludo texturas */
 .mood-row2 {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 4px;
   margin-top: 4px;
 }
 .mood-film-r2 { border-radius: 0; background: #060E0B; }
+@media(max-width:700px) { .mood-row2 { grid-template-columns: 1fr 1fr; } }
 
 /* Grande imagem embaixo */
 .mood-film-full{
@@ -947,6 +955,115 @@ section{position:relative;overflow:hidden;}
   --orange: #EBA028;
   --orange-dim: rgba(235,160,40,.55);
   --orange-glow: rgba(235,160,40,.15);
+}
+
+/* ══ PALETTE V3 — horizontal card design ══ */
+.pal-v3-grid {
+  display: flex; flex-direction: column;
+  gap: 3px; margin-top: 48px;
+}
+.pal-v3-card {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,.06);
+  background: rgba(8,6,4,.55);
+  cursor: pointer;
+  transition: border-color .3s, box-shadow .35s;
+}
+.pal-v3-card:hover { border-color: rgba(255,255,255,.14); }
+[data-color="ourovivo"] .pal-v3-card,
+.pal-v3-card[data-color="ourovivo"] { background: rgba(212,165,32,.08); }
+.pal-v3-card[data-color="ourovivo"]:hover { box-shadow: 0 0 0 1px rgba(212,165,32,.25); }
+.pal-v3-card[data-color="ouro"]:hover { box-shadow: 0 0 0 1px rgba(201,168,76,.2); }
+.pal-v3-card[data-color="veludo"]:hover { box-shadow: 0 0 0 1px rgba(74,21,37,.4); }
+.pal-v3-card[data-color="floresta"]:hover { box-shadow: 0 0 0 1px rgba(4,46,44,.4); }
+.pal-v3-card[data-color="papel"] { background: rgba(245,240,232,.05); }
+.pal-v3-row {
+  display: flex; align-items: center;
+  height: 68px;
+}
+.pal-v3-swatch {
+  width: 68px; min-width: 68px; align-self: stretch;
+  transition: width .4s cubic-bezier(.16,1,.3,1);
+}
+.pal-v3-card:hover .pal-v3-swatch { width: 80px; }
+.pal-v3-info {
+  flex: 1; padding: 0 24px;
+  display: flex; align-items: baseline; gap: 16px;
+}
+.pal-v3-name {
+  font-family: var(--head-family); font-size: 22px;
+  color: rgba(245,240,232,.9); min-width: 110px;
+  transition: letter-spacing .3s;
+}
+.pal-v3-card:hover .pal-v3-name { letter-spacing: .02em; }
+.pal-v3-meaning {
+  font-family: var(--body-family); font-size: 9px;
+  letter-spacing: .28em; text-transform: uppercase;
+  color: rgba(245,240,232,.28);
+}
+.pal-v3-hex {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 15px; letter-spacing: .08em;
+  color: rgba(245,240,232,.5);
+  padding: 0 24px; cursor: copy;
+  transition: color .2s;
+  position: relative;
+}
+.pal-v3-hex::after {
+  content: 'copiar'; position: absolute; top: -20px; left: 50%;
+  transform: translateX(-50%); font-size: 7px; letter-spacing: .15em;
+  color: #C9A84C; opacity: 0; transition: opacity .2s; pointer-events: none;
+}
+.pal-v3-hex:hover { color: #C9A84C; }
+.pal-v3-hex:hover::after { opacity: .7; }
+.pal-v3-hex.copied { color: #C9A84C; }
+.pal-v3-pct {
+  font-family: var(--head-family); font-size: 26px;
+  color: rgba(245,240,232,.14);
+  padding: 0 24px 0 0; min-width: 72px; text-align: right;
+}
+/* Expand body */
+.pal-v3-body {
+  max-height: 0; overflow: hidden;
+  transition: max-height .5s cubic-bezier(.16,1,.3,1);
+  border-top: 1px solid transparent;
+}
+.pal-v3-card:hover .pal-v3-body {
+  max-height: 140px;
+  border-top-color: rgba(255,255,255,.05);
+}
+.pal-v3-inner {
+  display: flex; align-items: stretch;
+}
+.pal-v3-specs {
+  display: flex; flex-direction: column;
+  gap: 5px; padding: 14px 24px;
+  min-width: 300px; border-right: 1px solid rgba(255,255,255,.04);
+}
+.pal-v3-spec {
+  font-family: var(--body-family); font-size: 9.5px;
+  color: rgba(245,240,232,.45); display: flex; gap: 10px; align-items: baseline;
+}
+.pal-v3-spec b {
+  color: rgba(201,168,76,.5); letter-spacing: .2em;
+  text-transform: uppercase; font-size: 7px;
+  min-width: 34px; font-weight: 400;
+}
+.pal-v3-tones {
+  display: flex; flex: 1;
+}
+.pal-v3-tone {
+  flex: 1; position: relative;
+  display: flex; align-items: flex-end; justify-content: center;
+  padding-bottom: 8px;
+  transition: flex .3s cubic-bezier(.16,1,.3,1);
+  cursor: copy;
+}
+.pal-v3-tone:hover { flex: 1.6; }
+.pal-v3-tone-hex {
+  font-family: 'Space Grotesk', monospace; font-size: 7px;
+  writing-mode: vertical-rl; white-space: nowrap; opacity: .6;
+  letter-spacing: .05em;
 }
 
 /* ── Palette: bottom color indicator (not top — doesn't obscure the swatch) ── */
@@ -2263,12 +2380,14 @@ nav {
               fill: #141210;
             }
       
+            /* g3 — zonas de espaçamento entre letras (fills retangulares verticais) */
             .g3, .g4 {
-              fill: rgba(245,240,232,.09);
+              fill: rgba(235,160,40,.28);
             }
 
+            /* g5 — caixa delimitadora principal + marcações de referência (stroke) */
             .g5 {
-              stroke: rgba(245,240,232,.22);
+              stroke: rgba(201,168,76,.6);
             }
 
             .g5, .g6, .g7 {
@@ -2277,15 +2396,17 @@ nav {
             }
 
             .g2, .g4, .g8 {
-              opacity: .4;
+              opacity: .5;
             }
 
+            /* g6 — grade de fundo (linhas finas verticais + horizontais) */
             .g6 {
-              stroke: rgba(245,240,232,.07);
+              stroke: rgba(201,168,76,.13);
             }
 
+            /* g7 — linhas de medição internas (dentro de cada zona de letra) */
             .g7 {
-              stroke: rgba(245,240,232,.13);
+              stroke: rgba(4,46,44,.75);
             }
           </style>
         </defs>
@@ -3177,10 +3298,172 @@ nav {
       </div>
     </div>
 
-    <div class="pal-grid" style="grid-template-columns:repeat(6,1fr);">
+    <div class="pal-v3-grid reveal reveal-d3">
 
     <!-- 1. VOID -->
-    <div class="pal-col reveal reveal-d1">
+    <div class="pal-v3-card" data-color="void">
+      <div class="pal-v3-row">
+        <div class="pal-v3-swatch" style="background:#080604;border-right:1px solid rgba(255,255,255,.06);"></div>
+        <div class="pal-v3-info"><span class="pal-v3-name">Void</span><span class="pal-v3-meaning">Abismo · Profundidade · Eterno</span></div>
+        <span class="pal-v3-hex" title="Clique para copiar">#080604</span>
+        <span class="pal-v3-pct">50%</span>
+      </div>
+      <div class="pal-v3-body">
+        <div class="pal-v3-inner">
+          <div class="pal-v3-specs">
+            <div class="pal-v3-spec"><b>RGB</b>R:8 · G:6 · B:4</div>
+            <div class="pal-v3-spec"><b>CMYK</b>C:0 M:25 Y:50 K:98</div>
+            <div class="pal-v3-spec"><b>PAN</b>PMS Black 6 C</div>
+            <div class="pal-v3-spec" style="margin-top:4px;opacity:.4;font-size:8px;letter-spacing:.1em;">60% — Base fundacional de toda a identidade</div>
+          </div>
+          <div class="pal-v3-tones">
+            <div class="pal-v3-tone" style="background:#211F1D;"><span class="pal-v3-tone-hex" style="color:rgba(255,255,255,.55);">#211F1D</span></div>
+            <div class="pal-v3-tone" style="background:#52514F;"><span class="pal-v3-tone-hex" style="color:rgba(255,255,255,.6);">#52514F</span></div>
+            <div class="pal-v3-tone" style="background:#848382;"><span class="pal-v3-tone-hex" style="color:rgba(0,0,0,.55);">#848382</span></div>
+            <div class="pal-v3-tone" style="background:#B5B4B4;"><span class="pal-v3-tone-hex" style="color:rgba(0,0,0,.55);">#B5B4B4</span></div>
+            <div class="pal-v3-tone" style="background:#E7E7E6;"><span class="pal-v3-tone-hex" style="color:rgba(0,0,0,.5);">#E7E7E6</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. FLORESTA -->
+    <div class="pal-v3-card" data-color="floresta">
+      <div class="pal-v3-row">
+        <div class="pal-v3-swatch" style="background:#042e2c;border-right:1px solid rgba(255,255,255,.06);"></div>
+        <div class="pal-v3-info"><span class="pal-v3-name">Floresta</span><span class="pal-v3-meaning">Natureza · Silêncio · Profundidade</span></div>
+        <span class="pal-v3-hex" title="Clique para copiar">#042e2c</span>
+        <span class="pal-v3-pct">5%</span>
+      </div>
+      <div class="pal-v3-body">
+        <div class="pal-v3-inner">
+          <div class="pal-v3-specs">
+            <div class="pal-v3-spec"><b>RGB</b>R:4 · G:46 · B:44</div>
+            <div class="pal-v3-spec"><b>CMYK</b>C:91 M:0 Y:4 K:82</div>
+            <div class="pal-v3-spec"><b>PAN</b>PMS 3302 C</div>
+            <div class="pal-v3-spec" style="margin-top:4px;opacity:.4;font-size:8px;letter-spacing:.1em;">5% — Acento ambiental · Profundidade orgânica</div>
+          </div>
+          <div class="pal-v3-tones">
+            <div class="pal-v3-tone" style="background:#1D4341;"><span class="pal-v3-tone-hex" style="color:rgba(255,255,255,.6);">#1D4341</span></div>
+            <div class="pal-v3-tone" style="background:#4F6C6B;"><span class="pal-v3-tone-hex" style="color:rgba(255,255,255,.6);">#4F6C6B</span></div>
+            <div class="pal-v3-tone" style="background:#819796;"><span class="pal-v3-tone-hex" style="color:rgba(0,0,0,.55);">#819796</span></div>
+            <div class="pal-v3-tone" style="background:#B4C0BF;"><span class="pal-v3-tone-hex" style="color:rgba(0,0,0,.55);">#B4C0BF</span></div>
+            <div class="pal-v3-tone" style="background:#E6EAEA;"><span class="pal-v3-tone-hex" style="color:rgba(0,0,0,.5);">#E6EAEA</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. OURO VIVO -->
+    <div class="pal-v3-card" data-color="ourovivo">
+      <div class="pal-v3-row">
+        <div class="pal-v3-swatch" style="background:#D4A520;border-right:1px solid rgba(255,255,255,.06);"></div>
+        <div class="pal-v3-info"><span class="pal-v3-name" style="color:#080604;">Ouro Vivo</span><span class="pal-v3-meaning" style="color:rgba(8,6,4,.45);">Vitalidade · Calor · Intensidade</span></div>
+        <span class="pal-v3-hex" style="color:rgba(8,6,4,.6);" title="Clique para copiar">#D4A520</span>
+        <span class="pal-v3-pct" style="color:rgba(8,6,4,.2);">—</span>
+      </div>
+      <div class="pal-v3-body">
+        <div class="pal-v3-inner">
+          <div class="pal-v3-specs">
+            <div class="pal-v3-spec" style="color:rgba(8,6,4,.55);"><b style="color:rgba(8,6,4,.4);">RGB</b>R:212 · G:165 · B:32</div>
+            <div class="pal-v3-spec" style="color:rgba(8,6,4,.55);"><b style="color:rgba(8,6,4,.4);">CMYK</b>C:0 M:22 Y:85 K:17</div>
+            <div class="pal-v3-spec" style="color:rgba(8,6,4,.55);"><b style="color:rgba(8,6,4,.4);">PAN</b>PMS 7549 C</div>
+            <div class="pal-v3-spec" style="margin-top:4px;opacity:.4;font-size:8px;letter-spacing:.1em;color:rgba(8,6,4,.6);">Destaque · Alto impacto · CTA</div>
+          </div>
+          <div class="pal-v3-tones">
+            <div class="pal-v3-tone" style="background:#DAAF38;"><span class="pal-v3-tone-hex" style="color:rgba(0,0,0,.55);">#DAAF38</span></div>
+            <div class="pal-v3-tone" style="background:#E2C165;"><span class="pal-v3-tone-hex" style="color:rgba(0,0,0,.55);">#E2C165</span></div>
+            <div class="pal-v3-tone" style="background:#EAD290;"><span class="pal-v3-tone-hex" style="color:rgba(0,0,0,.5);">#EAD290</span></div>
+            <div class="pal-v3-tone" style="background:#F2E4BB;"><span class="pal-v3-tone-hex" style="color:rgba(0,0,0,.45);">#F2E4BB</span></div>
+            <div class="pal-v3-tone" style="background:#FAF5E5;"><span class="pal-v3-tone-hex" style="color:rgba(0,0,0,.4);">#FAF5E5</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. OURO -->
+    <div class="pal-v3-card" data-color="ouro">
+      <div class="pal-v3-row">
+        <div class="pal-v3-swatch" style="background:#C9A84C;border-right:1px solid rgba(255,255,255,.06);"></div>
+        <div class="pal-v3-info"><span class="pal-v3-name" style="color:#080604;">Ouro</span><span class="pal-v3-meaning" style="color:rgba(8,6,4,.45);">Valor · Permanência · Raridade</span></div>
+        <span class="pal-v3-hex" style="color:rgba(8,6,4,.6);" title="Clique para copiar">#C9A84C</span>
+        <span class="pal-v3-pct" style="color:rgba(8,6,4,.2);">20%</span>
+      </div>
+      <div class="pal-v3-body">
+        <div class="pal-v3-inner">
+          <div class="pal-v3-specs">
+            <div class="pal-v3-spec" style="color:rgba(8,6,4,.55);"><b style="color:rgba(8,6,4,.4);">RGB</b>R:201 · G:168 · B:76</div>
+            <div class="pal-v3-spec" style="color:rgba(8,6,4,.55);"><b style="color:rgba(8,6,4,.4);">CMYK</b>C:0 M:16 Y:62 K:21</div>
+            <div class="pal-v3-spec" style="color:rgba(8,6,4,.55);"><b style="color:rgba(8,6,4,.4);">PAN</b>PMS 871 C</div>
+            <div class="pal-v3-spec" style="margin-top:4px;opacity:.4;font-size:8px;letter-spacing:.1em;color:rgba(8,6,4,.6);">20% — Acento · Identidade</div>
+          </div>
+          <div class="pal-v3-tones">
+            <div class="pal-v3-tone" style="background:#CEB15E;"><span class="pal-v3-tone-hex" style="color:rgba(0,0,0,.55);">#CEB15E</span></div>
+            <div class="pal-v3-tone" style="background:#D9C282;"><span class="pal-v3-tone-hex" style="color:rgba(0,0,0,.55);">#D9C282</span></div>
+            <div class="pal-v3-tone" style="background:#E4D4A6;"><span class="pal-v3-tone-hex" style="color:rgba(0,0,0,.5);">#E4D4A6</span></div>
+            <div class="pal-v3-tone" style="background:#EFE5C9;"><span class="pal-v3-tone-hex" style="color:rgba(0,0,0,.45);">#EFE5C9</span></div>
+            <div class="pal-v3-tone" style="background:#FAF6ED;"><span class="pal-v3-tone-hex" style="color:rgba(0,0,0,.4);">#FAF6ED</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. VELUDO -->
+    <div class="pal-v3-card" data-color="veludo">
+      <div class="pal-v3-row">
+        <div class="pal-v3-swatch" style="background:#4A1525;border-right:1px solid rgba(255,255,255,.06);"></div>
+        <div class="pal-v3-info"><span class="pal-v3-name">Veludo</span><span class="pal-v3-meaning">Mistério · Intimidade · VIP</span></div>
+        <span class="pal-v3-hex" title="Clique para copiar">#4A1525</span>
+        <span class="pal-v3-pct">5%</span>
+      </div>
+      <div class="pal-v3-body">
+        <div class="pal-v3-inner">
+          <div class="pal-v3-specs">
+            <div class="pal-v3-spec"><b>RGB</b>R:74 · G:21 · B:37</div>
+            <div class="pal-v3-spec"><b>CMYK</b>C:0 M:72 Y:50 K:71</div>
+            <div class="pal-v3-spec"><b>PAN</b>PMS 229 C</div>
+            <div class="pal-v3-spec" style="margin-top:4px;opacity:.4;font-size:8px;letter-spacing:.1em;">5% — Acento VIP · Eventos exclusivos</div>
+          </div>
+          <div class="pal-v3-tones">
+            <div class="pal-v3-tone" style="background:#5C1C2E;"><span class="pal-v3-tone-hex" style="color:rgba(255,255,255,.5);">#5C1C2E</span></div>
+            <div class="pal-v3-tone" style="background:#8B3D52;"><span class="pal-v3-tone-hex" style="color:rgba(255,255,255,.5);">#8B3D52</span></div>
+            <div class="pal-v3-tone" style="background:#B87083;"><span class="pal-v3-tone-hex" style="color:rgba(255,255,255,.5);">#B87083</span></div>
+            <div class="pal-v3-tone" style="background:#D9A9B5;"><span class="pal-v3-tone-hex" style="color:rgba(0,0,0,.45);">#D9A9B5</span></div>
+            <div class="pal-v3-tone" style="background:#F0DDE2;"><span class="pal-v3-tone-hex" style="color:rgba(0,0,0,.4);">#F0DDE2</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. PAPEL -->
+    <div class="pal-v3-card" data-color="papel">
+      <div class="pal-v3-row">
+        <div class="pal-v3-swatch" style="background:#F5F0E8;border-right:1px solid rgba(8,6,4,.1);"></div>
+        <div class="pal-v3-info"><span class="pal-v3-name" style="color:#080604;">Papel</span><span class="pal-v3-meaning" style="color:rgba(8,6,4,.4);">Claridade · Respiração · Luz</span></div>
+        <span class="pal-v3-hex" style="color:rgba(8,6,4,.55);" title="Clique para copiar">#F5F0E8</span>
+        <span class="pal-v3-pct" style="color:rgba(8,6,4,.18);">20%</span>
+      </div>
+      <div class="pal-v3-body">
+        <div class="pal-v3-inner">
+          <div class="pal-v3-specs">
+            <div class="pal-v3-spec" style="color:rgba(8,6,4,.55);"><b style="color:rgba(8,6,4,.4);">RGB</b>R:245 · G:240 · B:232</div>
+            <div class="pal-v3-spec" style="color:rgba(8,6,4,.55);"><b style="color:rgba(8,6,4,.4);">CMYK</b>C:0 M:2 Y:5 K:4</div>
+            <div class="pal-v3-spec" style="color:rgba(8,6,4,.55);"><b style="color:rgba(8,6,4,.4);">PAN</b>PMS 9103 C</div>
+            <div class="pal-v3-spec" style="margin-top:4px;opacity:.4;font-size:8px;letter-spacing:.1em;color:rgba(8,6,4,.6);">20% — Texto e superfícies impressas</div>
+          </div>
+          <div class="pal-v3-tones">
+            <div class="pal-v3-tone" style="background:#F6F2EA;"><span class="pal-v3-tone-hex" style="color:rgba(0,0,0,.45);">#F6F2EA</span></div>
+            <div class="pal-v3-tone" style="background:#F8F5EF;"><span class="pal-v3-tone-hex" style="color:rgba(0,0,0,.45);">#F8F5EF</span></div>
+            <div class="pal-v3-tone" style="background:#FAF8F4;"><span class="pal-v3-tone-hex" style="color:rgba(0,0,0,.4);">#FAF8F4</span></div>
+            <div class="pal-v3-tone" style="background:#FCFBF8;"><span class="pal-v3-tone-hex" style="color:rgba(0,0,0,.35);">#FCFBF8</span></div>
+            <div class="pal-v3-tone" style="background:#FFFEFD;"><span class="pal-v3-tone-hex" style="color:rgba(0,0,0,.3);">#FFFEFD</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </div><!-- /pal-v3-grid -->
+    <div style="display:none;">
       <div class="pal-swatch" style="background:#080604;border:1px solid rgba(255,255,255,.06);">
         <div class="pal-swatch-inner">
           <span class="pal-name" style="color:#F5F0E8;">Void</span>
@@ -3425,7 +3708,7 @@ nav {
     <div class="rule reveal reveal-d2"></div>
     <p class="reveal reveal-d2" style="max-width:560px;font-family:var(--body-family);font-size:14px;line-height:1.8;color:rgba(245,240,232,.55);margin-bottom:56px;">Cada gradiente expressa uma dimensão da marca. O ouro pede transição — não é uma cor plana, é um metal vivo. O Floresta carrega profundidade orgânica. A fusão une os dois mundos.</p>
 
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;" class="reveal reveal-d3">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:24px;" class="reveal reveal-d3">
 
       <!-- Gradiente Ouro -->
       <div style="display:flex;flex-direction:column;gap:16px;">
@@ -3484,6 +3767,71 @@ nav {
         </div>
         <div style="font-family:var(--body-family);font-size:11px;color:rgba(245,240,232,.5);line-height:1.7;">Void → Floresta → Mata → Bronze → Ouro. Gradiente de fusão para peças que unem as duas essências da marca.</div>
         <div style="font-family:'Space Grotesk',monospace;font-size:9px;color:rgba(201,168,76,.45);letter-spacing:.1em;background:rgba(201,168,76,.05);padding:8px 12px;border-radius:6px;border:1px solid rgba(4,46,44,.15);border-right-color:rgba(201,168,76,.15);">linear-gradient(135deg,<br>#080604 → #042e2c → #1A5C2A → #6B5722 → #C9A84C)</div>
+      </div>
+
+    </div>
+
+    <!-- Segunda fileira de gradientes -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;" class="reveal reveal-d4">
+
+      <!-- Gradiente Veludo -->
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="height:200px;border-radius:16px;background:linear-gradient(135deg, #080604 0%, #1A0810 25%, #4A1525 55%, #8B3D52 80%, #D9A9B5 100%);position:relative;overflow:hidden;">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.55) 0%,transparent 55%);"></div>
+          <div style="position:absolute;bottom:20px;left:20px;">
+            <div style="font-family:var(--head-family);font-size:18px;color:#F5F0E8;letter-spacing:.1em;">Veludo</div>
+            <div style="font-family:var(--body-family);font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:rgba(245,240,232,.45);margin-top:4px;">Velvet · VIP · Night</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:4px;border-radius:8px;overflow:hidden;height:32px;">
+          <div style="background:#080604;"></div>
+          <div style="background:#1A0810;"></div>
+          <div style="background:#4A1525;"></div>
+          <div style="background:#8B3D52;"></div>
+          <div style="background:#D9A9B5;"></div>
+        </div>
+        <div style="font-family:var(--body-family);font-size:11px;color:rgba(245,240,232,.5);line-height:1.7;">Void → Noite Profunda → Veludo → Bordô → Rosé. Para campanhas VIP, eventos exclusivos, sala black.</div>
+        <div style="font-family:'Space Grotesk',monospace;font-size:9px;color:rgba(74,21,37,.9);letter-spacing:.1em;background:rgba(74,21,37,.1);padding:8px 12px;border-radius:6px;border:1px solid rgba(74,21,37,.2);">linear-gradient(135deg,<br>#080604 → #1A0810 → #4A1525 → #8B3D52 → #D9A9B5)</div>
+      </div>
+
+      <!-- Gradiente Crepúsculo -->
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="height:200px;border-radius:16px;background:linear-gradient(135deg, #4A1525 0%, #2B0E1C 20%, #080604 40%, #1A1205 65%, #C9A84C 100%);position:relative;overflow:hidden;">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.45) 0%,transparent 55%);"></div>
+          <div style="position:absolute;bottom:20px;left:20px;">
+            <div style="font-family:var(--head-family);font-size:18px;color:#F5F0E8;letter-spacing:.1em;">Crepúsculo</div>
+            <div style="font-family:var(--body-family);font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:rgba(245,240,232,.45);margin-top:4px;">Velvet × Gold · Drama</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:4px;border-radius:8px;overflow:hidden;height:32px;">
+          <div style="background:#4A1525;"></div>
+          <div style="background:#2B0E1C;"></div>
+          <div style="background:#080604;"></div>
+          <div style="background:#1A1205;"></div>
+          <div style="background:#C9A84C;"></div>
+        </div>
+        <div style="font-family:var(--body-family);font-size:11px;color:rgba(245,240,232,.5);line-height:1.7;">Veludo → Abismo → Void → Bronze → Ouro. Alta dramaticidade. Para cartazes, thumbnails e comunicação de impacto.</div>
+        <div style="font-family:'Space Grotesk',monospace;font-size:9px;color:rgba(201,168,76,.5);letter-spacing:.1em;background:rgba(74,21,37,.08);padding:8px 12px;border-radius:6px;border:1px solid rgba(74,21,37,.15);border-right-color:rgba(201,168,76,.15);">linear-gradient(135deg,<br>#4A1525 → #080604 → #1A1205 → #C9A84C)</div>
+      </div>
+
+      <!-- Gradiente Luminoso -->
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="height:200px;border-radius:16px;background:linear-gradient(135deg, #080604 0%, #1A1205 30%, #C9A84C 55%, #F0D490 75%, #F5F0E8 100%);position:relative;overflow:hidden;">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.4) 0%,transparent 55%);"></div>
+          <div style="position:absolute;bottom:20px;left:20px;">
+            <div style="font-family:var(--head-family);font-size:18px;color:#080604;letter-spacing:.1em;">Luminoso</div>
+            <div style="font-family:var(--body-family);font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:rgba(8,6,4,.45);margin-top:4px;">Gold × Papel · Premium</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:4px;border-radius:8px;overflow:hidden;height:32px;">
+          <div style="background:#080604;"></div>
+          <div style="background:#1A1205;"></div>
+          <div style="background:#C9A84C;"></div>
+          <div style="background:#F0D490;"></div>
+          <div style="background:#F5F0E8;"></div>
+        </div>
+        <div style="font-family:var(--body-family);font-size:11px;color:rgba(245,240,232,.5);line-height:1.7;">Void → Bronze → Ouro → Pale Gold → Papel. Para headers claros, materiais impressos premium, comunicação de apresentação.</div>
+        <div style="font-family:'Space Grotesk',monospace;font-size:9px;color:rgba(201,168,76,.55);letter-spacing:.1em;background:rgba(201,168,76,.06);padding:8px 12px;border-radius:6px;border:1px solid rgba(201,168,76,.12);">linear-gradient(135deg,<br>#080604 → #C9A84C → #F0D490 → #F5F0E8)</div>
       </div>
 
     </div>
@@ -3721,17 +4069,24 @@ nav {
       </div>
     </div>
 
-    <!-- ROW 2: Floresta + Veludo — novas texturas -->
+    <!-- ROW 2: Floresta × 2 + Veludo -->
     <div class="mood-row2 reveal reveal-d3">
       <div class="mood-film mood-film-r2" style="height:260px;">
-        <img src="./MOODBOARD/close-up-abstract-green-leaf-texture-nature-background-tropical-leaves.jpg" alt="Natureza Viva" loading="lazy" style="width:100%;height:100%;object-fit:cover;filter:brightness(.72) saturate(.9);">
+        <img src="./MOODBOARD/background-texture-natural-leaves-dark-green.jpg" alt="Folhagem Profunda" loading="lazy" style="width:100%;height:100%;object-fit:cover;filter:brightness(.78);">
         <div class="mood-sm-overlay">
-          <span class="mood-sm-label">Floresta · Profundidade Orgânica</span>
+          <span class="mood-sm-label">Floresta · Ambiência Orgânica</span>
+          <span class="mood-sm-title">Folhagem Profunda</span>
+        </div>
+      </div>
+      <div class="mood-film mood-film-r2" style="height:260px;">
+        <img src="./MOODBOARD/close-up-abstract-green-leaf-texture-nature-background-tropical-leaves.jpg" alt="Natureza Viva" loading="lazy" style="width:100%;height:100%;object-fit:cover;filter:brightness(.75);">
+        <div class="mood-sm-overlay">
+          <span class="mood-sm-label">Floresta · Textura Tropical</span>
           <span class="mood-sm-title">Natureza Viva</span>
         </div>
       </div>
       <div class="mood-film mood-film-r2" style="height:260px;">
-        <img src="./MOODBOARD/smooth-elegant-pink-silk-satin-luxury-cloth-texture-as-abstract-background-luxurious-background-design.jpg" alt="Tecido de Prestígio" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center 40%;filter:brightness(.68) saturate(.75) hue-rotate(260deg);">
+        <img src="./MOODBOARD/smooth-elegant-pink-silk-satin-luxury-cloth-texture-as-abstract-background-luxurious-background-design.jpg" alt="Tecido de Prestígio" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center 40%;filter:brightness(.8);">
         <div class="mood-sm-overlay">
           <span class="mood-sm-label">Veludo · Intimidade VIP</span>
           <span class="mood-sm-title">Tecido de Prestígio</span>
@@ -5109,6 +5464,26 @@ if(toTop){
     else toTop.classList.remove('visible');
   },{passive:true});
 }
+
+// ── PAL V3 HEX COPY ──────────────────────────────────────────────────────────
+document.querySelectorAll('.pal-v3-hex').forEach(el=>{
+  el.addEventListener('click',()=>{
+    const hex=el.textContent.trim();
+    navigator.clipboard.writeText(hex).then(()=>{
+      el.classList.add('copied');
+      setTimeout(()=>el.classList.remove('copied'),1600);
+    });
+  });
+});
+document.querySelectorAll('.pal-v3-tone').forEach(el=>{
+  el.addEventListener('click',()=>{
+    const hex=(el.querySelector('.pal-v3-tone-hex')||el).textContent.trim();
+    navigator.clipboard.writeText(hex).then(()=>{
+      el.style.outline='1px solid rgba(201,168,76,.5)';
+      setTimeout(()=>el.style.outline='',1400);
+    });
+  });
+});
 
 // ── HEX COPY ─────────────────────────────────────────────────────────────────
 document.querySelectorAll('.pal-meta-row').forEach(row=>{

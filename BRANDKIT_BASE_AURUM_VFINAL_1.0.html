@@ -306,7 +306,8 @@ section{position:relative;overflow:hidden;}
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
 @keyframes ruleIn{from{opacity:0;transform:scaleX(0)}to{opacity:1;transform:scaleX(1)}}
-@keyframes scrollPulse{0%,100%{opacity:.2;transform:scaleY(.65) translateY(6px)}50%{opacity:1;transform:scaleY(1)}}
+@keyframes scrollPulse{0%{opacity:.2;transform:translateY(-5px)}50%{opacity:1;transform:translateY(5px)}100%{opacity:.2;transform:translateY(-5px)}}
+@keyframes emberFloat{0%,100%{opacity:.15;transform:translateY(0)}50%{opacity:.55;transform:translateY(-12px)}}
 @keyframes shimmer{0%,100%{background-position:120% 0}45%,55%{background-position:-20% 0}}
 
 @media(max-width:900px){
@@ -1810,12 +1811,12 @@ nav {
 <section id="cover">
   <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,#C9A84C,var(--orange),#C9A84C,transparent);opacity:.4;"></div>
   <div style="position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,#EBA028,transparent);opacity:.2;"></div>
-  <!-- Orange ember particles -->
-  <div style="position:absolute;bottom:80px;left:50%;transform:translateX(-50%);display:flex;gap:24px;pointer-events:none;">
-    <span style="width:3px;height:3px;background:#EBA028;opacity:.4;border-radius:50%;animation:fadeUp 2s 2.6s ease-in-out infinite alternate;display:block;"></span>
-    <span style="width:2px;height:2px;background:#C9A84C;opacity:.3;border-radius:50%;animation:fadeUp 2.4s 2.8s ease-in-out infinite alternate;display:block;"></span>
-    <span style="width:3px;height:3px;background:#EBA028;opacity:.35;border-radius:50%;animation:fadeUp 1.8s 3s ease-in-out infinite alternate;display:block;"></span>
-  </div>
+  <!-- Orange ember particles — scattered, clear of scroll indicator -->
+  <span style="position:absolute;bottom:260px;left:calc(50% - 110px);width:3px;height:3px;background:#EBA028;opacity:.4;border-radius:50%;animation:emberFloat 2.2s 2.6s ease-in-out infinite;display:block;pointer-events:none;"></span>
+  <span style="position:absolute;bottom:220px;left:calc(50% + 80px);width:2px;height:2px;background:#C9A84C;opacity:.3;border-radius:50%;animation:emberFloat 2.8s 2.9s ease-in-out infinite;display:block;pointer-events:none;"></span>
+  <span style="position:absolute;bottom:290px;left:calc(50% + 30px);width:2px;height:2px;background:#EBA028;opacity:.35;border-radius:50%;animation:emberFloat 2.0s 3.2s ease-in-out infinite;display:block;pointer-events:none;"></span>
+  <span style="position:absolute;bottom:240px;left:calc(50% - 160px);width:2px;height:2px;background:#C9A84C;opacity:.22;border-radius:50%;animation:emberFloat 3.1s 2.3s ease-in-out infinite;display:block;pointer-events:none;"></span>
+  <span style="position:absolute;bottom:310px;left:calc(50% + 130px);width:3px;height:3px;background:#EBA028;opacity:.2;border-radius:50%;animation:emberFloat 2.5s 3.5s ease-in-out infinite;display:block;pointer-events:none;"></span>
 
   <div class="cover-eyebrow">AURUM Cinema · Identidade Visual · Sistema Ouro · Au(79)</div>
   <!-- Cover: logo em ouro com shimmer dourado -->
@@ -1859,8 +1860,8 @@ nav {
   <div class="cover-concept" style="color:#C9A84C;opacity:1;">Sistema Ouro · Au(79) · Identidade Fundadora</div>
   <div class="cover-tag" style="color:rgba(245,240,232,.65);">"<span style="color:#C9A84C;font-style:normal;">O ouro</span> que <span style="color:#E8C84A;font-style:normal;">define</span> tudo."</div>
   <div class="cover-scroll">
-    <div class="cover-scroll-bar"></div>
     <span>Explorar</span>
+    <div class="cover-scroll-bar"></div>
   </div>
 </section>
 
@@ -1881,6 +1882,109 @@ nav {
     </div>
   </div>
 </section>
+
+<div style="height:1px;background:linear-gradient(to right,transparent,rgba(201,168,76,.2) 30%,rgba(201,168,76,.2) 70%,transparent);margin:0;"></div>
+
+<!-- ══ POSICIONAMENTO ESTRATÉGICO ══════════════════════════════════════════════ -->
+<section id="posicionamento" style="background:#080604;">
+  <div class="section-inner">
+    <span class="section-tag reveal">— 01.5 · Estratégia de Marca</span>
+    <h2 class="section-title reveal reveal-d1">Posicionamento Estratégico</h2>
+    <div class="rule reveal reveal-d2"></div>
+
+    <!-- Declaração de Posicionamento -->
+    <div class="reveal reveal-d2" style="max-width:800px;margin-bottom:64px;">
+      <div style="font-family:var(--body-family);font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:24px;">Declaração de Posicionamento</div>
+      <blockquote style="font-family:var(--head-family);font-size:clamp(18px,2.5vw,28px);line-height:1.45;color:var(--text-main);border-left:3px solid rgba(201,168,76,.45);padding-left:32px;margin:0;font-style:italic;">
+        Para o público que reconhece o valor do tempo e da experiência, a AURUM Cinema é o único espaço onde o cinema é tratado como ritual sagrado — não como entretenimento de massa. Diferente dos complexos convencionais, a AURUM oferece curadoria rigorosa, ambiente imersivo e pertencimento a uma comunidade de sensibilidade apurada.
+      </blockquote>
+    </div>
+
+    <!-- 4 Pilares -->
+    <div class="reveal reveal-d2" style="margin-bottom:64px;">
+      <div style="font-family:var(--body-family);font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:32px;">Quatro Pilares da Marca</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:3px;">
+
+        <div style="border:1px solid rgba(201,168,76,.1);border-top:2px solid #C9A84C;border-radius:16px;padding:36px 28px;background:rgba(201,168,76,.03);transition:background .3s,transform .4s cubic-bezier(.34,1.56,.64,1);" onmouseover="this.style.background='rgba(201,168,76,.06)';this.style.transform='translateY(-6px)'" onmouseout="this.style.background='rgba(201,168,76,.03)';this.style.transform='none'">
+          <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.4em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:16px;">01</div>
+          <div style="font-family:var(--head-family);font-size:22px;color:#C9A84C;margin-bottom:16px;line-height:1.1;">Curadoria</div>
+          <div style="font-family:var(--body-family);font-size:13px;line-height:1.75;color:var(--text-dim);">Não exibimos tudo. Selecionamos com critério o que merece existir em tela — cada filme é uma escolha editorial deliberada, não uma decisão comercial.</div>
+        </div>
+
+        <div style="border:1px solid rgba(201,168,76,.1);border-top:2px solid rgba(201,168,76,.6);border-radius:16px;padding:36px 28px;background:rgba(201,168,76,.03);transition:background .3s,transform .4s cubic-bezier(.34,1.56,.64,1);" onmouseover="this.style.background='rgba(201,168,76,.06)';this.style.transform='translateY(-6px)'" onmouseout="this.style.background='rgba(201,168,76,.03)';this.style.transform='none'">
+          <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.4em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:16px;">02</div>
+          <div style="font-family:var(--head-family);font-size:22px;color:#C9A84C;margin-bottom:16px;line-height:1.1;">Excelência</div>
+          <div style="font-family:var(--body-family);font-size:13px;line-height:1.75;color:var(--text-dim);">Cada detalhe da experiência — do assento à acústica, do atendimento ao design — é executado com precisão que não admite meio-termo.</div>
+        </div>
+
+        <div style="border:1px solid rgba(201,168,76,.1);border-top:2px solid rgba(201,168,76,.4);border-radius:16px;padding:36px 28px;background:rgba(201,168,76,.03);transition:background .3s,transform .4s cubic-bezier(.34,1.56,.64,1);" onmouseover="this.style.background='rgba(201,168,76,.06)';this.style.transform='translateY(-6px)'" onmouseout="this.style.background='rgba(201,168,76,.03)';this.style.transform='none'">
+          <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.4em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:16px;">03</div>
+          <div style="font-family:var(--head-family);font-size:22px;color:#C9A84C;margin-bottom:16px;line-height:1.1;">Permanência</div>
+          <div style="font-family:var(--body-family);font-size:13px;line-height:1.75;color:var(--text-dim);">Construímos para durar. Cada decisão de marca, arquitetura e programação é feita com visão de décadas, não de trimestres.</div>
+        </div>
+
+        <div style="border:1px solid rgba(201,168,76,.1);border-top:2px solid rgba(74,21,37,.8);border-radius:16px;padding:36px 28px;background:rgba(201,168,76,.03);transition:background .3s,transform .4s cubic-bezier(.34,1.56,.64,1);" onmouseover="this.style.background='rgba(201,168,76,.06)';this.style.transform='translateY(-6px)'" onmouseout="this.style.background='rgba(201,168,76,.03)';this.style.transform='none'">
+          <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.4em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:16px;">04</div>
+          <div style="font-family:var(--head-family);font-size:22px;color:#C9A84C;margin-bottom:16px;line-height:1.1;">Pertencimento</div>
+          <div style="font-family:var(--body-family);font-size:13px;line-height:1.75;color:var(--text-dim);">A AURUM não é para todos — e isso é uma afirmação de respeito. Quem pertence, reconhece. Quem reconhece, fica.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Essência / Promessa / Razão / Território -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;" class="reveal reveal-d3">
+
+      <div style="display:flex;flex-direction:column;gap:3px;">
+        <div class="intro-pill reveal reveal-d2">
+          <div class="intro-pill-label">Essência da Marca</div>
+          <div class="intro-pill-value" style="font-size:16px;line-height:1.5;">Cinema como forma mais pura de atenção humana</div>
+        </div>
+        <div class="intro-pill reveal reveal-d3">
+          <div class="intro-pill-label">Promessa</div>
+          <div class="intro-pill-value" style="font-size:16px;line-height:1.5;">Cada visita é uma experiência que você vai lembrar — não pelo conforto, mas pelo que te tocou</div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:3px;">
+        <div class="intro-pill reveal reveal-d3">
+          <div class="intro-pill-label">Razão para Crer</div>
+          <div class="intro-pill-value" style="font-size:16px;line-height:1.5;">Programação selecionada por curadores, não por algoritmos. Espaço projetado para o silêncio e a concentração</div>
+        </div>
+        <div class="intro-pill reveal reveal-d4">
+          <div class="intro-pill-label">Território</div>
+          <div class="intro-pill-value" style="font-size:16px;line-height:1.5;">Premium art house — acima do mainstream, abaixo da arrogância. Luxo sem ostentação</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Mapa de Posicionamento -->
+    <div class="reveal reveal-d4" style="margin-top:64px;border:1px solid rgba(201,168,76,.1);border-radius:20px;padding:48px;background:rgba(201,168,76,.02);">
+      <div style="font-family:var(--body-family);font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:32px;">Mapa de Posicionamento</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px;align-items:start;">
+        <div style="border-left:2px solid rgba(255,255,255,.1);padding-left:20px;">
+          <div style="font-family:var(--body-family);font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:rgba(245,240,232,.3);margin-bottom:10px;">Mercado de Massa</div>
+          <div style="font-family:var(--head-family);font-size:16px;color:rgba(245,240,232,.4);margin-bottom:8px;">Volume · Preço · Alcance</div>
+          <div style="font-family:var(--body-family);font-size:12px;line-height:1.65;color:rgba(245,240,232,.3);">Multiplexes. Franquias. Blockbusters. O modelo da abundância sem edição.</div>
+        </div>
+        <div style="border-left:2px solid #C9A84C;padding-left:20px;background:rgba(201,168,76,.04);padding:20px;border-radius:12px;">
+          <div style="font-family:var(--body-family);font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:#C9A84C;margin-bottom:10px;">AURUM · Nosso Lugar</div>
+          <div style="font-family:var(--head-family);font-size:16px;color:#C9A84C;margin-bottom:8px;">Curadoria · Ritual · Pertencimento</div>
+          <div style="font-family:var(--body-family);font-size:12px;line-height:1.65;color:rgba(245,240,232,.6);">Premium art house. Seleção rigorosa. Experiência imersiva. Luxo discreto. O lugar onde o cinema ainda é levado a sério.</div>
+        </div>
+        <div style="border-left:2px solid rgba(74,21,37,.6);padding-left:20px;">
+          <div style="font-family:var(--body-family);font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:rgba(74,21,37,.8);margin-bottom:10px;">Luxo Ostensivo</div>
+          <div style="font-family:var(--head-family);font-size:16px;color:rgba(245,240,232,.4);margin-bottom:8px;">Status · Preço · Exclusividade</div>
+          <div style="font-family:var(--body-family);font-size:12px;line-height:1.65;color:rgba(245,240,232,.3);">Cinemas de hotel 5 estrelas. Experiências privadas. O modelo do luxo que precisa se anunciar.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div style="height:1px;background:linear-gradient(to right,transparent,rgba(201,168,76,.2) 30%,rgba(201,168,76,.2) 70%,transparent);margin:0;"></div>
 
 <!-- ══ LOGO SYSTEM ═════════════════════════════════════════════════════════════ -->
 <!-- ══ LOGO SYSTEM ═════════════════════════════════════════════════════════════ -->
@@ -2525,6 +2629,159 @@ nav {
     </script>
   </div>
 </section>
+
+<div style="height:1px;background:linear-gradient(to right,transparent,rgba(201,168,76,.2) 30%,rgba(201,168,76,.2) 70%,transparent);margin:0;"></div>
+
+<!-- ══ PÚBLICO & PERSONAS ══════════════════════════════════════════════════════ -->
+<section id="publico-personas" style="background:#0D0A05;">
+  <div class="section-inner">
+    <span class="section-tag reveal">— 04.5 · Público &amp; Personas</span>
+    <h2 class="section-title reveal reveal-d1">Para Quem Existimos</h2>
+    <div class="rule reveal reveal-d2"></div>
+
+    <div class="reveal reveal-d2" style="max-width:680px;margin-bottom:64px;">
+      <p style="font-family:var(--head-family);font-size:clamp(17px,2.2vw,24px);line-height:1.6;color:var(--text-dim);font-style:italic;">AURUM não vende para todos. AURUM pertence a quem reconhece. Não é exclusividade por preço — é seleção por sensibilidade.</p>
+    </div>
+
+    <!-- 3 Personas -->
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;" class="reveal reveal-d3">
+
+      <!-- Persona 1 -->
+      <div style="border:1px solid rgba(201,168,76,.1);border-top:2px solid #C9A84C;border-radius:16px;padding:36px 28px;background:rgba(8,6,4,.6);">
+        <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.4em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:20px;">Persona 01</div>
+        <div style="font-family:var(--head-family);font-size:20px;color:#C9A84C;margin-bottom:4px;line-height:1.1;">Rafael</div>
+        <div style="font-family:var(--body-family);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:rgba(245,240,232,.35);margin-bottom:24px;">O Curador Cultural</div>
+
+        <div style="display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(201,168,76,.08);padding-top:24px;">
+          <div style="margin-bottom:16px;">
+            <div style="font-family:var(--body-family);font-size:7px;letter-spacing:.35em;text-transform:uppercase;color:rgba(201,168,76,.45);margin-bottom:6px;">Perfil</div>
+            <div style="font-family:var(--body-family);font-size:13px;line-height:1.65;color:var(--text-dim);">38 anos. Diretor criativo em agência boutique. Vive no Itaim, coleciona vinil, tem passaporte carimbado em Cannes. Conhece Bergman pelo nome do diretor de fotografia.</div>
+          </div>
+          <div style="margin-bottom:16px;">
+            <div style="font-family:var(--body-family);font-size:7px;letter-spacing:.35em;text-transform:uppercase;color:rgba(201,168,76,.45);margin-bottom:6px;">Hábito Cinema</div>
+            <div style="font-family:var(--body-family);font-size:13px;line-height:1.65;color:var(--text-dim);">2–3 filmes por semana. Prefere sessões de terça com sala vazia. Detesta trailers longos e pipoca barulhenta. Assina Mubi e Criterion Channel.</div>
+          </div>
+          <div style="margin-bottom:16px;">
+            <div style="font-family:var(--body-family);font-size:7px;letter-spacing:.35em;text-transform:uppercase;color:rgba(201,168,76,.45);margin-bottom:6px;">O que valoriza na AURUM</div>
+            <div style="font-family:var(--body-family);font-size:13px;line-height:1.65;color:var(--text-dim);">A programação que ele não precisa explicar para os amigos. O silêncio respeitado. A possibilidade de ver Tarkovsky na tela que merece.</div>
+          </div>
+          <div>
+            <div style="font-family:var(--body-family);font-size:7px;letter-spacing:.35em;text-transform:uppercase;color:rgba(201,168,76,.45);margin-bottom:10px;">Gatilhos de Decisão</div>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div style="display:flex;gap:10px;align-items:flex-start;">
+                <span style="width:4px;height:4px;background:#C9A84C;border-radius:50%;flex-shrink:0;margin-top:6px;"></span>
+                <span style="font-family:var(--body-family);font-size:12px;color:var(--text-faint);line-height:1.5;">Estreia exclusiva de diretor que acompanha</span>
+              </div>
+              <div style="display:flex;gap:10px;align-items:flex-start;">
+                <span style="width:4px;height:4px;background:#C9A84C;border-radius:50%;flex-shrink:0;margin-top:6px;"></span>
+                <span style="font-family:var(--body-family);font-size:12px;color:var(--text-faint);line-height:1.5;">Debate pós-sessão com especialista convidado</span>
+              </div>
+              <div style="display:flex;gap:10px;align-items:flex-start;">
+                <span style="width:4px;height:4px;background:#C9A84C;border-radius:50%;flex-shrink:0;margin-top:6px;"></span>
+                <span style="font-family:var(--body-family);font-size:12px;color:var(--text-faint);line-height:1.5;">Selo AURUM na programação — curadoria como credencial</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Persona 2 -->
+      <div style="border:1px solid rgba(201,168,76,.1);border-top:2px solid rgba(201,168,76,.5);border-radius:16px;padding:36px 28px;background:rgba(8,6,4,.6);">
+        <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.4em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:20px;">Persona 02</div>
+        <div style="font-family:var(--head-family);font-size:20px;color:#C9A84C;margin-bottom:4px;line-height:1.1;">Beatriz</div>
+        <div style="font-family:var(--body-family);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:rgba(245,240,232,.35);margin-bottom:24px;">A Executiva Sensível</div>
+
+        <div style="display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(201,168,76,.08);padding-top:24px;">
+          <div style="margin-bottom:16px;">
+            <div style="font-family:var(--body-family);font-size:7px;letter-spacing:.35em;text-transform:uppercase;color:rgba(201,168,76,.45);margin-bottom:6px;">Perfil</div>
+            <div style="font-family:var(--body-family);font-size:13px;line-height:1.65;color:var(--text-dim);">44 anos. Sócia em firma de advocacia. Lê três jornais por dia. Tem apartamento no Jardins com estante que vai do chão ao teto. Vai ao teatro toda quinzena.</div>
+          </div>
+          <div style="margin-bottom:16px;">
+            <div style="font-family:var(--body-family);font-size:7px;letter-spacing:.35em;text-transform:uppercase;color:rgba(201,168,76,.45);margin-bottom:6px;">Hábito Cinema</div>
+            <div style="font-family:var(--body-family);font-size:13px;line-height:1.65;color:var(--text-dim);">Uma vez por semana, normalmente à noite. Precisa que seja uma saída deliberada, não um passa-tempo. Prefere filmes que exigem alguma coisa dela.</div>
+          </div>
+          <div style="margin-bottom:16px;">
+            <div style="font-family:var(--body-family);font-size:7px;letter-spacing:.35em;text-transform:uppercase;color:rgba(201,168,76,.45);margin-bottom:6px;">O que valoriza na AURUM</div>
+            <div style="font-family:var(--body-family);font-size:13px;line-height:1.65;color:var(--text-dim);">O ambiente que combina com sua vida. A ausência de barulho e desorganização. Saber que quem está ali compartilha um código de conduta não escrito.</div>
+          </div>
+          <div>
+            <div style="font-family:var(--body-family);font-size:7px;letter-spacing:.35em;text-transform:uppercase;color:rgba(201,168,76,.45);margin-bottom:10px;">Gatilhos de Decisão</div>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div style="display:flex;gap:10px;align-items:flex-start;">
+                <span style="width:4px;height:4px;background:#C9A84C;border-radius:50%;flex-shrink:0;margin-top:6px;"></span>
+                <span style="font-family:var(--body-family);font-size:12px;color:var(--text-faint);line-height:1.5;">Recomendação de alguém do seu círculo de confiança</span>
+              </div>
+              <div style="display:flex;gap:10px;align-items:flex-start;">
+                <span style="width:4px;height:4px;background:#C9A84C;border-radius:50%;flex-shrink:0;margin-top:6px;"></span>
+                <span style="font-family:var(--body-family);font-size:12px;color:var(--text-faint);line-height:1.5;">Programação premiada em festival internacional</span>
+              </div>
+              <div style="display:flex;gap:10px;align-items:flex-start;">
+                <span style="width:4px;height:4px;background:#C9A84C;border-radius:50%;flex-shrink:0;margin-top:6px;"></span>
+                <span style="font-family:var(--body-family);font-size:12px;color:var(--text-faint);line-height:1.5;">Experiência de assinatura que justifica a frequência</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Persona 3 -->
+      <div style="border:1px solid rgba(201,168,76,.1);border-top:2px solid rgba(74,21,37,.7);border-radius:16px;padding:36px 28px;background:rgba(8,6,4,.6);">
+        <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.4em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:20px;">Persona 03</div>
+        <div style="font-family:var(--head-family);font-size:20px;color:#C9A84C;margin-bottom:4px;line-height:1.1;">Tomás</div>
+        <div style="font-family:var(--body-family);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:rgba(245,240,232,.35);margin-bottom:24px;">O Jovem Herdeiro Cultural</div>
+
+        <div style="display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(201,168,76,.08);padding-top:24px;">
+          <div style="margin-bottom:16px;">
+            <div style="font-family:var(--body-family);font-size:7px;letter-spacing:.35em;text-transform:uppercase;color:rgba(201,168,76,.45);margin-bottom:6px;">Perfil</div>
+            <div style="font-family:var(--body-family);font-size:13px;line-height:1.65;color:var(--text-dim);">26 anos. Mestrando em filosofia, com renda familiar alta. Cresceu entre bienais e libretos de ópera. Encontrou o cinema como linguagem própria aos 19 anos.</div>
+          </div>
+          <div style="margin-bottom:16px;">
+            <div style="font-family:var(--body-family);font-size:7px;letter-spacing:.35em;text-transform:uppercase;color:rgba(201,168,76,.45);margin-bottom:6px;">Hábito Cinema</div>
+            <div style="font-family:var(--body-family);font-size:13px;line-height:1.65;color:var(--text-dim);">Frequente e voraz. Trata o cinema como estudo. Anota após cada sessão. Discute online mas prefere conversar pessoalmente com quem entende.</div>
+          </div>
+          <div style="margin-bottom:16px;">
+            <div style="font-family:var(--body-family);font-size:7px;letter-spacing:.35em;text-transform:uppercase;color:rgba(201,168,76,.45);margin-bottom:6px;">O que valoriza na AURUM</div>
+            <div style="font-family:var(--body-family);font-size:13px;line-height:1.65;color:var(--text-dim);">Ser levado a sério. Encontrar um espaço que não infantilize o espectador. A possibilidade de pertencer a algo que tem padrão sem ser esnobe.</div>
+          </div>
+          <div>
+            <div style="font-family:var(--body-family);font-size:7px;letter-spacing:.35em;text-transform:uppercase;color:rgba(201,168,76,.45);margin-bottom:10px;">Gatilhos de Decisão</div>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div style="display:flex;gap:10px;align-items:flex-start;">
+                <span style="width:4px;height:4px;background:#C9A84C;border-radius:50%;flex-shrink:0;margin-top:6px;"></span>
+                <span style="font-family:var(--body-family);font-size:12px;color:var(--text-faint);line-height:1.5;">Ciclo temático com curadoria conceitual coerente</span>
+              </div>
+              <div style="display:flex;gap:10px;align-items:flex-start;">
+                <span style="width:4px;height:4px;background:#C9A84C;border-radius:50%;flex-shrink:0;margin-top:6px;"></span>
+                <span style="font-family:var(--body-family);font-size:12px;color:var(--text-faint);line-height:1.5;">Identidade visual que ele se orgulha de mostrar</span>
+              </div>
+              <div style="display:flex;gap:10px;align-items:flex-start;">
+                <span style="width:4px;height:4px;background:#C9A84C;border-radius:50%;flex-shrink:0;margin-top:6px;"></span>
+                <span style="font-family:var(--body-family);font-size:12px;color:var(--text-faint);line-height:1.5;">Acesso antecipado e clube de membros</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Filosofia de Público -->
+    <div class="reveal reveal-d4" style="margin-top:64px;padding:40px;background:linear-gradient(135deg,rgba(201,168,76,.04) 0%,rgba(74,21,37,.04) 100%);border:1px solid rgba(201,168,76,.08);border-radius:16px;">
+      <div style="font-family:var(--body-family);font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:20px;">Filosofia de Audiência</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;">
+        <div>
+          <p style="font-family:var(--body-family);font-size:14px;line-height:1.85;color:var(--text-dim);">A AURUM não define seu público por dados demográficos. Não é uma questão de renda ou faixa etária. É uma questão de atitude perante o tempo. Quem valoriza o que é raro e feito com cuidado — independente de onde nasceu — encontra seu lugar aqui.</p>
+        </div>
+        <div>
+          <p style="font-family:var(--body-family);font-size:14px;line-height:1.85;color:var(--text-dim);">O antônimo do nosso público não é o espectador popular. É o espectador distraído. O consumidor passivo. Quem assiste sem ver. Quem está presente sem estar lá. A AURUM existe para o oposto disso.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div style="height:1px;background:linear-gradient(to right,transparent,rgba(201,168,76,.2) 30%,rgba(201,168,76,.2) 70%,transparent);margin:0;"></div>
 
 <!-- ══ USAGE RULES ═══════════════════════════════════════════════════════════════ -->
 <section id="usage-rules">
@@ -3236,6 +3493,158 @@ nav {
 </section>
 
 <div class="orange-divider"></div>
+
+<!-- ══ FOTOGRAFIA & DIREÇÃO DE ARTE ═══════════════════════════════════════════ -->
+<section id="fotografia" style="background:#080604;">
+  <div class="section-inner">
+    <span class="section-tag reveal">— 09.5 · Fotografia &amp; Direção de Arte</span>
+    <h2 class="section-title reveal reveal-d1">Imagem como Afirmação</h2>
+    <div class="rule reveal reveal-d2"></div>
+
+    <div class="reveal reveal-d2" style="max-width:640px;margin-bottom:64px;">
+      <p style="font-family:var(--body-family);font-size:15px;line-height:1.85;color:var(--text-dim);">Cada imagem usada pela AURUM é uma declaração de posicionamento. Não ilustramos — comunicamos. A fotografia não serve ao texto: ela existe por conta própria, como o cinema que curamos.</p>
+    </div>
+
+    <!-- 5 Princípios Fotográficos -->
+    <div class="reveal reveal-d2" style="margin-bottom:64px;">
+      <div style="font-family:var(--body-family);font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:32px;">Cinco Princípios Fotográficos</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;">
+
+        <div style="display:flex;flex-direction:column;gap:3px;">
+          <div style="border-left:2px solid #C9A84C;padding:24px 28px;background:rgba(201,168,76,.03);border-radius:0 12px 12px 0;transition:background .3s,padding-left .3s;" onmouseover="this.style.paddingLeft='36px';this.style.background='rgba(201,168,76,.06)'" onmouseout="this.style.paddingLeft='28px';this.style.background='rgba(201,168,76,.03)'">
+            <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.35em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:10px;">01 · Luz</div>
+            <div style="font-family:var(--head-family);font-size:17px;color:var(--text-main);margin-bottom:8px;">Luz Diagonal Dourada</div>
+            <div style="font-family:var(--body-family);font-size:13px;line-height:1.7;color:var(--text-dim);">A luz nunca é frontal. Entra sempre em diagonal — 30° a 45° — criando sombras profundas que revelam mais do que iluminam. O ouro do ambiente reflete o ouro da marca.</div>
+          </div>
+
+          <div style="border-left:2px solid rgba(201,168,76,.5);padding:24px 28px;background:rgba(201,168,76,.03);border-radius:0 12px 12px 0;transition:background .3s,padding-left .3s;" onmouseover="this.style.paddingLeft='36px';this.style.background='rgba(201,168,76,.06)'" onmouseout="this.style.paddingLeft='28px';this.style.background='rgba(201,168,76,.03)'">
+            <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.35em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:10px;">02 · Textura</div>
+            <div style="font-family:var(--head-family);font-size:17px;color:var(--text-main);margin-bottom:8px;">Granulação Intencional</div>
+            <div style="font-family:var(--body-family);font-size:13px;line-height:1.7;color:var(--text-dim);">Grain de 15–25 ISO equivalente. Não é imperfeição — é memória. O ruído visual remete à película analógica e confere autenticidade que o digital limpo não alcança.</div>
+          </div>
+
+          <div style="border-left:2px solid rgba(201,168,76,.3);padding:24px 28px;background:rgba(201,168,76,.03);border-radius:0 12px 12px 0;transition:background .3s,padding-left .3s;" onmouseover="this.style.paddingLeft='36px';this.style.background='rgba(201,168,76,.06)'" onmouseout="this.style.paddingLeft='28px';this.style.background='rgba(201,168,76,.03)'">
+            <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.35em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:10px;">03 · Composição</div>
+            <div style="font-family:var(--head-family);font-size:17px;color:var(--text-main);margin-bottom:8px;">Espaço Negativo Dominante</div>
+            <div style="font-family:var(--body-family);font-size:13px;line-height:1.7;color:var(--text-dim);">Mínimo 50% da imagem deve ser espaço vazio ou escuro. O silêncio visual é tão eloquente quanto o que está em foco. O enquadramento respira.</div>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:3px;">
+          <div style="border-left:2px solid rgba(201,168,76,.4);padding:24px 28px;background:rgba(201,168,76,.03);border-radius:0 12px 12px 0;transition:background .3s,padding-left .3s;" onmouseover="this.style.paddingLeft='36px';this.style.background='rgba(201,168,76,.06)'" onmouseout="this.style.paddingLeft='28px';this.style.background='rgba(201,168,76,.03)'">
+            <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.35em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:10px;">04 · Forma</div>
+            <div style="font-family:var(--head-family);font-size:17px;color:var(--text-main);margin-bottom:8px;">Silhuetas e Contraluz</div>
+            <div style="font-family:var(--body-family);font-size:13px;line-height:1.7;color:var(--text-dim);">Figuras humanas preferencialmente como silhueta. A identidade não importa — a postura, sim. O espectador projeta a si mesmo na forma anônima.</div>
+          </div>
+
+          <div style="border-left:2px solid rgba(201,168,76,.25);padding:24px 28px;background:rgba(201,168,76,.03);border-radius:0 12px 12px 0;transition:background .3s,padding-left .3s;" onmouseover="this.style.paddingLeft='36px';this.style.background='rgba(201,168,76,.06)'" onmouseout="this.style.paddingLeft='28px';this.style.background='rgba(201,168,76,.03)'">
+            <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.35em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:10px;">05 · Foco</div>
+            <div style="font-family:var(--head-family);font-size:17px;color:var(--text-main);margin-bottom:8px;">Profundidade de Campo Generosa</div>
+            <div style="font-family:var(--body-family);font-size:13px;line-height:1.7;color:var(--text-dim);">Bokeh pronunciado (f/1.4–2.0). O plano de fundo dissolve-se em névoa escura. O detalhe em foco emerge com precisão cirúrgica.</div>
+          </div>
+
+          <!-- Paleta Fotográfica -->
+          <div style="border:1px solid rgba(201,168,76,.08);border-radius:12px;padding:24px 28px;background:rgba(201,168,76,.02);">
+            <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.35em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:16px;">Paleta Fotográfica</div>
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <div style="display:flex;align-items:center;gap:12px;">
+                <div style="width:32px;height:32px;background:#0A0806;border-radius:6px;flex-shrink:0;border:1px solid rgba(201,168,76,.1);"></div>
+                <div>
+                  <div style="font-family:var(--body-family);font-size:11px;color:var(--text-main);">Warm Blacks</div>
+                  <div style="font-family:var(--body-family);font-size:10px;color:var(--text-faint);">#0A0806 — as sombras têm temperatura</div>
+                </div>
+              </div>
+              <div style="display:flex;align-items:center;gap:12px;">
+                <div style="width:32px;height:32px;background:#C9A84C;border-radius:6px;flex-shrink:0;"></div>
+                <div>
+                  <div style="font-family:var(--body-family);font-size:11px;color:var(--text-main);">Champagne Highlights</div>
+                  <div style="font-family:var(--body-family);font-size:10px;color:var(--text-faint);">#C9A84C — o brilho é ouro, nunca branco puro</div>
+                </div>
+              </div>
+              <div style="display:flex;align-items:center;gap:12px;">
+                <div style="width:32px;height:32px;background:#1A1208;border-radius:6px;flex-shrink:0;border:1px solid rgba(201,168,76,.08);"></div>
+                <div>
+                  <div style="font-family:var(--body-family);font-size:11px;color:var(--text-main);">Deep Shadows</div>
+                  <div style="font-family:var(--body-family);font-size:10px;color:var(--text-faint);">#1A1208 — meios-tons sempre com velatura quente</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Dos and Don'ts fotográficos -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;" class="reveal reveal-d3">
+
+      <div style="border:1px solid rgba(201,168,76,.1);border-top:2px solid rgba(0,200,83,.4);border-radius:16px;padding:36px 32px;">
+        <div style="font-family:var(--body-family);font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:rgba(245,240,232,.3);margin-bottom:28px;">Fotografias AURUM</div>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <span style="width:10px;height:10px;background:#C9A84C;border-radius:3px;flex-shrink:0;margin-top:3px;box-shadow:0 0 10px rgba(201,168,76,.4);"></span>
+            <span style="font-family:var(--body-family);font-size:13px;color:var(--text-dim);line-height:1.6;">Sala escura com feixe de luz de projetor cortando o ar</span>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <span style="width:10px;height:10px;background:#C9A84C;border-radius:3px;flex-shrink:0;margin-top:3px;box-shadow:0 0 10px rgba(201,168,76,.4);"></span>
+            <span style="font-family:var(--body-family);font-size:13px;color:var(--text-dim);line-height:1.6;">Rosto parcialmente iluminado — expressão contemplativa</span>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <span style="width:10px;height:10px;background:#C9A84C;border-radius:3px;flex-shrink:0;margin-top:3px;box-shadow:0 0 10px rgba(201,168,76,.4);"></span>
+            <span style="font-family:var(--body-family);font-size:13px;color:var(--text-dim);line-height:1.6;">Detalhes arquitetônicos — corrimão dourado, veludo escuro</span>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <span style="width:10px;height:10px;background:#C9A84C;border-radius:3px;flex-shrink:0;margin-top:3px;box-shadow:0 0 10px rgba(201,168,76,.4);"></span>
+            <span style="font-family:var(--body-family);font-size:13px;color:var(--text-dim);line-height:1.6;">Plateia em silhueta durante sessão — mar de cabeças em escuro</span>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <span style="width:10px;height:10px;background:#C9A84C;border-radius:3px;flex-shrink:0;margin-top:3px;box-shadow:0 0 10px rgba(201,168,76,.4);"></span>
+            <span style="font-family:var(--body-family);font-size:13px;color:var(--text-dim);line-height:1.6;">Stills de filme em preto e branco com vinheta dourada</span>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <span style="width:10px;height:10px;background:#C9A84C;border-radius:3px;flex-shrink:0;margin-top:3px;box-shadow:0 0 10px rgba(201,168,76,.4);"></span>
+            <span style="font-family:var(--body-family);font-size:13px;color:var(--text-dim);line-height:1.6;">Texturas: película 35mm, veludo, couro, papel couché</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="border:1px solid rgba(201,168,76,.1);border-top:2px solid rgba(211,47,47,.35);border-radius:16px;padding:36px 32px;">
+        <div style="font-family:var(--body-family);font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:rgba(245,240,232,.3);margin-bottom:28px;">O Que Nunca Usamos</div>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <span style="width:10px;height:10px;background:#D32F2F;border-radius:3px;flex-shrink:0;margin-top:3px;box-shadow:0 0 10px rgba(211,47,47,.4);"></span>
+            <span style="font-family:var(--body-family);font-size:13px;color:rgba(245,240,232,.4);line-height:1.6;text-decoration:line-through;text-decoration-color:rgba(211,47,47,.3);">Fotos com fundo branco ou muito saturado</span>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <span style="width:10px;height:10px;background:#D32F2F;border-radius:3px;flex-shrink:0;margin-top:3px;box-shadow:0 0 10px rgba(211,47,47,.4);"></span>
+            <span style="font-family:var(--body-family);font-size:13px;color:rgba(245,240,232,.4);line-height:1.6;text-decoration:line-through;text-decoration-color:rgba(211,47,47,.3);">Sorrisos forçados ou expressões performáticas</span>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <span style="width:10px;height:10px;background:#D32F2F;border-radius:3px;flex-shrink:0;margin-top:3px;box-shadow:0 0 10px rgba(211,47,47,.4);"></span>
+            <span style="font-family:var(--body-family);font-size:13px;color:rgba(245,240,232,.4);line-height:1.6;text-decoration:line-through;text-decoration-color:rgba(211,47,47,.3);">Imagens de banco com tipologia genérica de "cinema"</span>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <span style="width:10px;height:10px;background:#D32F2F;border-radius:3px;flex-shrink:0;margin-top:3px;box-shadow:0 0 10px rgba(211,47,47,.4);"></span>
+            <span style="font-family:var(--body-family);font-size:13px;color:rgba(245,240,232,.4);line-height:1.6;text-decoration:line-through;text-decoration-color:rgba(211,47,47,.3);">Pipoca, refrigerante ou qualquer imagery de fast food</span>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <span style="width:10px;height:10px;background:#D32F2F;border-radius:3px;flex-shrink:0;margin-top:3px;box-shadow:0 0 10px rgba(211,47,47,.4);"></span>
+            <span style="font-family:var(--body-family);font-size:13px;color:rgba(245,240,232,.4);line-height:1.6;text-decoration:line-through;text-decoration-color:rgba(211,47,47,.3);">Filtros Instagram ou paleta quente/laranja pastel</span>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <span style="width:10px;height:10px;background:#D32F2F;border-radius:3px;flex-shrink:0;margin-top:3px;box-shadow:0 0 10px rgba(211,47,47,.4);"></span>
+            <span style="font-family:var(--body-family);font-size:13px;color:rgba(245,240,232,.4);line-height:1.6;text-decoration:line-through;text-decoration-color:rgba(211,47,47,.3);">Collage ou montagem com múltiplas imagens sem propósito editorial</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<div style="height:1px;background:linear-gradient(to right,transparent,rgba(201,168,76,.2) 30%,rgba(201,168,76,.2) 70%,transparent);margin:0;"></div>
+
 <!-- ══ GOLDEN CIRCLE ══════════════════════════════════════════════════════════ -->
 <section id="golden-circle">
   <div class="section-inner">
@@ -3277,6 +3686,168 @@ nav {
     </div>
   </div>
 </section>
+
+<div style="height:1px;background:linear-gradient(to right,transparent,rgba(201,168,76,.2) 30%,rgba(201,168,76,.2) 70%,transparent);margin:0;"></div>
+
+<!-- ══ MOTION & ANIMAÇÃO ═══════════════════════════════════════════════════════ -->
+<section id="motion-design" style="background:#100C06;">
+  <div class="section-inner">
+    <span class="section-tag reveal">— 10.5 · Motion &amp; Animação</span>
+    <h2 class="section-title reveal reveal-d1">Movimento com Caráter</h2>
+    <div class="rule reveal reveal-d2"></div>
+
+    <!-- Filosofia -->
+    <div class="reveal reveal-d2" style="margin-bottom:64px;">
+      <div style="border-left:3px solid rgba(201,168,76,.45);padding:28px 36px;background:rgba(201,168,76,.03);border-radius:0 16px 16px 0;max-width:760px;">
+        <p style="font-family:var(--head-family);font-size:clamp(17px,2.2vw,26px);line-height:1.5;color:var(--text-main);font-style:italic;margin:0;">"Na AURUM, cada transição é uma afirmação de caráter. Velocidade é vulgaridade."</p>
+      </div>
+    </div>
+
+    <!-- Timing Scale -->
+    <div class="reveal reveal-d3" style="margin-bottom:64px;">
+      <div style="font-family:var(--body-family);font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:32px;">Escala de Tempo AURUM</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:3px;">
+
+        <div style="border:1px solid rgba(201,168,76,.08);border-top:2px solid rgba(201,168,76,.3);border-radius:0 0 12px 12px;padding:28px 24px;background:rgba(201,168,76,.02);">
+          <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.4em;text-transform:uppercase;color:rgba(201,168,76,.45);margin-bottom:12px;">Micro</div>
+          <div style="font-family:'Space Grotesk',monospace;font-size:28px;color:#C9A84C;margin-bottom:8px;font-weight:300;">0.15–0.25s</div>
+          <div style="font-family:var(--body-family);font-size:12px;line-height:1.65;color:var(--text-faint);">Hover, focus, feedback imediato de interface. Resposta tátil sem teatro.</div>
+        </div>
+
+        <div style="border:1px solid rgba(201,168,76,.08);border-top:2px solid rgba(201,168,76,.5);border-radius:0 0 12px 12px;padding:28px 24px;background:rgba(201,168,76,.02);">
+          <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.4em;text-transform:uppercase;color:rgba(201,168,76,.45);margin-bottom:12px;">Interface</div>
+          <div style="font-family:'Space Grotesk',monospace;font-size:28px;color:#C9A84C;margin-bottom:8px;font-weight:300;">0.3–0.5s</div>
+          <div style="font-family:var(--body-family);font-size:12px;line-height:1.65;color:var(--text-faint);">Abertura de menus, modais, transições entre estados. Deliberado, nunca preguiçoso.</div>
+        </div>
+
+        <div style="border:1px solid rgba(201,168,76,.08);border-top:2px solid rgba(201,168,76,.7);border-radius:0 0 12px 12px;padding:28px 24px;background:rgba(201,168,76,.02);">
+          <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.4em;text-transform:uppercase;color:rgba(201,168,76,.45);margin-bottom:12px;">Narrativa</div>
+          <div style="font-family:'Space Grotesk',monospace;font-size:28px;color:#C9A84C;margin-bottom:8px;font-weight:300;">0.8–1.2s</div>
+          <div style="font-family:var(--body-family);font-size:12px;line-height:1.65;color:var(--text-faint);">Reveal de seções, entrada de conteúdo editorial, transições de página.</div>
+        </div>
+
+        <div style="border:1px solid rgba(201,168,76,.08);border-top:2px solid #C9A84C;border-radius:0 0 12px 12px;padding:28px 24px;background:rgba(201,168,76,.02);">
+          <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.4em;text-transform:uppercase;color:rgba(201,168,76,.45);margin-bottom:12px;">Épico</div>
+          <div style="font-family:'Space Grotesk',monospace;font-size:28px;color:#C9A84C;margin-bottom:8px;font-weight:300;">1.5–2.5s</div>
+          <div style="font-family:var(--body-family);font-size:12px;line-height:1.65;color:var(--text-faint);">Intro de marca, splash screen, abertura de sessões especiais. Reservado para momentos fundadores.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Curva AURUM -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;margin-bottom:64px;" class="reveal reveal-d3">
+
+      <div>
+        <div style="font-family:var(--body-family);font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:24px;">A Curva AURUM</div>
+        <div style="border:1px solid rgba(201,168,76,.1);border-radius:16px;padding:36px;background:rgba(201,168,76,.02);margin-bottom:24px;">
+          <code style="font-family:'Space Grotesk',monospace;font-size:15px;color:#C9A84C;display:block;margin-bottom:16px;">cubic-bezier(.16, 1, .3, 1)</code>
+          <div style="position:relative;height:100px;margin-bottom:16px;">
+            <svg width="100%" height="100" viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 0 100 C 32 100 60 0 200 0" stroke="rgba(201,168,76,.2)" stroke-width="1" stroke-dasharray="4 4" fill="none"/>
+              <path d="M 0 100 C 32 100 60 0 200 0" stroke="#C9A84C" stroke-width="2" fill="none" opacity="0.8"/>
+              <circle cx="0" cy="100" r="3" fill="#C9A84C"/>
+              <circle cx="200" cy="0" r="3" fill="#C9A84C"/>
+              <line x1="0" y1="100" x2="32" y2="100" stroke="rgba(201,168,76,.3)" stroke-width="1" stroke-dasharray="2 2"/>
+              <line x1="60" y1="0" x2="200" y2="0" stroke="rgba(201,168,76,.3)" stroke-width="1" stroke-dasharray="2 2"/>
+            </svg>
+          </div>
+          <p style="font-family:var(--body-family);font-size:13px;line-height:1.7;color:var(--text-dim);margin:0;">Desaceleração deliberada. A animação avança rápido no início e desacelera com peso no final — como um ator que para no centro do palco, não no fundo.</p>
+        </div>
+      </div>
+
+      <!-- 4 Princípios -->
+      <div>
+        <div style="font-family:var(--body-family);font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:24px;">Quatro Princípios de Motion</div>
+        <div style="display:flex;flex-direction:column;gap:3px;">
+          <div style="border-left:2px solid #C9A84C;padding:18px 20px;background:rgba(201,168,76,.03);border-radius:0 10px 10px 0;">
+            <div style="font-family:var(--head-family);font-size:15px;color:var(--text-main);margin-bottom:6px;">Intenção sobre Velocidade</div>
+            <div style="font-family:var(--body-family);font-size:12px;line-height:1.6;color:var(--text-faint);">Cada animação tem um propósito narrativo. Não animamos para animar.</div>
+          </div>
+          <div style="border-left:2px solid rgba(201,168,76,.5);padding:18px 20px;background:rgba(201,168,76,.03);border-radius:0 10px 10px 0;">
+            <div style="font-family:var(--head-family);font-size:15px;color:var(--text-main);margin-bottom:6px;">Peso sobre Leveza</div>
+            <div style="font-family:var(--body-family);font-size:12px;line-height:1.6;color:var(--text-faint);">Elementos se movem como têm massa. Nada flutua sem gravidade.</div>
+          </div>
+          <div style="border-left:2px solid rgba(201,168,76,.35);padding:18px 20px;background:rgba(201,168,76,.03);border-radius:0 10px 10px 0;">
+            <div style="font-family:var(--head-family);font-size:15px;color:var(--text-main);margin-bottom:6px;">Entrada Suave · Saída Rápida</div>
+            <div style="font-family:var(--body-family);font-size:12px;line-height:1.6;color:var(--text-faint);">Elementos entram em cena com calma e saem sem cerimônia. Como um ator de método.</div>
+          </div>
+          <div style="border-left:2px solid rgba(201,168,76,.2);padding:18px 20px;background:rgba(201,168,76,.03);border-radius:0 10px 10px 0;">
+            <div style="font-family:var(--head-family);font-size:15px;color:var(--text-main);margin-bottom:6px;">Nunca Bounce</div>
+            <div style="font-family:var(--body-family);font-size:12px;line-height:1.6;color:var(--text-faint);">Efeito spring e bounce são proibidos. Remetem ao playful, não ao permanente.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Aprovadas vs Proibidas -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;" class="reveal reveal-d4">
+      <div style="border:1px solid rgba(201,168,76,.1);border-top:2px solid rgba(0,200,83,.4);border-radius:16px;padding:36px 32px;">
+        <div style="font-family:var(--body-family);font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:rgba(245,240,232,.3);margin-bottom:28px;">Animações Aprovadas</div>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <span style="width:10px;height:10px;background:#C9A84C;border-radius:3px;flex-shrink:0;margin-top:3px;"></span>
+            <span style="font-family:var(--body-family);font-size:13px;color:var(--text-dim);line-height:1.6;">Fade + translateY(24px→0) — reveal padrão de seção</span>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <span style="width:10px;height:10px;background:#C9A84C;border-radius:3px;flex-shrink:0;margin-top:3px;"></span>
+            <span style="font-family:var(--body-family);font-size:13px;color:var(--text-dim);line-height:1.6;">Stagger sequencial — elementos revelados um a um</span>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <span style="width:10px;height:10px;background:#C9A84C;border-radius:3px;flex-shrink:0;margin-top:3px;"></span>
+            <span style="font-family:var(--body-family);font-size:13px;color:var(--text-dim);line-height:1.6;">Scale(0.95→1) em entrada de modais e overlays</span>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <span style="width:10px;height:10px;background:#C9A84C;border-radius:3px;flex-shrink:0;margin-top:3px;"></span>
+            <span style="font-family:var(--body-family);font-size:13px;color:var(--text-dim);line-height:1.6;">Horizontal rule se expandindo da esquerda (scaleX 0→1)</span>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <span style="width:10px;height:10px;background:#C9A84C;border-radius:3px;flex-shrink:0;margin-top:3px;"></span>
+            <span style="font-family:var(--body-family);font-size:13px;color:var(--text-dim);line-height:1.6;">Gold shimmer lento no logotipo (background-position loop, 4s+)</span>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <span style="width:10px;height:10px;background:#C9A84C;border-radius:3px;flex-shrink:0;margin-top:3px;"></span>
+            <span style="font-family:var(--body-family);font-size:13px;color:var(--text-dim);line-height:1.6;">Parallax sutil em imagens de fundo (1.05× scale em hover)</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="border:1px solid rgba(201,168,76,.1);border-top:2px solid rgba(211,47,47,.35);border-radius:16px;padding:36px 32px;">
+        <div style="font-family:var(--body-family);font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:rgba(245,240,232,.3);margin-bottom:28px;">Animações Proibidas</div>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <span style="width:10px;height:10px;background:#D32F2F;border-radius:3px;flex-shrink:0;margin-top:3px;"></span>
+            <span style="font-family:var(--body-family);font-size:13px;color:rgba(245,240,232,.4);line-height:1.6;text-decoration:line-through;text-decoration-color:rgba(211,47,47,.3);">Spring / bounce (cubic-bezier com overshoot)</span>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <span style="width:10px;height:10px;background:#D32F2F;border-radius:3px;flex-shrink:0;margin-top:3px;"></span>
+            <span style="font-family:var(--body-family);font-size:13px;color:rgba(245,240,232,.4);line-height:1.6;text-decoration:line-through;text-decoration-color:rgba(211,47,47,.3);">Rotação contínua em elementos estáticos de UI</span>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <span style="width:10px;height:10px;background:#D32F2F;border-radius:3px;flex-shrink:0;margin-top:3px;"></span>
+            <span style="font-family:var(--body-family);font-size:13px;color:rgba(245,240,232,.4);line-height:1.6;text-decoration:line-through;text-decoration-color:rgba(211,47,47,.3);">Shake / vibração como feedback de erro</span>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <span style="width:10px;height:10px;background:#D32F2F;border-radius:3px;flex-shrink:0;margin-top:3px;"></span>
+            <span style="font-family:var(--body-family);font-size:13px;color:rgba(245,240,232,.4);line-height:1.6;text-decoration:line-through;text-decoration-color:rgba(211,47,47,.3);">Animações acima de 2.5s em interações recorrentes</span>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <span style="width:10px;height:10px;background:#D32F2F;border-radius:3px;flex-shrink:0;margin-top:3px;"></span>
+            <span style="font-family:var(--body-family);font-size:13px;color:rgba(245,240,232,.4);line-height:1.6;text-decoration:line-through;text-decoration-color:rgba(211,47,47,.3);">Typewriter effect em textos corridos</span>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <span style="width:10px;height:10px;background:#D32F2F;border-radius:3px;flex-shrink:0;margin-top:3px;"></span>
+            <span style="font-family:var(--body-family);font-size:13px;color:rgba(245,240,232,.4);line-height:1.6;text-decoration:line-through;text-decoration-color:rgba(211,47,47,.3);">Parallax agressivo que causa desconforto visual</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div style="height:1px;background:linear-gradient(to right,transparent,rgba(201,168,76,.2) 30%,rgba(201,168,76,.2) 70%,transparent);margin:0;"></div>
 
 <!-- ══ BRAND PYRAMID ════════════════════════════════════════════════════════════ -->
 <section id="brand-pyramid">
@@ -3336,6 +3907,189 @@ nav {
     </div>
   </div>
 </section>
+
+<div style="height:1px;background:linear-gradient(to right,transparent,rgba(201,168,76,.2) 30%,rgba(201,168,76,.2) 70%,transparent);margin:0;"></div>
+
+<!-- ══ ICONOGRAFIA & PICTOGRAMAS ══════════════════════════════════════════════ -->
+<section id="iconografia" style="background:#080604;">
+  <div class="section-inner">
+    <span class="section-tag reveal">— 11.5 · Iconografia</span>
+    <h2 class="section-title reveal reveal-d1">Sistema de Ícones</h2>
+    <div class="rule reveal reveal-d2"></div>
+
+    <div class="reveal reveal-d2" style="max-width:640px;margin-bottom:64px;">
+      <p style="font-family:var(--body-family);font-size:15px;line-height:1.85;color:var(--text-dim);">Os ícones da AURUM são construídos como traços de caligrafia — precisos, contínuos, sem relleno. Um sistema de linha única que reflete a filosofia da marca: o mínimo necessário para comunicar o máximo.</p>
+    </div>
+
+    <!-- Princípios -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;margin-bottom:64px;align-items:start;" class="reveal reveal-d2">
+
+      <div>
+        <div style="font-family:var(--body-family);font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:24px;">Princípios do Sistema</div>
+        <div style="display:flex;flex-direction:column;gap:3px;">
+          <div class="intro-pill">
+            <div class="intro-pill-label">Traço</div>
+            <div class="intro-pill-value">1.5px — uniforme em todos os ícones</div>
+          </div>
+          <div class="intro-pill">
+            <div class="intro-pill-label">Cantos</div>
+            <div class="intro-pill-value">stroke-linecap: round · stroke-linejoin: round</div>
+          </div>
+          <div class="intro-pill">
+            <div class="intro-pill-label">Grid Base</div>
+            <div class="intro-pill-value">24×24px · múltiplos de 4px</div>
+          </div>
+          <div class="intro-pill">
+            <div class="intro-pill-label">Proporção</div>
+            <div class="intro-pill-value">Razão áurea aplicada às proporções internas</div>
+          </div>
+          <div class="intro-pill">
+            <div class="intro-pill-label">Tamanho Mínimo</div>
+            <div class="intro-pill-value">16px digital · 5mm impresso</div>
+          </div>
+          <div class="intro-pill">
+            <div class="intro-pill-label">Clear Space</div>
+            <div class="intro-pill-value">Mínimo 4px em todos os lados</div>
+          </div>
+          <div class="intro-pill">
+            <div class="intro-pill-label">Cor</div>
+            <div class="intro-pill-value">#C9A84C principal · #F5F0E8 em fundos escuros · nunca preenchido</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grid de Construção -->
+      <div>
+        <div style="font-family:var(--body-family);font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:24px;">Grid de Construção · 24px</div>
+        <div style="border:1px solid rgba(201,168,76,.1);border-radius:16px;padding:36px;background:rgba(201,168,76,.02);">
+          <svg width="100%" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Grid lines -->
+            <line x1="0" y1="0" x2="200" y2="0" stroke="rgba(201,168,76,.08)" stroke-width="1"/>
+            <line x1="0" y1="50" x2="200" y2="50" stroke="rgba(201,168,76,.06)" stroke-width="1"/>
+            <line x1="0" y1="100" x2="200" y2="100" stroke="rgba(201,168,76,.1)" stroke-width="1" stroke-dasharray="2 2"/>
+            <line x1="0" y1="150" x2="200" y2="150" stroke="rgba(201,168,76,.06)" stroke-width="1"/>
+            <line x1="0" y1="200" x2="200" y2="200" stroke="rgba(201,168,76,.08)" stroke-width="1"/>
+            <line x1="0" y1="0" x2="0" y2="200" stroke="rgba(201,168,76,.08)" stroke-width="1"/>
+            <line x1="50" y1="0" x2="50" y2="200" stroke="rgba(201,168,76,.06)" stroke-width="1"/>
+            <line x1="100" y1="0" x2="100" y2="200" stroke="rgba(201,168,76,.1)" stroke-width="1" stroke-dasharray="2 2"/>
+            <line x1="150" y1="0" x2="150" y2="200" stroke="rgba(201,168,76,.06)" stroke-width="1"/>
+            <line x1="200" y1="0" x2="200" y2="200" stroke="rgba(201,168,76,.08)" stroke-width="1"/>
+            <!-- Bounding box -->
+            <rect x="20" y="20" width="160" height="160" fill="none" stroke="rgba(201,168,76,.2)" stroke-width="1" stroke-dasharray="4 4"/>
+            <!-- Safe zone -->
+            <rect x="12" y="12" width="176" height="176" fill="none" stroke="rgba(201,168,76,.08)" stroke-width="1"/>
+            <!-- Sample icon — film frame -->
+            <rect x="56" y="56" width="88" height="88" rx="4" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="56" y1="74" x2="144" y2="74" stroke="#C9A84C" stroke-width="1.5"/>
+            <line x1="56" y1="126" x2="144" y2="126" stroke="#C9A84C" stroke-width="1.5"/>
+            <circle cx="68" cy="65" r="3" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
+            <circle cx="68" cy="135" r="3" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
+            <circle cx="132" cy="65" r="3" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
+            <circle cx="132" cy="135" r="3" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
+            <!-- Dimension lines -->
+            <text x="6" y="104" fill="rgba(201,168,76,.4)" font-size="8" font-family="monospace">24</text>
+            <text x="96" y="18" fill="rgba(201,168,76,.4)" font-size="8" font-family="monospace">24</text>
+          </svg>
+          <div style="font-family:var(--body-family);font-size:11px;color:var(--text-faint);margin-top:12px;text-align:center;letter-spacing:.1em;">Grid 24×24px · área segura 20×20px · cantos arredondados</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 6 Ícones SVG -->
+    <div class="reveal reveal-d3" style="margin-bottom:64px;">
+      <div style="font-family:var(--body-family);font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:32px;">Biblioteca de Ícones · Versão 1.0</div>
+      <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:3px;">
+
+        <!-- Ícone 1: Film Reel -->
+        <div style="border:1px solid rgba(201,168,76,.1);border-radius:16px;padding:32px 20px;background:rgba(201,168,76,.02);display:flex;flex-direction:column;align-items:center;gap:16px;transition:background .3s,transform .4s cubic-bezier(.34,1.56,.64,1);" onmouseover="this.style.background='rgba(201,168,76,.06)';this.style.transform='translateY(-4px)'" onmouseout="this.style.background='rgba(201,168,76,.02)';this.style.transform='none'">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="16" cy="16" r="13" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="16" cy="16" r="4" stroke="#C9A84C" stroke-width="1.5"/>
+            <circle cx="16" cy="7" r="2" stroke="#C9A84C" stroke-width="1.5"/>
+            <circle cx="16" cy="25" r="2" stroke="#C9A84C" stroke-width="1.5"/>
+            <circle cx="7" cy="16" r="2" stroke="#C9A84C" stroke-width="1.5"/>
+            <circle cx="25" cy="16" r="2" stroke="#C9A84C" stroke-width="1.5"/>
+          </svg>
+          <div style="font-family:var(--body-family);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(201,168,76,.5);text-align:center;">Película</div>
+        </div>
+
+        <!-- Ícone 2: Seat -->
+        <div style="border:1px solid rgba(201,168,76,.1);border-radius:16px;padding:32px 20px;background:rgba(201,168,76,.02);display:flex;flex-direction:column;align-items:center;gap:16px;transition:background .3s,transform .4s cubic-bezier(.34,1.56,.64,1);" onmouseover="this.style.background='rgba(201,168,76,.06)';this.style.transform='translateY(-4px)'" onmouseout="this.style.background='rgba(201,168,76,.02)';this.style.transform='none'">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 10 L8 18 Q8 20 10 20 L22 20 Q24 20 24 18 L24 10" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 20 L6 26" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M26 20 L26 26" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M6 8 L8 10" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M26 8 L24 10" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="10" y1="20" x2="10" y2="26" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="22" y1="20" x2="22" y2="26" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <div style="font-family:var(--body-family);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(201,168,76,.5);text-align:center;">Assento</div>
+        </div>
+
+        <!-- Ícone 3: Star -->
+        <div style="border:1px solid rgba(201,168,76,.1);border-radius:16px;padding:32px 20px;background:rgba(201,168,76,.02);display:flex;flex-direction:column;align-items:center;gap:16px;transition:background .3s,transform .4s cubic-bezier(.34,1.56,.64,1);" onmouseover="this.style.background='rgba(201,168,76,.06)';this.style.transform='translateY(-4px)'" onmouseout="this.style.background='rgba(201,168,76,.02)';this.style.transform='none'">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 5 L18.9 12.6 L27 13.1 L21 18.4 L23 26 L16 21.9 L9 26 L11 18.4 L5 13.1 L13.1 12.6 Z" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div style="font-family:var(--body-family);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(201,168,76,.5);text-align:center;">Avaliação</div>
+        </div>
+
+        <!-- Ícone 4: Crown/VIP -->
+        <div style="border:1px solid rgba(201,168,76,.1);border-radius:16px;padding:32px 20px;background:rgba(201,168,76,.02);display:flex;flex-direction:column;align-items:center;gap:16px;transition:background .3s,transform .4s cubic-bezier(.34,1.56,.64,1);" onmouseover="this.style.background='rgba(201,168,76,.06)';this.style.transform='translateY(-4px)'" onmouseout="this.style.background='rgba(201,168,76,.02)';this.style.transform='none'">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 22 L6 12 L11 17 L16 8 L21 17 L26 12 L26 22 Z" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="6" y1="25" x2="26" y2="25" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <div style="font-family:var(--body-family);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(201,168,76,.5);text-align:center;">VIP</div>
+        </div>
+
+        <!-- Ícone 5: Ticket -->
+        <div style="border:1px solid rgba(201,168,76,.1);border-radius:16px;padding:32px 20px;background:rgba(201,168,76,.02);display:flex;flex-direction:column;align-items:center;gap:16px;transition:background .3s,transform .4s cubic-bezier(.34,1.56,.64,1);" onmouseover="this.style.background='rgba(201,168,76,.06)';this.style.transform='translateY(-4px)'" onmouseout="this.style.background='rgba(201,168,76,.02)';this.style.transform='none'">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 12 L4 20 Q4 20 8 20 Q8 24 12 24 L28 24 L28 16 Q24 16 24 12 Q24 12 20 12 Z" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="16" y1="15" x2="16" y2="21" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="2 2"/>
+          </svg>
+          <div style="font-family:var(--body-family);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(201,168,76,.5);text-align:center;">Ingresso</div>
+        </div>
+
+        <!-- Ícone 6: Pause/Play -->
+        <div style="border:1px solid rgba(201,168,76,.1);border-radius:16px;padding:32px 20px;background:rgba(201,168,76,.02);display:flex;flex-direction:column;align-items:center;gap:16px;transition:background .3s,transform .4s cubic-bezier(.34,1.56,.64,1);" onmouseover="this.style.background='rgba(201,168,76,.06)';this.style.transform='translateY(-4px)'" onmouseout="this.style.background='rgba(201,168,76,.02)';this.style.transform='none'">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="16" cy="16" r="12" stroke="#C9A84C" stroke-width="1.5"/>
+            <path d="M14 11 L14 21" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M18 11 L18 21" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <div style="font-family:var(--body-family);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(201,168,76,.5);text-align:center;">Pausa</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 3 Famílias -->
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;" class="reveal reveal-d4">
+      <div style="border:1px solid rgba(201,168,76,.08);border-radius:16px;padding:28px;background:rgba(201,168,76,.02);">
+        <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.4em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:16px;">Família 01</div>
+        <div style="font-family:var(--head-family);font-size:18px;color:var(--text-main);margin-bottom:12px;">Navegação</div>
+        <div style="font-family:var(--body-family);font-size:13px;line-height:1.7;color:var(--text-dim);">Seta, menu, busca, fechar, voltar, avançar, home. Interface funcional de mínima expressão.</div>
+      </div>
+      <div style="border:1px solid rgba(201,168,76,.08);border-radius:16px;padding:28px;background:rgba(201,168,76,.02);">
+        <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.4em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:16px;">Família 02</div>
+        <div style="font-family:var(--head-family);font-size:18px;color:var(--text-main);margin-bottom:12px;">Experiência</div>
+        <div style="font-family:var(--body-family);font-size:13px;line-height:1.7;color:var(--text-dim);">Assento, película, tela, projetor, ingresso, pausa, som. O vocabulário do ritual cinematográfico.</div>
+      </div>
+      <div style="border:1px solid rgba(201,168,76,.08);border-radius:16px;padding:28px;background:rgba(201,168,76,.02);">
+        <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.4em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:16px;">Família 03</div>
+        <div style="font-family:var(--head-family);font-size:18px;color:var(--text-main);margin-bottom:12px;">Status</div>
+        <div style="font-family:var(--body-family);font-size:13px;line-height:1.7;color:var(--text-dim);">Coroa, estrela, diamante, chave, medalha. Hierarquia de membro e reconhecimento VIP.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div style="height:1px;background:linear-gradient(to right,transparent,rgba(201,168,76,.2) 30%,rgba(201,168,76,.2) 70%,transparent);margin:0;"></div>
 
 <!-- ══ ARCHETYPES ════════════════════════════════════════════════════════════ -->
 <section id="archetypes">
@@ -3473,6 +4227,164 @@ nav {
     </div>
   </div>
 </section>
+
+<div style="height:1px;background:linear-gradient(to right,transparent,rgba(201,168,76,.2) 30%,rgba(201,168,76,.2) 70%,transparent);margin:0;"></div>
+
+<!-- ══ CANAIS & PRESENÇA DIGITAL ══════════════════════════════════════════════ -->
+<section id="canais-digitais" style="background:#0D0A05;">
+  <div class="section-inner">
+    <span class="section-tag reveal">— 12.5 · Canais &amp; Presença Digital</span>
+    <h2 class="section-title reveal reveal-d1">Presença com Intenção</h2>
+    <div class="rule reveal reveal-d2"></div>
+
+    <div class="reveal reveal-d2" style="max-width:640px;margin-bottom:64px;">
+      <p style="font-family:var(--body-family);font-size:15px;line-height:1.85;color:var(--text-dim);">A AURUM não está em todo lugar. Está onde faz sentido, com a qualidade que exige. Cada canal tem suas regras — mas em todos, a marca é a mesma: silenciosa, precisa, inconfundível.</p>
+    </div>
+
+    <!-- Canal Grid -->
+    <div style="display:flex;flex-direction:column;gap:3px;" class="reveal reveal-d3">
+
+      <!-- Instagram -->
+      <div style="border:1px solid rgba(201,168,76,.1);border-radius:16px;overflow:hidden;">
+        <div style="display:grid;grid-template-columns:200px 1fr;gap:0;">
+          <div style="background:rgba(201,168,76,.06);padding:32px 28px;border-right:1px solid rgba(201,168,76,.08);display:flex;flex-direction:column;justify-content:center;">
+            <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.4em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:12px;">Canal 01</div>
+            <div style="font-family:var(--head-family);font-size:22px;color:#C9A84C;">Instagram</div>
+            <div style="font-family:var(--body-family);font-size:11px;color:var(--text-faint);margin-top:6px;">@aurumcinema</div>
+          </div>
+          <div style="padding:32px 36px;">
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;">
+              <div>
+                <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:rgba(201,168,76,.45);margin-bottom:10px;">Grid</div>
+                <div style="font-family:var(--body-family);font-size:13px;line-height:1.65;color:var(--text-dim);">Alternância editorial: imagem cinematográfica · card tipográfico · detalhe de textura. Ritmo 1-2-3 sempre respeitado.</div>
+              </div>
+              <div>
+                <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:rgba(201,168,76,.45);margin-bottom:10px;">Stories</div>
+                <div style="font-family:var(--body-family);font-size:13px;line-height:1.65;color:var(--text-dim);">Fundo preto (#080604). Logo centralizado em ouro. Título em Playfair Display, máx 2 linhas. Nunca adesivos nativos do Instagram.</div>
+              </div>
+              <div>
+                <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:rgba(201,168,76,.45);margin-bottom:10px;">Reels</div>
+                <div style="font-family:var(--body-family);font-size:13px;line-height:1.65;color:var(--text-dim);">Máximo 15 segundos. Sem música — apenas ambiência ou silêncio. Cortes suaves. Nunca CTA falado.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LinkedIn -->
+      <div style="border:1px solid rgba(201,168,76,.1);border-radius:16px;overflow:hidden;">
+        <div style="display:grid;grid-template-columns:200px 1fr;gap:0;">
+          <div style="background:rgba(201,168,76,.04);padding:32px 28px;border-right:1px solid rgba(201,168,76,.08);display:flex;flex-direction:column;justify-content:center;">
+            <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.4em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:12px;">Canal 02</div>
+            <div style="font-family:var(--head-family);font-size:22px;color:#C9A84C;">LinkedIn</div>
+            <div style="font-family:var(--body-family);font-size:11px;color:var(--text-faint);margin-top:6px;">Institucional</div>
+          </div>
+          <div style="padding:32px 36px;">
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;">
+              <div>
+                <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:rgba(201,168,76,.45);margin-bottom:10px;">Tom</div>
+                <div style="font-family:var(--body-family);font-size:13px;line-height:1.65;color:var(--text-dim);">Formal e editorial. Não promocional. Comunicamos pensamento, posicionamento e cultura — nunca descontos ou urgência.</div>
+              </div>
+              <div>
+                <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:rgba(201,168,76,.45);margin-bottom:10px;">Conteúdo</div>
+                <div style="font-family:var(--body-family);font-size:13px;line-height:1.65;color:var(--text-dim);">Curadoria editorial de cinema. Anúncios institucionais. Parcerias e prêmios. Bastidores de programação.</div>
+              </div>
+              <div>
+                <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:rgba(201,168,76,.45);margin-bottom:10px;">Frequência</div>
+                <div style="font-family:var(--body-family);font-size:13px;line-height:1.65;color:var(--text-dim);">Máximo 3 publicações por semana. Qualidade sobre volume. Um post excepcional vale mais que dez mediocres.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Email Marketing -->
+      <div style="border:1px solid rgba(201,168,76,.1);border-radius:16px;overflow:hidden;">
+        <div style="display:grid;grid-template-columns:200px 1fr;gap:0;">
+          <div style="background:rgba(201,168,76,.04);padding:32px 28px;border-right:1px solid rgba(201,168,76,.08);display:flex;flex-direction:column;justify-content:center;">
+            <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.4em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:12px;">Canal 03</div>
+            <div style="font-family:var(--head-family);font-size:22px;color:#C9A84C;">E-mail</div>
+            <div style="font-family:var(--body-family);font-size:11px;color:var(--text-faint);margin-top:6px;">Newsletter · Transacional</div>
+          </div>
+          <div style="padding:32px 36px;">
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;">
+              <div>
+                <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:rgba(201,168,76,.45);margin-bottom:10px;">Layout</div>
+                <div style="font-family:var(--body-family);font-size:13px;line-height:1.65;color:var(--text-dim);">Max-width 600px. Fundo #080604. Logo no topo em ouro. Tipografia Raleway. Nunca mais de um CTA por e-mail.</div>
+              </div>
+              <div>
+                <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:rgba(201,168,76,.45);margin-bottom:10px;">Regras</div>
+                <div style="font-family:var(--body-family);font-size:13px;line-height:1.65;color:var(--text-dim);">Jamais usar emoji. Sem "URGENTE" ou "ÚLTIMA CHANCE". Assunto máx 50 caracteres. Tom epistolar — como carta, não panfleto.</div>
+              </div>
+              <div>
+                <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:rgba(201,168,76,.45);margin-bottom:10px;">CTA</div>
+                <div style="font-family:var(--body-family);font-size:13px;line-height:1.65;color:var(--text-dim);">Botão em borda ouro, fundo transparente. Texto: "Ver Programação" · "Reservar" · "Descobrir". Nunca "COMPRE AGORA".</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Web -->
+      <div style="border:1px solid rgba(201,168,76,.1);border-radius:16px;overflow:hidden;">
+        <div style="display:grid;grid-template-columns:200px 1fr;gap:0;">
+          <div style="background:rgba(201,168,76,.04);padding:32px 28px;border-right:1px solid rgba(201,168,76,.08);display:flex;flex-direction:column;justify-content:center;">
+            <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.4em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:12px;">Canal 04</div>
+            <div style="font-family:var(--head-family);font-size:22px;color:#C9A84C;">Website</div>
+            <div style="font-family:var(--body-family);font-size:11px;color:var(--text-faint);margin-top:6px;">aurumcinema.com.br</div>
+          </div>
+          <div style="padding:32px 36px;">
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;">
+              <div>
+                <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:rgba(201,168,76,.45);margin-bottom:10px;">Espaçamento</div>
+                <div style="font-family:var(--body-family);font-size:13px;line-height:1.65;color:var(--text-dim);">Base 8px. Seções com padding mínimo 80px vertical. Máximo 1200px de largura. O espaço em branco é intencional.</div>
+              </div>
+              <div>
+                <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:rgba(201,168,76,.45);margin-bottom:10px;">Hover</div>
+                <div style="font-family:var(--body-family);font-size:13px;line-height:1.65;color:var(--text-dim);">Transição suave 0.3–0.5s. Nunca underline simples — borda ouro que se expande. Cursor default para elementos não clicáveis.</div>
+              </div>
+              <div>
+                <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:rgba(201,168,76,.45);margin-bottom:10px;">Proibido</div>
+                <div style="font-family:var(--body-family);font-size:13px;line-height:1.65;color:var(--text-dim);">Vídeo com autoplay. Animações Flash. Pop-ups intrusivos. Fundo branco. Qualquer cor fora do sistema de identidade.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- App -->
+      <div style="border:1px solid rgba(201,168,76,.1);border-radius:16px;overflow:hidden;">
+        <div style="display:grid;grid-template-columns:200px 1fr;gap:0;">
+          <div style="background:rgba(201,168,76,.04);padding:32px 28px;border-right:1px solid rgba(201,168,76,.08);display:flex;flex-direction:column;justify-content:center;">
+            <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.4em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:12px;">Canal 05</div>
+            <div style="font-family:var(--head-family);font-size:22px;color:#C9A84C;">App</div>
+            <div style="font-family:var(--body-family);font-size:11px;color:var(--text-faint);margin-top:6px;">iOS · Android</div>
+          </div>
+          <div style="padding:32px 36px;">
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;">
+              <div>
+                <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:rgba(201,168,76,.45);margin-bottom:10px;">Navegação</div>
+                <div style="font-family:var(--body-family);font-size:13px;line-height:1.65;color:var(--text-dim);">Máximo 4 tabs na barra inferior: Programação · Minha AURUM · Ingressos · Explorar. Ícones de linha fina 1.5px.</div>
+              </div>
+              <div>
+                <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:rgba(201,168,76,.45);margin-bottom:10px;">Loading</div>
+                <div style="font-family:var(--body-family);font-size:13px;line-height:1.65;color:var(--text-dim);">Gold pulse — logo AURUM com animação de brilho dourado suave. Nunca spinner genérico. O carregamento é parte da experiência.</div>
+              </div>
+              <div>
+                <div style="font-family:var(--body-family);font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:rgba(201,168,76,.45);margin-bottom:10px;">Tipografia</div>
+                <div style="font-family:var(--body-family);font-size:13px;line-height:1.65;color:var(--text-dim);">Título: Playfair Display 24–32px. Body: Raleway 14–16px. Meta: Space Grotesk 10–12px. Hierarquia rigorosa.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<div style="height:1px;background:linear-gradient(to right,transparent,rgba(201,168,76,.2) 30%,rgba(201,168,76,.2) 70%,transparent);margin:0;"></div>
 
 <!-- ══ MOCKUPS V2 — APLICAÇÕES REAIS ══════════════════════════════════════════ -->
 <section id="mockups-v2" style="background:#080604;padding:120px 0;">
@@ -3635,6 +4547,232 @@ nav {
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<div style="height:1px;background:linear-gradient(to right,transparent,rgba(201,168,76,.2) 30%,rgba(201,168,76,.2) 70%,transparent);margin:0;"></div>
+
+<!-- ══ ESPECIFICAÇÕES TÉCNICAS ════════════════════════════════════════════════ -->
+<section id="especificacoes" style="background:#080604;">
+  <div class="section-inner">
+    <span class="section-tag reveal">— 13 · Especificações Técnicas</span>
+    <h2 class="section-title reveal reveal-d1">Referência Técnica</h2>
+    <div class="rule reveal reveal-d2"></div>
+
+    <div class="reveal reveal-d2" style="max-width:640px;margin-bottom:64px;">
+      <p style="font-family:var(--body-family);font-size:15px;line-height:1.85;color:var(--text-dim);">Esta seção é o documento técnico definitivo do sistema AURUM. Use-a como referência para produção gráfica, desenvolvimento digital e aprovação de fornecedores. Precisão não é opcional.</p>
+    </div>
+
+    <!-- Tabela de Cores -->
+    <div class="reveal reveal-d2" style="margin-bottom:64px;">
+      <div style="font-family:var(--body-family);font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:28px;">Sistema Cromático Completo</div>
+      <div style="border:1px solid rgba(201,168,76,.08);border-radius:16px;overflow:hidden;">
+
+        <!-- Header -->
+        <div style="display:grid;grid-template-columns:180px 100px 160px 200px 140px;gap:0;background:rgba(201,168,76,.05);border-bottom:1px solid rgba(201,168,76,.08);">
+          <div style="padding:14px 20px;font-family:var(--body-family);font-size:8px;letter-spacing:.35em;text-transform:uppercase;color:rgba(201,168,76,.5);">Nome</div>
+          <div style="padding:14px 20px;font-family:var(--body-family);font-size:8px;letter-spacing:.35em;text-transform:uppercase;color:rgba(201,168,76,.5);">HEX</div>
+          <div style="padding:14px 20px;font-family:var(--body-family);font-size:8px;letter-spacing:.35em;text-transform:uppercase;color:rgba(201,168,76,.5);">RGB</div>
+          <div style="padding:14px 20px;font-family:var(--body-family);font-size:8px;letter-spacing:.35em;text-transform:uppercase;color:rgba(201,168,76,.5);">CMYK aprox.</div>
+          <div style="padding:14px 20px;font-family:var(--body-family);font-size:8px;letter-spacing:.35em;text-transform:uppercase;color:rgba(201,168,76,.5);">Pantone aprox.</div>
+        </div>
+
+        <!-- Ouro AURUM -->
+        <div style="display:grid;grid-template-columns:180px 100px 160px 200px 140px;gap:0;border-bottom:1px solid rgba(255,255,255,.04);transition:background .2s;" onmouseover="this.style.background='rgba(201,168,76,.04)'" onmouseout="this.style.background='transparent'">
+          <div style="padding:18px 20px;display:flex;align-items:center;gap:12px;">
+            <div style="width:24px;height:24px;background:#C9A84C;border-radius:6px;flex-shrink:0;"></div>
+            <span style="font-family:var(--head-family);font-size:14px;color:var(--text-main);">Ouro AURUM</span>
+          </div>
+          <div style="padding:18px 20px;font-family:monospace;font-size:12px;color:#C9A84C;">#C9A84C</div>
+          <div style="padding:18px 20px;font-family:monospace;font-size:12px;color:var(--text-faint);">201, 168, 76</div>
+          <div style="padding:18px 20px;font-family:monospace;font-size:12px;color:var(--text-faint);">0, 16, 62, 21</div>
+          <div style="padding:18px 20px;font-family:monospace;font-size:12px;color:var(--text-faint);">PMS 7562 C</div>
+        </div>
+
+        <!-- Âmbar -->
+        <div style="display:grid;grid-template-columns:180px 100px 160px 200px 140px;gap:0;border-bottom:1px solid rgba(255,255,255,.04);transition:background .2s;" onmouseover="this.style.background='rgba(201,168,76,.04)'" onmouseout="this.style.background='transparent'">
+          <div style="padding:18px 20px;display:flex;align-items:center;gap:12px;">
+            <div style="width:24px;height:24px;background:#EBA028;border-radius:6px;flex-shrink:0;"></div>
+            <span style="font-family:var(--head-family);font-size:14px;color:var(--text-main);">Âmbar</span>
+          </div>
+          <div style="padding:18px 20px;font-family:monospace;font-size:12px;color:#EBA028;">#EBA028</div>
+          <div style="padding:18px 20px;font-family:monospace;font-size:12px;color:var(--text-faint);">235, 160, 40</div>
+          <div style="padding:18px 20px;font-family:monospace;font-size:12px;color:var(--text-faint);">0, 32, 83, 8</div>
+          <div style="padding:18px 20px;font-family:monospace;font-size:12px;color:var(--text-faint);">PMS 131 C</div>
+        </div>
+
+        <!-- Void -->
+        <div style="display:grid;grid-template-columns:180px 100px 160px 200px 140px;gap:0;border-bottom:1px solid rgba(255,255,255,.04);transition:background .2s;" onmouseover="this.style.background='rgba(201,168,76,.04)'" onmouseout="this.style.background='transparent'">
+          <div style="padding:18px 20px;display:flex;align-items:center;gap:12px;">
+            <div style="width:24px;height:24px;background:#080604;border-radius:6px;flex-shrink:0;border:1px solid rgba(201,168,76,.15);"></div>
+            <span style="font-family:var(--head-family);font-size:14px;color:var(--text-main);">Void</span>
+          </div>
+          <div style="padding:18px 20px;font-family:monospace;font-size:12px;color:var(--text-dim);">#080604</div>
+          <div style="padding:18px 20px;font-family:monospace;font-size:12px;color:var(--text-faint);">8, 6, 4</div>
+          <div style="padding:18px 20px;font-family:monospace;font-size:12px;color:var(--text-faint);">47, 40, 47, 97</div>
+          <div style="padding:18px 20px;font-family:monospace;font-size:12px;color:var(--text-faint);">PMS Black 6 C</div>
+        </div>
+
+        <!-- Papel -->
+        <div style="display:grid;grid-template-columns:180px 100px 160px 200px 140px;gap:0;border-bottom:1px solid rgba(255,255,255,.04);transition:background .2s;" onmouseover="this.style.background='rgba(201,168,76,.04)'" onmouseout="this.style.background='transparent'">
+          <div style="padding:18px 20px;display:flex;align-items:center;gap:12px;">
+            <div style="width:24px;height:24px;background:#F5F0E8;border-radius:6px;flex-shrink:0;"></div>
+            <span style="font-family:var(--head-family);font-size:14px;color:var(--text-main);">Papel</span>
+          </div>
+          <div style="padding:18px 20px;font-family:monospace;font-size:12px;color:var(--text-dim);">#F5F0E8</div>
+          <div style="padding:18px 20px;font-family:monospace;font-size:12px;color:var(--text-faint);">245, 240, 232</div>
+          <div style="padding:18px 20px;font-family:monospace;font-size:12px;color:var(--text-faint);">0, 2, 5, 4</div>
+          <div style="padding:18px 20px;font-family:monospace;font-size:12px;color:var(--text-faint);">PMS 9183 C</div>
+        </div>
+
+        <!-- Veludo -->
+        <div style="display:grid;grid-template-columns:180px 100px 160px 200px 140px;gap:0;border-bottom:1px solid rgba(255,255,255,.04);transition:background .2s;" onmouseover="this.style.background='rgba(201,168,76,.04)'" onmouseout="this.style.background='transparent'">
+          <div style="padding:18px 20px;display:flex;align-items:center;gap:12px;">
+            <div style="width:24px;height:24px;background:#4A1525;border-radius:6px;flex-shrink:0;"></div>
+            <span style="font-family:var(--head-family);font-size:14px;color:var(--text-main);">Veludo</span>
+          </div>
+          <div style="padding:18px 20px;font-family:monospace;font-size:12px;color:var(--text-dim);">#4A1525</div>
+          <div style="padding:18px 20px;font-family:monospace;font-size:12px;color:var(--text-faint);">74, 21, 37</div>
+          <div style="padding:18px 20px;font-family:monospace;font-size:12px;color:var(--text-faint);">0, 72, 50, 71</div>
+          <div style="padding:18px 20px;font-family:monospace;font-size:12px;color:var(--text-faint);">PMS 221 C</div>
+        </div>
+
+        <!-- Floresta -->
+        <div style="display:grid;grid-template-columns:180px 100px 160px 200px 140px;gap:0;transition:background .2s;" onmouseover="this.style.background='rgba(201,168,76,.04)'" onmouseout="this.style.background='transparent'">
+          <div style="padding:18px 20px;display:flex;align-items:center;gap:12px;">
+            <div style="width:24px;height:24px;background:#0D4D42;border-radius:6px;flex-shrink:0;"></div>
+            <span style="font-family:var(--head-family);font-size:14px;color:var(--text-main);">Floresta</span>
+          </div>
+          <div style="padding:18px 20px;font-family:monospace;font-size:12px;color:var(--text-dim);">#0D4D42</div>
+          <div style="padding:18px 20px;font-family:monospace;font-size:12px;color:var(--text-faint);">13, 77, 66</div>
+          <div style="padding:18px 20px;font-family:monospace;font-size:12px;color:var(--text-faint);">83, 0, 14, 70</div>
+          <div style="padding:18px 20px;font-family:monospace;font-size:12px;color:var(--text-faint);">PMS 3295 C</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Tipografia Specs -->
+    <div class="reveal reveal-d3" style="margin-bottom:64px;">
+      <div style="font-family:var(--body-family);font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:28px;">Especificações Tipográficas</div>
+      <div style="border:1px solid rgba(201,168,76,.08);border-radius:16px;overflow:hidden;">
+
+        <div style="display:grid;grid-template-columns:160px 120px 140px 100px 120px;gap:0;background:rgba(201,168,76,.05);border-bottom:1px solid rgba(201,168,76,.08);">
+          <div style="padding:14px 20px;font-family:var(--body-family);font-size:8px;letter-spacing:.35em;text-transform:uppercase;color:rgba(201,168,76,.5);">Typeface</div>
+          <div style="padding:14px 20px;font-family:var(--body-family);font-size:8px;letter-spacing:.35em;text-transform:uppercase;color:rgba(201,168,76,.5);">Peso</div>
+          <div style="padding:14px 20px;font-family:var(--body-family);font-size:8px;letter-spacing:.35em;text-transform:uppercase;color:rgba(201,168,76,.5);">Uso</div>
+          <div style="padding:14px 20px;font-family:var(--body-family);font-size:8px;letter-spacing:.35em;text-transform:uppercase;color:rgba(201,168,76,.5);">Line-height</div>
+          <div style="padding:14px 20px;font-family:var(--body-family);font-size:8px;letter-spacing:.35em;text-transform:uppercase;color:rgba(201,168,76,.5);">Letter-spacing</div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:160px 120px 140px 100px 120px;gap:0;border-bottom:1px solid rgba(255,255,255,.04);">
+          <div style="padding:16px 20px;font-family:'Playfair Display',serif;font-size:14px;color:var(--text-main);">Playfair Display</div>
+          <div style="padding:16px 20px;font-family:var(--body-family);font-size:12px;color:var(--text-faint);">400 · 500 · 700</div>
+          <div style="padding:16px 20px;font-family:var(--body-family);font-size:12px;color:var(--text-faint);">Títulos, display, citações</div>
+          <div style="padding:16px 20px;font-family:monospace;font-size:12px;color:var(--text-faint);">1.05–1.2</div>
+          <div style="padding:16px 20px;font-family:monospace;font-size:12px;color:var(--text-faint);">-0.02em a 0</div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:160px 120px 140px 100px 120px;gap:0;border-bottom:1px solid rgba(255,255,255,.04);">
+          <div style="padding:16px 20px;font-family:'Raleway',sans-serif;font-size:14px;color:var(--text-main);">Raleway</div>
+          <div style="padding:16px 20px;font-family:var(--body-family);font-size:12px;color:var(--text-faint);">300 · 400 · 500</div>
+          <div style="padding:16px 20px;font-family:var(--body-family);font-size:12px;color:var(--text-faint);">Corpo, labels, UI</div>
+          <div style="padding:16px 20px;font-family:monospace;font-size:12px;color:var(--text-faint);">1.6–1.9</div>
+          <div style="padding:16px 20px;font-family:monospace;font-size:12px;color:var(--text-faint);">0 a 0.45em caps</div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:160px 120px 140px 100px 120px;gap:0;border-bottom:1px solid rgba(255,255,255,.04);">
+          <div style="padding:16px 20px;font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--text-main);">Cormorant Garamond</div>
+          <div style="padding:16px 20px;font-family:var(--body-family);font-size:12px;color:var(--text-faint);">300 · 400</div>
+          <div style="padding:16px 20px;font-family:var(--body-family);font-size:12px;color:var(--text-faint);">Citações longas, serif editorial</div>
+          <div style="padding:16px 20px;font-family:monospace;font-size:12px;color:var(--text-faint);">1.4–1.6</div>
+          <div style="padding:16px 20px;font-family:monospace;font-size:12px;color:var(--text-faint);">0</div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:160px 120px 140px 100px 120px;gap:0;">
+          <div style="padding:16px 20px;font-family:'Space Grotesk',sans-serif;font-size:14px;color:var(--text-main);">Space Grotesk</div>
+          <div style="padding:16px 20px;font-family:var(--body-family);font-size:12px;color:var(--text-faint);">300 · 400 · 500</div>
+          <div style="padding:16px 20px;font-family:var(--body-family);font-size:12px;color:var(--text-faint);">Dados técnicos, código, meta</div>
+          <div style="padding:16px 20px;font-family:monospace;font-size:12px;color:var(--text-faint);">1.4–1.6</div>
+          <div style="padding:16px 20px;font-family:monospace;font-size:12px;color:var(--text-faint);">0.02em–0.1em</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Print, Logo e Formatos -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;" class="reveal reveal-d4">
+
+      <!-- Especificações de Impressão -->
+      <div style="border:1px solid rgba(201,168,76,.08);border-radius:16px;padding:36px 32px;background:rgba(201,168,76,.02);">
+        <div style="font-family:var(--body-family);font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:24px;">Especificações de Impressão</div>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div style="border-bottom:1px solid rgba(201,168,76,.06);padding-bottom:16px;">
+            <div style="font-family:var(--head-family);font-size:15px;color:var(--text-main);margin-bottom:6px;">Brochuras Premium</div>
+            <div style="font-family:var(--body-family);font-size:12px;color:var(--text-faint);">Couché Fosco 300g · 4×4 cores · Laminação soft-touch · Acabamento com verniz localizado dourado</div>
+          </div>
+          <div style="border-bottom:1px solid rgba(201,168,76,.06);padding-bottom:16px;">
+            <div style="font-family:var(--head-family);font-size:15px;color:var(--text-main);margin-bottom:6px;">Ingressos</div>
+            <div style="font-family:var(--body-family);font-size:12px;color:var(--text-faint);">Couché Brilho 170g · CMYK + dourado Pantone 7562 C · Hot stamping dourado no logotipo</div>
+          </div>
+          <div style="border-bottom:1px solid rgba(201,168,76,.06);padding-bottom:16px;">
+            <div style="font-family:var(--head-family);font-size:15px;color:var(--text-main);margin-bottom:6px;">Embalagens</div>
+            <div style="font-family:var(--body-family);font-size:12px;color:var(--text-faint);">Kraft Natural 350g · Impressão 1 cor (ouro) · Acabamento natural sem laminação</div>
+          </div>
+          <div>
+            <div style="font-family:var(--head-family);font-size:15px;color:var(--text-main);margin-bottom:6px;">Caixas</div>
+            <div style="font-family:var(--body-family);font-size:12px;color:var(--text-faint);">Canal simples microondulado · Revestimento interno veludo preto · Fechamento com lacre dourado</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Logo + Formatos -->
+      <div style="display:flex;flex-direction:column;gap:3px;">
+
+        <div style="border:1px solid rgba(201,168,76,.08);border-radius:16px;padding:28px 32px;background:rgba(201,168,76,.02);">
+          <div style="font-family:var(--body-family);font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:20px;">Tamanhos Mínimos</div>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:10px;border-bottom:1px solid rgba(201,168,76,.06);">
+              <span style="font-family:var(--body-family);font-size:13px;color:var(--text-dim);">Digital</span>
+              <span style="font-family:monospace;font-size:13px;color:#C9A84C;">80px largura</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:10px;border-bottom:1px solid rgba(201,168,76,.06);">
+              <span style="font-family:var(--body-family);font-size:13px;color:var(--text-dim);">Impresso</span>
+              <span style="font-family:monospace;font-size:13px;color:#C9A84C;">25mm largura</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:10px;border-bottom:1px solid rgba(201,168,76,.06);">
+              <span style="font-family:var(--body-family);font-size:13px;color:var(--text-dim);">Área de proteção</span>
+              <span style="font-family:monospace;font-size:13px;color:#C9A84C;">X = 15% largura</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-family:var(--body-family);font-size:13px;color:var(--text-dim);">Safe zone</span>
+              <span style="font-family:monospace;font-size:13px;color:#C9A84C;">Todos os lados · X</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="border:1px solid rgba(201,168,76,.08);border-radius:16px;padding:28px 32px;background:rgba(201,168,76,.02);">
+          <div style="font-family:var(--body-family);font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:20px;">Formatos de Arquivo</div>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;align-items:start;gap:14px;padding-bottom:10px;border-bottom:1px solid rgba(201,168,76,.06);">
+              <span style="font-family:monospace;font-size:12px;color:#C9A84C;background:rgba(201,168,76,.1);padding:3px 8px;border-radius:4px;flex-shrink:0;">SVG</span>
+              <span style="font-family:var(--body-family);font-size:12px;color:var(--text-faint);line-height:1.5;">Vetor puro — uso em web, apresentações, arquivos editáveis. Sempre preferível.</span>
+            </div>
+            <div style="display:flex;align-items:start;gap:14px;padding-bottom:10px;border-bottom:1px solid rgba(201,168,76,.06);">
+              <span style="font-family:monospace;font-size:12px;color:#C9A84C;background:rgba(201,168,76,.1);padding:3px 8px;border-radius:4px;flex-shrink:0;">PNG</span>
+              <span style="font-family:var(--body-family);font-size:12px;color:var(--text-faint);line-height:1.5;">Fundo transparente — uso em documentos, apresentações e interfaces onde SVG não é suportado.</span>
+            </div>
+            <div style="display:flex;align-items:start;gap:14px;">
+              <span style="font-family:monospace;font-size:12px;color:#C9A84C;background:rgba(201,168,76,.1);padding:3px 8px;border-radius:4px;flex-shrink:0;">PDF</span>
+              <span style="font-family:var(--body-family);font-size:12px;color:var(--text-faint);line-height:1.5;">Vetor em PDF/X-4 — envio para fornecedores gráficos, impressão de alta qualidade.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
 </section>
 

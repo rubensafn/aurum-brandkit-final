@@ -1,0 +1,81 @@
+AURUM CINEMA — PACOTE DE IDENTIDADE VISUAL
+==========================================
+Versão 1.0  |  Abril 2026
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ARQUIVO PRINCIPAL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+AURUM_Assets_Completo.html
+→ Abra no Chrome ou Edge
+→ Para salvar como PDF: Imprimir > Salvar como PDF
+→ Contém todos os logos e ícones em um único arquivo
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+01_LOGOS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+01_Principal/
+  SVG/
+    AURUM_Ouro.svg         → Logo dourado (fundo escuro)
+    AURUM_Papel.svg        → Logo creme (fundo escuro)
+    AURUM_Escuro.svg       → Logo escuro (fundo claro)
+    AURUM_Preto.svg        → Logo preto (fundo claro)
+    AURUM_Branco.svg       → Logo branco (fundo escuro)
+  Com_Fundo/
+    AURUM_Fundo_Void.svg   → Logo sobre preto Void (#080604)
+    AURUM_Fundo_Claro.svg  → Logo sobre Papel (#F5F0E8)
+    AURUM_Fundo_Ouro.svg   → Logo sobre Ouro (#C9A84C)
+    AURUM_Fundo_Veludo.svg → Logo sobre Veludo (#4A1525)
+    AURUM_Fundo_Floresta.svg → Logo sobre Floresta (#042e2c)
+
+02_Cinema/ → mesma estrutura, wordmark completo "AURUM CINEMA"
+03_Enagrama_AU/ → mesma estrutura, símbolo AU isolado
+
+PARA EXPORTAR PNG:
+→ Abra o SVG no Figma, Illustrator ou Inkscape
+→ Exporte em 1x (normal), 2x (retina) e 3x (alta resolução)
+→ Tamanhos recomendados: 400px / 800px / 1600px de largura
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+02_ICONES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+22 ícones em 3 variantes de cor:
+
+Ouro/   → stroke #C9A84C — usar sobre fundos escuros
+Papel/  → stroke #F5F0E8 — usar sobre fundos escuros (mais suave)
+Escuro/ → stroke #080604 — usar sobre fundos claros
+
+Ícones incluídos:
+01 Eventos       02 Avisos         03 Festivais
+04 Acessibilidade 05 Aniversário   06 Experiências
+07 Nossa Estrutura 08 Como Chegar  09 Mostras
+10 Café          11 Película       12 Assento
+13 Avaliação     14 VIP (Coroa)    15 Ingresso
+16 Pausa         17 Projetor       18 Tela
+19 Estacionamento 20 Alimentação   21 Bebidas
+22 Reserva
+
+Especificações técnicas:
+→ Grid: 24×24px | Zona segura: 20×20px
+→ Traço: 1.5px | Extremidades arredondadas
+→ Estilo: outline (sem preenchimento)
+→ Proporcional ao sistema da marca (razão áurea)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PALETA DE CORES AURUM
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VOID      #080604   (50%) fundo principal
+PAPEL     #F5F0E8   (20%) texto e impressões
+OURO      #C9A84C   (20%) destaque principal
+OURO VIVO #D4A520         CTAs e alto contraste
+FLORESTA  #042e2c   (5%)  acento ambiental
+VELUDO    #4A1525   (5%)  acento VIP/premium
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CONTATO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Conexstudio — rubens@conexstudio.com.br
+Material produzido exclusivamente para AURUM Cinema
